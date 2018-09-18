@@ -3,4 +3,5 @@
 
 Somos una empresa destinada a la creación de juegos para webs y redes sociales.
 
-Pagina Web: https://betweenthegames.github.io./
+Pagina Web: (BetweenTheGames.github.io/plantilla html/index.html)
+    
