@@ -21,6 +21,9 @@ body {
 
 .img-hover:hover {
     opacity: 0.8;
+    max-width: 200%;
+    padding: 0 15px;
+    z-index: 0;
 }
 
 /* Home Page Carousel */
