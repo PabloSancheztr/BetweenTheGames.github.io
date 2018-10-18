@@ -15,12 +15,13 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-.img-portfolio {
-    margin-bottom: 30px;
+.img-portfolio:hover {
+    opacity: 0.7;
 }
 
 .img-hover:hover {
-    opacity: 0.8;
+    max-width: 200%;
+    z-index: 1;
 }
 
 /* Home Page Carousel */
