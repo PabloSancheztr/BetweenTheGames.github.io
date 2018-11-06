@@ -1,0 +1,18 @@
+/* Móviles en horizontal o tablets en vertical
+   ------------------------------------------------------------------------- */
+.test {
+  background-color: green;
+}
+@media (min-width: 768px) { 
+  .test {
+    background-color: red;
+  }
+}
+ 
+/* Tablets en horizonal y escritorios normales
+   ------------------------------------------------------------------------- */
+@media (min-width: 1024px) { }
+ 
+/* Escritorios muy anchos
+   ------------------------------------------------------------------------- */
+@media (min-width: 1200px) { }
