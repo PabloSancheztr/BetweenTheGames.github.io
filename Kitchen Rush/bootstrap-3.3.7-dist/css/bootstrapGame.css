@@ -24,7 +24,7 @@
  
 /* Tablets en horizonal y escritorios normales
    ------------------------------------------------------------------------- */
-@media (min-width: 1024px) {
+@media (min-height: 1024px) {
   .gameCanvas {
     width: 700px;
     height: 900px;

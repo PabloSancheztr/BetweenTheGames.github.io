@@ -12,9 +12,22 @@
     </head>
     <body>
         <div id="juego" class="divGame">
-            <canvas style="border:1px solid #000000;" class="gameCanvas">
-                
-            </canvas>
+            <canvas style="border:1px solid #000000;" class="gameCanvas"></canvas>
         </div>
+
+        <script language="JavaScript">
+            if(screen.height < 768) {
+                console.log("Movil pequeño");
+            }
+            else if(screen.height < 1024) {
+                console.log("Movil normal");
+            }
+            else if(screen.width < 1200) {
+                console.log("Tablet");
+            }
+            else {
+                console.log("Ordenador");
+            }
+        </script>
     </body>
 </html>
