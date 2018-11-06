@@ -1,0 +1,41 @@
+/* Contenedor del juego */
+.divGame {
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+}
+
+/* Canvas del juego */
+.gameCanvas {
+  margin: 0 auto;
+  width: 300px;
+  height: 600px;
+}
+
+/* Distintas resoluciones según el dispositivo */
+/* Móviles en horizontal o tablets en vertical
+   ------------------------------------------------------------------------- */
+@media (min-height: 768px) { 
+  .gameCanvas {
+    width: 300px;
+    height: 750px;
+  }
+}
+ 
+/* Tablets en horizonal y escritorios normales
+   ------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .gameCanvas {
+    width: 700px;
+    height: 900px;
+  }
+ }
+ 
+/* Escritorios muy anchos
+   ------------------------------------------------------------------------- */
+@media (min-width: 1200px) { 
+  .gameCanvas {
+    width: 1000px;
+    height: 750px;
+  }
+}
