@@ -1,1 +1,4 @@
 - Resolución del Canvas optimo para moviles y PC
+- Prototipo de juego con mecánicas
+	- Que la comida se vaya acercando
+	- Poner la comida en cada plato
