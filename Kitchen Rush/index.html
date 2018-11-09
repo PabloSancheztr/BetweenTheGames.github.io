@@ -12,9 +12,10 @@
     </head>
     <body>
         <div id="juego" class="divGame">
-            <canvas style="border:1px solid #000000;" class="gameCanvas"></canvas>
+            <canvas id="gameCanvas" style="border:1px solid #000000;" class="gameCanvas"></canvas>
         </div>
 
+        <!-- Scripts -->
         <script language="JavaScript">
             if(screen.height < 768) {
                 console.log("Movil pequeño");
@@ -29,9 +30,8 @@
                 console.log("Ordenador");
             }
         </script>
-
-        <!-- Game loop -->
         <script src="javascripts/GameLoop.js"></script>
         <script src="javascripts/Game.js"></script>
+        <script src="javascripts/Comida.js"></script>
     </body>
 </html>
