@@ -3,14 +3,19 @@
  * namespace: game
 */
 
+// Variables globales a todo el juego
+var canvas = document.getElementById('gameCanvas');
+var context = canvas.getContext('2d');
+
 document.addEventListener('DOMContentLoaded', function() {
     Game.iniciarJuego();
 }, false);
 
- var Game = {
-    iniciarJuego: function () {
+var Game = {
+    iniciarJuego: function() {
         console.log("Juego iniciado");
-        var comida = new Comida(20, 20, 100, 10, 0.1);
+        var ingrediente = new Ingrediente(30, 20, 3);
+        ingrediente.dibujarEnCanvas();
         GameLoop.iterar();
     }
- };
+};
