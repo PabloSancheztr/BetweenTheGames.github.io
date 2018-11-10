@@ -25,6 +25,10 @@ var GameLoop = {
             GameLoop.ups = 0;
             GameLoop.fps = 0;
         }
+
+        if(registroTemporal-GameLoop.ultimoRegistro > 999) {
+            GameLoop.creacionIngredientes();
+        }
     },
 
     pausar: function() {
@@ -35,25 +39,37 @@ var GameLoop = {
     actualizar: function(registroTemporal) {
         GameLoop.ups++;
 
-        Game.idIngrediente++;
-        
+        // Movimiento de los elementos
+        Game.ingredientes.forEach(function(elemento, indice, array) {
+            elemento.mover();
+            if(elemento.posY > canvas.height) {
+                elemento.autodestruccion(elemento);
+            }
+        });
+
+        /* Codigo ejemplo
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             let randomAncho = Math.random() * (canvas.width - 0) + 0;
             let randomAlto = Math.random() * (canvas.height - 0) + 0;
             let ingrediente = new Ingrediente(randomAncho, randomAlto, 3);
             
-            Game.ingredientesImgs.push(ingrediente);
-        }
-        
+            Game.ingredientes.push(ingrediente);
+        }*/
     },
 
     // Pintado del canvas
     pintar: function(registroTemporal) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         GameLoop.fps++;
 
         // Pintado de los ingredientes
-        Game.ingredientesImgs.forEach(function (elemento, indice, array) {
+        Game.ingredientes.forEach(function (elemento, indice, array) {
             elemento.dibujarEnCanvas();
         });
+    },
+
+    // Creacion aleatoria de los elementos
+    creacionIngredientes: function() {
+        
     }
 };

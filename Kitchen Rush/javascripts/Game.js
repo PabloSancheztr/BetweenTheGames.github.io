@@ -7,19 +7,22 @@
 var canvas = document.getElementById('gameCanvas');
 var context = canvas.getContext('2d');
 
+// Documento cargado
 document.addEventListener('DOMContentLoaded', function() {
     Game.iniciarVariables();
     Game.iniciarJuego();
 }, false);
 
 var Game = {
-    ingredientesImgs: null,
-    platosImgs: null,
+    ingredientes: null,
+    platos: null,
     idIngrediente: 0,
 
     iniciarVariables: function() {
-        Game.ingredientesImgs = [];
-        Game.platosImgs = [];
+        Game.ingredientes = [];
+        Game.platos = [];
+
+        new Ingrediente(canvas.width/2, canvas.height/2, 0.3);
     },
 
     iniciarJuego: function() {
