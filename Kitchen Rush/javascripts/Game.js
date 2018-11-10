@@ -8,14 +8,23 @@ var canvas = document.getElementById('gameCanvas');
 var context = canvas.getContext('2d');
 
 document.addEventListener('DOMContentLoaded', function() {
+    Game.iniciarVariables();
     Game.iniciarJuego();
 }, false);
 
 var Game = {
+    ingredientesImgs: null,
+    platosImgs: null,
+    idIngrediente: 0,
+
+    iniciarVariables: function() {
+        Game.ingredientesImgs = [];
+        Game.platosImgs = [];
+    },
+
     iniciarJuego: function() {
         console.log("Juego iniciado");
-        var ingrediente = new Ingrediente(30, 20, 3);
-        ingrediente.dibujarEnCanvas();
+    
         GameLoop.iterar();
     }
 };

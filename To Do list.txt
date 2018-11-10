@@ -1,4 +1,4 @@
-- Resolución del Canvas optimo para moviles y PC [Hecho]
+- Resolución del Canvas optimo para moviles, tablets y PC [Hecho]
 - Saber en que dispositivo se esta jugando [Hecho]
 - Prototipo de juego con mecánicas
 	- Que la comida se vaya acercando
