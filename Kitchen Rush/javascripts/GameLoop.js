@@ -51,6 +51,11 @@ var GameLoop = {
                 elemento.autodestruccion(elemento);
             }
         });
+
+        // Control de colisiones
+        if(Game.triggers[0].intersects(Game.ingredientes[2])) {
+            console.log("Tocandose");
+        }
     },
 
     // Pintado del canvas
@@ -58,9 +63,12 @@ var GameLoop = {
         context.clearRect(0, 0, canvas.width, canvas.height);
         GameLoop.fps++;
 
-        // DEBUG - Area de seleccion de ingrediente
-        context.fillStyle = "#A00C0C";
-        context.fillRect((canvas.width/2)-15, canvas.height-30, 40, 15)
+        // DEBUG visual
+        if(Game.debug) {
+            Game.triggers.forEach(function(elemento, indice, array) {
+                elemento.drawGizmo();
+            });
+        }        
 
         // Pintado de los ingredientes
         Game.ingredientes.forEach(function (elemento, indice, array) {
@@ -83,12 +91,24 @@ var GameLoop = {
     controladorTeclado: function(e) {
         // Derecha: D || ->
         if(e.keyCode == 68 || e.keyCode == 39) {
+            Game.ingredientes[0].llevarAPlato(true);
             console.log("Derecha");
         }
 
         // Izquierda: A || <-
         if(e.keyCode == 65 || e.keyCode == 37) {
+            Game.ingredientes[0].llevarAPlato(false);
             console.log("Izquierda");
+        }
+
+        // Cambio modo debug/modo normal: f7
+        if(e.keyCode == 118) {
+            if(Game.debug) {
+                Game.debug = false;
+            }
+            else {
+                Game.debug = true;
+            }
         }
     }
 };

@@ -21,6 +21,15 @@ Ingrediente.prototype.mover = function() {
     this.posY += this.velocidad;
 }
 
+Ingrediente.prototype.llevarAPlato = function(derecha) {
+    if(derecha) {
+        this.posX += 50;
+    }
+    else{
+        this.posX -= 50;
+    }
+}
+
 Ingrediente.prototype.autodestruccion = function(elemento) {
     let indice = Game.ingredientes.indexOf(elemento);
     Game.ingredientes.splice(indice, 1);

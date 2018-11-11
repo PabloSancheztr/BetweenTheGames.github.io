@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 var Game = {
     ingredientes: null,
     platos: null,
+    triggers: null,
     ingredientesJSON: null,
     platosJSON: null,
+    debug: false,
 
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -33,6 +35,10 @@ var Game = {
         
         Game.ingredientes = [];
         Game.platos = [];
+
+        // Colisiones
+        Game.triggers = [];
+        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15);
     },
 
     iniciarJuego: function() {

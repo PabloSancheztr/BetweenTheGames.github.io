@@ -7,5 +7,5 @@
 - Crear platos aleatorios
 
 **** Domingo ****
-- Controles
+- Controles [Hecho]
 - Colisiones con el rectangulo
