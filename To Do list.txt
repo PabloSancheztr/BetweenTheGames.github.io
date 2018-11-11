@@ -5,3 +5,7 @@
 	- Poner la comida en cada plato
 - Ir creando ingredientes aleatorios [Hecho]
 - Crear platos aleatorios
+
+**** Domingo ****
+- Controles
+- Colisiones con el rectangulo

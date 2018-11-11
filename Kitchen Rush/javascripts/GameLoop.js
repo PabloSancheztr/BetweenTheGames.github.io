@@ -48,21 +48,16 @@ var GameLoop = {
                 elemento.autodestruccion(elemento);
             }
         });
-
-        /* Codigo ejemplo
-        if(registroTemporal-GameLoop.ultimoRegistro > 999) {
-            let randomAncho = Math.random() * (canvas.width - 0) + 0;
-            let randomAlto = Math.random() * (canvas.height - 0) + 0;
-            let ingrediente = new Ingrediente(randomAncho, randomAlto, 3);
-            
-            Game.ingredientes.push(ingrediente);
-        }*/
     },
 
     // Pintado del canvas
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         GameLoop.fps++;
+
+        // DEBUG - Area de seleccion de ingrediente
+        context.fillStyle = "#A00C0C";
+        context.fillRect((canvas.width/2)-15, canvas.height-30, 40, 15)
 
         // Pintado de los ingredientes
         Game.ingredientes.forEach(function (elemento, indice, array) {
