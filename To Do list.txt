@@ -3,4 +3,5 @@
 - Prototipo de juego con mecánicas
 	- Que la comida se vaya acercando [Medio hecho, falta el escalado]
 	- Poner la comida en cada plato
-- Ir creando ingredientes aleatorios
+- Ir creando ingredientes aleatorios [Hecho]
+- Crear platos aleatorios

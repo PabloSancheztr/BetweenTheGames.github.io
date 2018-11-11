@@ -14,9 +14,15 @@ var GameLoop = {
     iterar: function(registroTemporal) {
         GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
+        if(registroTemporal-GameLoop.ultimoRegistro > 999) {
+            GameLoop.creacionIngredientes();
+        }
+
+        // Final del loop. Actualizacion y pintado
         GameLoop.actualizar(registroTemporal);
         GameLoop.pintar(registroTemporal);
 
+        // Contador de FPS y APS
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             GameLoop.ultimoRegistro = registroTemporal;
             
@@ -25,17 +31,13 @@ var GameLoop = {
             GameLoop.ups = 0;
             GameLoop.fps = 0;
         }
-
-        if(registroTemporal-GameLoop.ultimoRegistro > 999) {
-            GameLoop.creacionIngredientes();
-        }
     },
 
     pausar: function() {
 
     },
 
-    // Creacion de los platos, ingredientes y manejo de controles. [999 = 1s]
+    // Actualizacion de los platos e ingredientes y manejo de controles. [999 = 1s]
     actualizar: function(registroTemporal) {
         GameLoop.ups++;
 
@@ -68,8 +70,14 @@ var GameLoop = {
         });
     },
 
-    // Creacion aleatoria de los elementos
+    // Creacion aleatoria de los ingredientes
     creacionIngredientes: function() {
-        
+        let randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
+        let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
+        new Ingrediente(ingredienteSeleccionado.nombre,
+                        ingredienteSeleccionado.ruta,
+                        canvas.width/2,
+                        (canvas.height/2)-50,
+                        0.5);
     }
 };

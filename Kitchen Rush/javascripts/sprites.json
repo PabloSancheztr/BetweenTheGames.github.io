@@ -1,9 +1,16 @@
 {
     "ingredientes": [
         {
-            "aguacate": "assets\/images\/Alimentos\/Aguacate.png",
-            "alga": "assets\/images\/Alimentos\/Alga.png",
-            "arroz": "assets\/images\/Alimentos\/Arroz.png"
+            "nombre": "aguacate",
+            "ruta": "assets/images/Alimentos/Aguacate.png"
+        },
+        {
+            "nombre": "alga",
+            "ruta": "assets/images/Alimentos/Alga.png"
+        },
+        {
+            "nombre": "arroz",
+            "ruta": "assets/images/Alimentos/Arroz.png"
         }
     ]
 }

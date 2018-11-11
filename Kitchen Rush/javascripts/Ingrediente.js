@@ -1,6 +1,7 @@
-function Ingrediente(posX, posY, velocidad) {
+function Ingrediente(nombre, ruta, posX, posY, velocidad) {
+    this.nombre = nombre;
     this.sprite = new Image();
-    this.sprite.src = "assets/images/Alimentos/Aguacate.png";
+    this.sprite.src = ruta;
     this.posX = posX;
     this.posY = posY;
     this.velocidad = velocidad;
