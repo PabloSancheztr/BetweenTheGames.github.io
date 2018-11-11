@@ -41,6 +41,9 @@ var GameLoop = {
     actualizar: function(registroTemporal) {
         GameLoop.ups++;
 
+        // Controlador de teclado
+        document.onkeydown = GameLoop.controladorTeclado;
+
         // Movimiento de los elementos
         Game.ingredientes.forEach(function(elemento, indice, array) {
             elemento.mover();
@@ -74,5 +77,18 @@ var GameLoop = {
                         canvas.width/2,
                         (canvas.height/2)-50,
                         0.5);
+    },
+
+    // Controlador del teclado
+    controladorTeclado: function(e) {
+        // Derecha: D || ->
+        if(e.keyCode == 68 || e.keyCode == 39) {
+            console.log("Derecha");
+        }
+
+        // Izquierda: A || <-
+        if(e.keyCode == 65 || e.keyCode == 37) {
+            console.log("Izquierda");
+        }
     }
 };
