@@ -45,17 +45,17 @@ var GameLoop = {
         document.onkeydown = GameLoop.controladorTeclado;
 
         // Movimiento de los elementos
-        Game.ingredientes.forEach(function(elemento, indice, array) {
+        Game.ingredientes.forEach(function(elemento) {
             elemento.mover();
             if(elemento.posY > canvas.height) {
                 elemento.autodestruccion(elemento);
             }
         });
 
-        // Control de colisiones
-        if(Game.triggers[0].intersects(Game.ingredientes[2])) {
-            console.log("Tocandose");
-        }
+        // DEBUG - Control de colisiones
+        /*if(Game.triggers[0].intersects(Game.ingredientes[1])) {
+            console.log("Nombre alimento: " + Game.ingredientes[1].nombre);
+        }*/
     },
 
     // Pintado del canvas
@@ -65,13 +65,13 @@ var GameLoop = {
 
         // DEBUG visual
         if(Game.debug) {
-            Game.triggers.forEach(function(elemento, indice, array) {
+            Game.triggers.forEach(function(elemento) {
                 elemento.drawGizmo();
             });
         }        
 
         // Pintado de los ingredientes
-        Game.ingredientes.forEach(function (elemento, indice, array) {
+        Game.ingredientes.forEach(function (elemento) {
             elemento.dibujarEnCanvas();
         });
     },
@@ -91,14 +91,23 @@ var GameLoop = {
     controladorTeclado: function(e) {
         // Derecha: D || ->
         if(e.keyCode == 68 || e.keyCode == 39) {
-            Game.ingredientes[0].llevarAPlato(true);
-            console.log("Derecha");
+            for(let elemento of Game.ingredientes) {
+                if(Game.triggers[0].intersects(elemento)) {
+                    elemento.llevarAPlato(true);
+                    setTimeout(elemento.autodestruccion(elemento), 5000);
+                    break;
+                }
+            }
         }
 
         // Izquierda: A || <-
         if(e.keyCode == 65 || e.keyCode == 37) {
-            Game.ingredientes[0].llevarAPlato(false);
-            console.log("Izquierda");
+            for(let elemento of Game.ingredientes) {
+                if(Game.triggers[0].intersects(elemento)) {
+                    elemento.llevarAPlato(false);
+                    break;
+                }
+            }
         }
 
         // Cambio modo debug/modo normal: f7

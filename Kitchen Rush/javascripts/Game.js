@@ -20,7 +20,7 @@ var Game = {
     triggers: null,
     ingredientesJSON: null,
     platosJSON: null,
-    debug: false,
+    debug: true,
 
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -38,7 +38,10 @@ var Game = {
 
         // Colisiones
         Game.triggers = [];
-        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15);
+        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15, "#A00C0C");
+        console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
+        new TriggerRect(135, 120, 3, 3, "#1AE451");
+        new TriggerRect(135, 135, 3, 3, "#1AE451");
     },
 
     iniciarJuego: function() {

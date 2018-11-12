@@ -1,6 +1,6 @@
 function Ingrediente(nombre, ruta, posX, posY, velocidad) {
     this.nombre = nombre;
-    this.sprite = new Image();
+    this.sprite = new Image(10, 10);
     this.sprite.src = ruta;
     this.posX = posX;
     this.posY = posY;
@@ -14,7 +14,7 @@ Ingrediente.prototype.insertarEnArray = function() {
 }
 
 Ingrediente.prototype.dibujarEnCanvas = function() {
-    context.drawImage(this.sprite, this.posX, this.posY, 10, 10);
+    context.drawImage(this.sprite, this.posX, this.posY, 20, 10);
 }
 
 Ingrediente.prototype.mover = function() {
@@ -28,6 +28,8 @@ Ingrediente.prototype.llevarAPlato = function(derecha) {
     else{
         this.posX -= 50;
     }
+
+    
 }
 
 Ingrediente.prototype.autodestruccion = function(elemento) {
