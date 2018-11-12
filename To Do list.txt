@@ -8,3 +8,4 @@
 	- Que la comida se vaya acercando [Medio hecho, falta el escalado]
 	- Poner la comida en cada plato
 - Crear platos aleatorios
+- Eliminar ingrediente cuando se ponga en el plato

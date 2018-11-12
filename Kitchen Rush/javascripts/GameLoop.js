@@ -48,14 +48,9 @@ var GameLoop = {
         Game.ingredientes.forEach(function(elemento) {
             elemento.mover();
             if(elemento.posY > canvas.height) {
-                elemento.autodestruccion(elemento);
+                elemento.autodestruccion();
             }
         });
-
-        // DEBUG - Control de colisiones
-        /*if(Game.triggers[0].intersects(Game.ingredientes[1])) {
-            console.log("Nombre alimento: " + Game.ingredientes[1].nombre);
-        }*/
     },
 
     // Pintado del canvas
@@ -94,7 +89,6 @@ var GameLoop = {
             for(let elemento of Game.ingredientes) {
                 if(Game.triggers[0].intersects(elemento)) {
                     elemento.llevarAPlato(true);
-                    setTimeout(elemento.autodestruccion(elemento), 5000);
                     break;
                 }
             }

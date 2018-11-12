@@ -29,11 +29,13 @@ Ingrediente.prototype.llevarAPlato = function(derecha) {
         this.posX -= 50;
     }
 
-    
+    /*setTimeout(function() {
+        let indice = Game.ingredientes.indexOf(this);
+        Game.ingredientes.splice(indice, 1);
+    }, 500);*/
 }
 
-Ingrediente.prototype.autodestruccion = function(elemento) {
-    let indice = Game.ingredientes.indexOf(elemento);
+Ingrediente.prototype.autodestruccion = function() {
+    let indice = Game.ingredientes.indexOf(this);
     Game.ingredientes.splice(indice, 1);
-    elemento = null;
 }
