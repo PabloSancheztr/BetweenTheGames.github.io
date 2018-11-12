@@ -1,11 +1,10 @@
 - Resolución del Canvas optimo para moviles, tablets y PC [Hecho]
 - Saber en que dispositivo se esta jugando [Hecho]
+- Ir creando ingredientes aleatorios [Hecho]
+- Controles [Hecho]
+- Colisiones con el rectangulo [Hecho]
+
 - Prototipo de juego con mecánicas
 	- Que la comida se vaya acercando [Medio hecho, falta el escalado]
 	- Poner la comida en cada plato
-- Ir creando ingredientes aleatorios [Hecho]
 - Crear platos aleatorios
-
-**** Domingo ****
-- Controles [Hecho]
-- Colisiones con el rectangulo
