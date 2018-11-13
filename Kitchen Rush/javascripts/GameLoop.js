@@ -11,6 +11,8 @@ var GameLoop = {
     ups: 0,
     fps: 0,
 
+    ingredientesEmplatados: new Array(),
+
     iterar: function(registroTemporal) {
         GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
@@ -51,22 +53,38 @@ var GameLoop = {
                 elemento.autodestruccion();
             }
         });
+        GameLoop.ingredientesEmplatados.forEach(function(elemento) {
+            elemento.moverLados();
+            if(elemento.derecha) {
+                if(Game.triggers[2].intersectsPlato(elemento)) {
+                    elemento.emplatado();
+                }
+            }
+            else {
+                if(Game.triggers[1].intersectsPlato(elemento)) {
+                    elemento.emplatado();
+                }
+            }
+        });
     },
 
     // Pintado del canvas
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        GameLoop.fps++;
+        GameLoop.fps++;       
 
         // DEBUG visual
         if(Game.debug) {
             Game.triggers.forEach(function(elemento) {
                 elemento.drawGizmo();
             });
-        }        
+        } 
 
         // Pintado de los ingredientes
         Game.ingredientes.forEach(function (elemento) {
+            elemento.dibujarEnCanvas();
+        });        
+        GameLoop.ingredientesEmplatados.forEach(function(elemento) {
             elemento.dibujarEnCanvas();
         });
     },
@@ -82,12 +100,23 @@ var GameLoop = {
                         0.5);
     },
 
+    // Creacion aleatoria de los platos
+    creacionPlatos: function(derecha) {
+        let randomPlato = Math.floor(Math.random() * (Game.platosJSON.length - 0) + 0);
+        let platoSeleccionado = Game.platosJSON[randomPlato];
+        new Plato(platoSeleccionado.nombre,
+                  platoSeleccionado.ruta,
+                  platoSeleccionado.receta,
+                  derecha);
+        //console.log("Plato: " + platoSeleccionado.nombre);
+    },
+
     // Controlador del teclado
     controladorTeclado: function(e) {
         // Derecha: D || ->
         if(e.keyCode == 68 || e.keyCode == 39) {
             for(let elemento of Game.ingredientes) {
-                if(Game.triggers[0].intersects(elemento)) {
+                if(Game.triggers[0].intersectsArea(elemento)) {
                     elemento.llevarAPlato(true);
                     break;
                 }
@@ -97,7 +126,7 @@ var GameLoop = {
         // Izquierda: A || <-
         if(e.keyCode == 65 || e.keyCode == 37) {
             for(let elemento of Game.ingredientes) {
-                if(Game.triggers[0].intersects(elemento)) {
+                if(Game.triggers[0].intersectsArea(elemento)) {
                     elemento.llevarAPlato(false);
                     break;
                 }

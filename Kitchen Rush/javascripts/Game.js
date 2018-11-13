@@ -21,7 +21,7 @@ var Game = {
     ingredientesJSON: null,
     platosJSON: null,
     debug: true,
-
+    
     iniciarVariables: function() {
         // Obtener los elementos del JSON
         request.open('GET', 'javascripts/sprites.json', true);
@@ -30,18 +30,20 @@ var Game = {
         request.onload = function() {
             //console.log(this.responseText);
             Game.ingredientesJSON = JSON.parse(this.responseText).ingredientes;
-            //console.log(Game.ingredientesJSON);
+            Game.platosJSON = JSON.parse(this.responseText).platos;
+            //console.log(Game.platosJSON[0].rutas);
         }
         
-        Game.ingredientes = [];
-        Game.platos = [];
+        Game.ingredientes = new Array();
+        Game.platos = new Array();
 
         // Colisiones
-        Game.triggers = [];
-        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15, "#A00C0C");
+        Game.triggers = new Array();
+        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15, "#A00C0C"); // [0] - Area seleccion de ingredientes
+        new TriggerRect(65, 120, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
+        new TriggerRect(205, 120, 40, 20, "#12A7E8"); // [2] - Plato derecho
+
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
-        new TriggerRect(135, 120, 3, 3, "#1AE451");
-        new TriggerRect(135, 135, 3, 3, "#1AE451");
     },
 
     iniciarJuego: function() {

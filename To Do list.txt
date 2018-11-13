@@ -7,5 +7,16 @@
 - Prototipo de juego con mecánicas
 	- Que la comida se vaya acercando [Medio hecho, falta el escalado]
 	- Poner la comida en cada plato
-- Crear platos aleatorios
+- Crear platos aleatorios [Hecho]
 - Eliminar ingrediente cuando se ponga en el plato
+- Crear las recetas de los platos [Tete]
+
+***** Tete *****
+- Imagen con la receta, los primeros ingredientes abajo y el último arriba
+
+***** Luis *****
+- Fondos
+- Caricatura chicote
+
+***** Bugs *****
+- Al llevar un ingrediente al plato eliminarlo, o sacarlo del array de pintado y control con el teclado [Arreglado]

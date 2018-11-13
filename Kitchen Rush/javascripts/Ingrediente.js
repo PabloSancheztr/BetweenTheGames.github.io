@@ -21,21 +21,36 @@ Ingrediente.prototype.mover = function() {
     this.posY += this.velocidad;
 }
 
+Ingrediente.prototype.moverLados = function() {
+    if(this.derecha) {
+        this.posX += 4;
+    }
+    else {
+        this.posX -= 4;
+    }
+}
+
 Ingrediente.prototype.llevarAPlato = function(derecha) {
+    let indice = Game.ingredientes.indexOf(this);
+    let ingredienteEmplatado = Game.ingredientes[indice];
+    Game.ingredientes.splice(indice, 1);
+
     if(derecha) {
-        this.posX += 50;
+        ingredienteEmplatado.derecha = true;
     }
     else{
-        this.posX -= 50;
+        ingredienteEmplatado.derecha = false;
     }
-
-    /*setTimeout(function() {
-        let indice = Game.ingredientes.indexOf(this);
-        Game.ingredientes.splice(indice, 1);
-    }, 500);*/
+    
+    GameLoop.ingredientesEmplatados.push(ingredienteEmplatado);
 }
 
 Ingrediente.prototype.autodestruccion = function() {
     let indice = Game.ingredientes.indexOf(this);
     Game.ingredientes.splice(indice, 1);
+}
+
+Ingrediente.prototype.emplatado = function() {
+    let indice = GameLoop.ingredientesEmplatados.indexOf(this);
+    GameLoop.ingredientesEmplatados.splice(indice, 1);
 }
