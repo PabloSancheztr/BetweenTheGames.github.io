@@ -13,6 +13,7 @@ var GameLoop = {
     primeraEjecucion: false,
 
     ingredientesEmplatados: new Array(),
+    platosCompletados: new Array(),
 
     iterar: function(registroTemporal) {
         GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
@@ -20,7 +21,7 @@ var GameLoop = {
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             if(!GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                console.log("Plato izq: " + Game.platos[0].receta + " | Plato der: " + Game.platos[1].receta);
+                console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
                 GameLoop.primeraEjecucion = true;
             }
             GameLoop.creacionIngredientes();
@@ -61,19 +62,44 @@ var GameLoop = {
         });
         GameLoop.ingredientesEmplatados.forEach(function(elemento) {
             elemento.moverLados();
+
             if(elemento.derecha) { // Plato derecha
                 if(Game.triggers[2].intersectsPlato(elemento)) {
                     elemento.emplatado();
-                    Game.platos[1].comprobarIngrediente(elemento.nombre);
+                    if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
+                        //Game.platos[1] = undefined;
+                        Game.platos[1] = GameLoop.creacionPlatos(true);
+                        console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
+                    }
+                    else { // En caso de que el ingrediente seleccionado sea correcto
+                        if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                            Game.platos[1].platoCompletado();
+                            Game.platos[1] = GameLoop.creacionPlatos(true);
+                        }
+                    }
                 }
             }
             else { // Plato izquierda
                 if(Game.triggers[1].intersectsPlato(elemento)) {
                     elemento.emplatado();
-                    Game.platos[0].comprobarIngrediente(elemento.nombre);
+                    if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
+                        //Game.platos[0] = undefined;
+                        Game.platos[0] = GameLoop.creacionPlatos(false);
+                        console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
+                    }
+                    else { // En caso de que el ingrediente seleccionado sea correcto
+                        if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                            Game.platos[0].platoCompletado();
+                            Game.platos[0] = GameLoop.creacionPlatos(false);
+                        }
+                    }
                 }
             }
         });
+
+        GameLoop.platosCompletados.forEach(function (elemento) {
+            elemento.moverLado();
+        })
     },
 
     // Pintado del canvas
@@ -98,6 +124,9 @@ var GameLoop = {
 
         // Pintado de los platos
         Game.platos.forEach(function (elemento) {
+            elemento.dibujarEnCanvas();
+        })
+        GameLoop.platosCompletados.forEach(function (elemento) {
             elemento.dibujarEnCanvas();
         })
     },

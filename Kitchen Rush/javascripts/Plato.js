@@ -44,3 +44,20 @@ Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
         return false;
     }
 }
+
+Plato.prototype.platoCompletado = function() {
+    //let indice = Game.platos.indexOf(this);
+    //let platoCompletado = Game.platos[indice];
+    //Game.platos.splice(indice, 1);
+
+    GameLoop.platosCompletados.push(platoCompletado);
+}
+
+Plato.prototype.moverLado = function() {
+    if(this.derecha) {
+        this.posX += 4;
+    }
+    else {
+        this.posX -= 4;
+    }
+}
