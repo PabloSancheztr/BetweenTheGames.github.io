@@ -50,7 +50,7 @@ Plato.prototype.platoCompletado = function() {
     //let platoCompletado = Game.platos[indice];
     //Game.platos.splice(indice, 1);
 
-    GameLoop.platosCompletados.push(platoCompletado);
+    GameLoop.platosCompletados.push(this);
 }
 
 Plato.prototype.moverLado = function() {
