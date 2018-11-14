@@ -17,7 +17,7 @@ function Plato(nombre, rutas, receta, derecha) {
         this.posY = 120;
     }
     
-    this.insertarEnArray();
+    //this.insertarEnArray();
 }
 
 Plato.prototype.insertarEnArray = function() {
@@ -45,12 +45,17 @@ Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
     }
 }
 
-Plato.prototype.platoCompletado = function() {
-    //let indice = Game.platos.indexOf(this);
-    //let platoCompletado = Game.platos[indice];
-    //Game.platos.splice(indice, 1);
+Plato.prototype.destruirse = function() {
+    let indice = Game.platos.indexOf(this);
+    GameLoop.platosCompletados.splice(indice, 1);
 
-    GameLoop.platosCompletados.push(this);
+    console.log("Platos completado: " + GameLoop.platosCompletados.length);
+}
+
+Plato.prototype.platoCompletado = function(plato) {
+    GameLoop.platosCompletados.push(plato);
+
+    console.log("Platos completados: " + GameLoop.platosCompletados.length);
 }
 
 Plato.prototype.moverLado = function() {

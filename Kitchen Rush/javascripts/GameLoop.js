@@ -66,15 +66,15 @@ var GameLoop = {
             if(elemento.derecha) { // Plato derecha
                 if(Game.triggers[2].intersectsPlato(elemento)) {
                     elemento.emplatado();
-                    if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
-                        //Game.platos[1] = undefined;
-                        Game.platos[1] = GameLoop.creacionPlatos(true);
-                        console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
+                    if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
+                        Game.platos.pop();
+                        Game.platos.push(GameLoop.creacionPlatos(true));
                     }
                     else { // En caso de que el ingrediente seleccionado sea correcto
                         if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
-                            Game.platos[1].platoCompletado();
-                            Game.platos[1] = GameLoop.creacionPlatos(true);
+                            Game.platos[1].platoCompletado(Game.platos[1]);
+                            Game.platos.pop();
+                            Game.platos.push(GameLoop.creacionPlatos(true));
                         }
                     }
                 }
@@ -83,14 +83,14 @@ var GameLoop = {
                 if(Game.triggers[1].intersectsPlato(elemento)) {
                     elemento.emplatado();
                     if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
-                        //Game.platos[0] = undefined;
-                        Game.platos[0] = GameLoop.creacionPlatos(false);
-                        console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
+                        Game.platos.shift();
+                        Game.platos.unshift(GameLoop.creacionPlatos(false));
                     }
                     else { // En caso de que el ingrediente seleccionado sea correcto
                         if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
-                            Game.platos[0].platoCompletado();
-                            Game.platos[0] = GameLoop.creacionPlatos(false);
+                            Game.platos[0].platoCompletado(Game.platos[0]);
+                            Game.platos.shift();
+                            Game.platos.unshift(GameLoop.creacionPlatos(false));
                         }
                     }
                 }
@@ -99,6 +99,9 @@ var GameLoop = {
 
         GameLoop.platosCompletados.forEach(function (elemento) {
             elemento.moverLado();
+            if(elemento.posX < -40 || elemento.posX > canvas.width) {
+                elemento.destruirse();
+            }
         })
     },
 
