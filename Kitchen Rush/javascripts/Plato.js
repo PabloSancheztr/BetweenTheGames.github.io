@@ -1,14 +1,19 @@
-function Plato(nombre, ruta, receta, derecha) {
+function Plato(nombre, rutas, receta, derecha) {
     this.nombre = nombre;
-    this.ruta = ruta;
+    this.sprite = new Image(40, 15);
+    this.rutas = rutas;
+    this.sprite.src = this.rutas[0];
     this.receta = receta;
+    this.ingredienteActual = 0;
+    this.numIngredientes = receta.length;
     this.derecha = derecha;
-    if(derecha) {
-        this.posX = 65;
+
+    if(this.derecha) {
+        this.posX = 205;
         this.posY = 120;
     }
     else {
-        this.posX = 205,
+        this.posX = 65,
         this.posY = 120;
     }
     
@@ -22,4 +27,20 @@ Plato.prototype.insertarEnArray = function() {
 Plato.prototype.sacarDeArray = function() {
     let indice = Game.platos.indexOf(this);
     Game.platos.splice(indice, 1);
+}
+
+Plato.prototype.dibujarEnCanvas = function() {
+    context.drawImage(this.sprite, this.posX, this.posY, 40, 15);
+}
+
+Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
+    if(nombreIngrediente == this.receta[this.ingredienteActual]) {
+        this.ingredienteActual++;
+        this.sprite.src = this.rutas[this.ingredienteActual];
+        
+        return true;
+    }
+    else {
+        return false;
+    }
 }

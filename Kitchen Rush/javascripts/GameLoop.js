@@ -10,6 +10,7 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
+    primeraEjecucion: false,
 
     ingredientesEmplatados: new Array(),
 
@@ -17,6 +18,11 @@ var GameLoop = {
         GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
+            if(!GameLoop.primeraEjecucion) {
+                Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
+                console.log("Plato izq: " + Game.platos[0].receta + " | Plato der: " + Game.platos[1].receta);
+                GameLoop.primeraEjecucion = true;
+            }
             GameLoop.creacionIngredientes();
         }
 
@@ -55,14 +61,16 @@ var GameLoop = {
         });
         GameLoop.ingredientesEmplatados.forEach(function(elemento) {
             elemento.moverLados();
-            if(elemento.derecha) {
+            if(elemento.derecha) { // Plato derecha
                 if(Game.triggers[2].intersectsPlato(elemento)) {
                     elemento.emplatado();
+                    Game.platos[1].comprobarIngrediente(elemento.nombre);
                 }
             }
-            else {
+            else { // Plato izquierda
                 if(Game.triggers[1].intersectsPlato(elemento)) {
                     elemento.emplatado();
+                    Game.platos[0].comprobarIngrediente(elemento.nombre);
                 }
             }
         });
@@ -87,13 +95,18 @@ var GameLoop = {
         GameLoop.ingredientesEmplatados.forEach(function(elemento) {
             elemento.dibujarEnCanvas();
         });
+
+        // Pintado de los platos
+        Game.platos.forEach(function (elemento) {
+            elemento.dibujarEnCanvas();
+        })
     },
 
     // Creacion aleatoria de los ingredientes
     creacionIngredientes: function() {
         let randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
         let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
-        new Ingrediente(ingredienteSeleccionado.nombre,
+        return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
                         canvas.width/2,
                         (canvas.height/2)-50,
@@ -104,8 +117,8 @@ var GameLoop = {
     creacionPlatos: function(derecha) {
         let randomPlato = Math.floor(Math.random() * (Game.platosJSON.length - 0) + 0);
         let platoSeleccionado = Game.platosJSON[randomPlato];
-        new Plato(platoSeleccionado.nombre,
-                  platoSeleccionado.ruta,
+        return new Plato(platoSeleccionado.nombre,
+                  platoSeleccionado.rutas,
                   platoSeleccionado.receta,
                   derecha);
         //console.log("Plato: " + platoSeleccionado.nombre);

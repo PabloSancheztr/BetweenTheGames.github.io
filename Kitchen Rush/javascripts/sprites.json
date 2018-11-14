@@ -76,14 +76,14 @@
     "platos": [
         {
             "nombre": "gyoza",
-            "receta": ["ingr1", "ingr2", "ingr3"],
+            "receta": ["aguacate", "salmon", "huevo"],
             "rutas": ["assets/images/Platos/Gyoza/Gyoza0.png", 
                       "assets/images/Platos/Gyoza/Gyoza1.png",
                       "assets/images/Platos/Gyoza/Gyoza2.png"]
         },
         {
             "nombre": "maki",
-            "receta": ["ingr1", "ingr2", "ingr3"],
+            "receta": ["aguacate", "salmon", "huevo"],
             "rutas": ["assets/images/Platos/Maki/maki0.png",
                       "assets/images/Platos/Maki/maki1.png",
                       "assets/images/Platos/Maki/maki2.png",
@@ -92,7 +92,7 @@
         },
         {
             "nombre": "ramen",
-            "receta": ["ingr1", "ingr2", "ingr3"],
+            "receta": ["aguacate", "salmon", "huevo"],
             "rutas": ["assets/images/Platos/Ramen/Ramen0.png",
                       "assets/images/Platos/Ramen/Ramen1.png",
                       "assets/images/Platos/Ramen/Ramen2.png",
@@ -102,7 +102,7 @@
         },
         {
             "nombre": "rollito",
-            "receta": ["ingr1", "ingr2", "ingr3"],
+            "receta": ["aguacate", "salmon", "huevo"],
             "rutas": ["assets/images/Platos/Rollito/Rolli0.png",
                       "assets/images/Platos/Rollito/Rolli1.png",
                       "assets/images/Platos/Rollito/Rolli2.png",

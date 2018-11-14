@@ -29,9 +29,8 @@ var Game = {
         request.send();
         request.onload = function() {
             //console.log(this.responseText);
-            Game.ingredientesJSON = JSON.parse(this.responseText).ingredientes;
+            Game.ingredientesJSON = JSON.parse(this.responseText).ingredientes;            
             Game.platosJSON = JSON.parse(this.responseText).platos;
-            //console.log(Game.platosJSON[0].rutas);
         }
         
         Game.ingredientes = new Array();
@@ -45,7 +44,7 @@ var Game = {
 
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
     },
-
+    
     iniciarJuego: function() {
         console.log("Juego iniciado");
         GameLoop.iterar();
