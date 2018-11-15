@@ -1,10 +1,12 @@
 function Ingrediente(nombre, ruta, posX, posY, velocidad) {
     this.nombre = nombre;
-    this.sprite = new Image(10, 10);
+    this.sprite = new Image(20, 20);
     this.sprite.src = ruta;
     this.posX = posX;
     this.posY = posY;
     this.velocidad = velocidad;
+    this.ancho = 8;
+    this.alto = 5;
 
     this.insertarEnArray();
 }
@@ -13,8 +15,13 @@ Ingrediente.prototype.insertarEnArray = function() {
     Game.ingredientes.push(this);
 }
 
-Ingrediente.prototype.dibujarEnCanvas = function() {
-    context.drawImage(this.sprite, this.posX, this.posY, 20, 10);
+Ingrediente.prototype.dibujarEnCanvas = function() { // 20x17 maximo
+    context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
+    
+    if(this.ancho < 20 && this.alto < 17) {
+        this.ancho += 0.08;
+        this.alto += 0.08;
+    }
 }
 
 Ingrediente.prototype.mover = function() {
