@@ -22,6 +22,9 @@ Ingrediente.prototype.dibujarEnCanvas = function() { // 20x17 maximo
         this.ancho += 0.08;
         this.alto += 0.08;
     }
+    else {
+        //console.log("Ancho: " + this.sprite.naturalWidth + " | Alto: " + this.sprite.naturalHeight);
+    }
 }
 
 Ingrediente.prototype.mover = function() {
