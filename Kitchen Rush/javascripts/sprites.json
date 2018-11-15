@@ -1,0 +1,80 @@
+{
+    "ingredientes": [
+        {
+            "nombre": "aguacate",
+            "ruta": "assets/images/Alimentos/IMG_0095.png"
+        },
+        
+        {
+            "nombre": "huevo",
+            "ruta": "assets/images/Alimentos/Huevo.png"
+        },
+        
+        {
+            "nombre": "salmon",
+            "ruta": "assets/images/Alimentos/Salmon.png"
+        },
+        {
+            "nombre": "soja",
+            "ruta": "assets/images/Alimentos/Soja.png"
+        }
+    ],
+
+    "emotes": [
+        {
+            "nombre": "enfado",
+            "ruta": "assets/images/Emotes/Enfado.png"
+        },
+        {
+            "nombre": "feliz",
+            "ruta": "assets/images/Emotes/Feliz.png"
+        },
+        {
+            "nombre": "meh",
+            "ruta": "assets/images/Emotes/Meh.png"
+        },
+        {
+            "nombre": "perfecto",
+            "ruta": "assets/images/Emotes/Perfecto.png"
+        }
+    ],
+
+    "platos": [
+        {
+            "nombre": "gyoza",
+            "receta": ["aguacate", "salmon", "huevo"],
+            "rutas": ["assets/images/Platos/Gyoza/Gyoza0.png", 
+                      "assets/images/Platos/Gyoza/Gyoza1.png",
+                      "assets/images/Platos/Gyoza/Gyoza2.png"]
+        },
+        {
+            "nombre": "maki",
+            "receta": ["aguacate", "salmon", "huevo"],
+            "rutas": ["assets/images/Platos/Maki/maki0.png",
+                      "assets/images/Platos/Maki/maki1.png",
+                      "assets/images/Platos/Maki/maki2.png",
+                      "assets/images/Platos/Maki/maki3.png",
+                      "assets/images/Platos/Maki/maki4.png"]
+        },
+        {
+            "nombre": "ramen",
+            "receta": ["aguacate", "salmon", "huevo"],
+            "rutas": ["assets/images/Platos/Ramen/Ramen0.png",
+                      "assets/images/Platos/Ramen/Ramen1.png",
+                      "assets/images/Platos/Ramen/Ramen2.png",
+                      "assets/images/Platos/Ramen/Ramen3.png",
+                      "assets/images/Platos/Ramen/Ramen4.png",
+                      "assets/images/Platos/Ramen/Ramen5.png"]
+        },
+        {
+            "nombre": "rollito",
+            "receta": ["aguacate", "salmon", "huevo"],
+            "rutas": ["assets/images/Platos/Rollito/Rolli0.png",
+                      "assets/images/Platos/Rollito/Rolli1.png",
+                      "assets/images/Platos/Rollito/Rolli2.png",
+                      "assets/images/Platos/Rollito/Rolli3.png",
+                      "assets/images/Platos/Rollito/Rolli4.png",
+                      "assets/images/Platos/Rollito/Rolli5.png"]
+        }
+    ]
+}
