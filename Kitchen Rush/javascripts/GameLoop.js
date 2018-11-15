@@ -34,6 +34,8 @@ var GameLoop = {
         // Contador de FPS y APS
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             GameLoop.ultimoRegistro = registroTemporal;
+
+            Game.actualizarCronometro();
             
             console.log("APS: " + GameLoop.ups + " | " + "FPS: " + GameLoop.fps);
 
@@ -132,6 +134,18 @@ var GameLoop = {
         GameLoop.platosCompletados.forEach(function (elemento) {
             elemento.dibujarEnCanvas();
         })
+
+        // Cronometro
+        context.font = "bold 12px sans-serif";
+        if(Game.segundos >= 10 && Game.minutos >= 0) {
+            context.fillText(Game.minutos + ":" + Game.segundos, canvas.width/2, 20);
+        }
+        else if(Game.minutos < 0) {
+            context.fillText("Fin del juego", (canvas.width/2)-20, 20);
+        }
+        else {
+            context.fillText(Game.minutos + ":0" + Game.segundos, canvas.width/2, 20);
+        }
     },
 
     // Creacion aleatoria de los ingredientes

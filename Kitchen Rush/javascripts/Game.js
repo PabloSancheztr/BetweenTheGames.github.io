@@ -21,6 +21,8 @@ var Game = {
     ingredientesJSON: null,
     platosJSON: null,
     debug: true,
+    minutos: 1,
+    segundos: 0,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -48,5 +50,15 @@ var Game = {
     iniciarJuego: function() {
         console.log("Juego iniciado");
         GameLoop.iterar();
+    },
+
+    actualizarCronometro: function() {
+        if(Game.segundos == 0) {
+            Game.minutos--;
+            Game.segundos = 59;
+        }
+        else {
+            Game.segundos--;
+        }
     }
 };
