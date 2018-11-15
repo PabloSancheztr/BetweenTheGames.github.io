@@ -21,8 +21,10 @@ var Game = {
     ingredientesJSON: null,
     platosJSON: null,
     debug: true,
-    minutos: 1,
+    minutos: 2,
     segundos: 0,
+    nivelEnfado: null,
+    enfadoImg: null,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -37,6 +39,10 @@ var Game = {
         
         Game.ingredientes = new Array();
         Game.platos = new Array();
+
+        Game.nivelEnfado = new Array();
+        Game.enfadoImg = new Image();
+        Game.enfadoImg.src = "assets/images/Emotes/nivelEnfado.png";
 
         // Colisiones
         Game.triggers = new Array();

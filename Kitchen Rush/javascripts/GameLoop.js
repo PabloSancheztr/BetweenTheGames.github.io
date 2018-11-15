@@ -62,49 +62,25 @@ var GameLoop = {
                 elemento.autodestruccion();
             }
         });
+
+        // Logica de si el ingrediente sirve o no en el plato
         GameLoop.ingredientesEmplatados.forEach(function(elemento) {
             elemento.moverLados();
-
-            if(elemento.derecha) { // Plato derecha
-                if(Game.triggers[2].intersectsPlato(elemento)) {
-                    elemento.emplatado();
-                    if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
-                        Game.platos.pop();
-                        Game.platos.push(GameLoop.creacionPlatos(true));
-                    }
-                    else { // En caso de que el ingrediente seleccionado sea correcto
-                        if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
-                            Game.platos[1].platoCompletado(Game.platos[1]);
-                            Game.platos.pop();
-                            Game.platos.push(GameLoop.creacionPlatos(true));
-                        }
-                    }
-                }
-            }
-            else { // Plato izquierda
-                if(Game.triggers[1].intersectsPlato(elemento)) {
-                    elemento.emplatado();
-                    if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
-                        Game.platos.shift();
-                        Game.platos.unshift(GameLoop.creacionPlatos(false));
-                    }
-                    else { // En caso de que el ingrediente seleccionado sea correcto
-                        if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
-                            Game.platos[0].platoCompletado(Game.platos[0]);
-                            Game.platos.shift();
-                            Game.platos.unshift(GameLoop.creacionPlatos(false));
-                        }
-                    }
-                }
-            }
+            GameLoop.anadirIngrediente(elemento);
         });
 
-        GameLoop.platosCompletados.forEach(function (elemento) {
+        // Mover plato al completarse
+        GameLoop.platosCompletados.forEach(function(elemento) {
             elemento.moverLado();
             if(elemento.posX < -40 || elemento.posX > canvas.width) {
                 elemento.destruirse();
             }
         })
+
+        // Game over por fallos en los platos
+        if(Game.nivelEnfado.length >= 3) {
+            console.log("Fin de juego");
+        }
     },
 
     // Pintado del canvas
@@ -120,7 +96,7 @@ var GameLoop = {
         } 
 
         // Pintado de los ingredientes
-        Game.ingredientes.forEach(function (elemento) {
+        Game.ingredientes.forEach(function(elemento) {
             elemento.dibujarEnCanvas();
         });        
         GameLoop.ingredientesEmplatados.forEach(function(elemento) {
@@ -131,7 +107,7 @@ var GameLoop = {
         Game.platos.forEach(function (elemento) {
             elemento.dibujarEnCanvas();
         })
-        GameLoop.platosCompletados.forEach(function (elemento) {
+        GameLoop.platosCompletados.forEach(function(elemento) {
             elemento.dibujarEnCanvas();
         })
 
@@ -146,6 +122,13 @@ var GameLoop = {
         else {
             context.fillText(Game.minutos + ":0" + Game.segundos, canvas.width/2, 20);
         }
+
+        // Nivel de enfado
+        let posImgX = 5;
+        Game.nivelEnfado.forEach(function(elemento) {
+            context.drawImage(elemento, posImgX, 5, 40, 20);
+            posImgX += 20;
+        })
     },
 
     // Creacion aleatoria de los ingredientes
@@ -168,6 +151,46 @@ var GameLoop = {
                   platoSeleccionado.receta,
                   derecha);
         //console.log("Plato: " + platoSeleccionado.nombre);
+    },
+
+    // Logica de si el ingrediente sirve o no en el plato
+    anadirIngrediente: function(elemento) {
+        // Plato derecha
+        if(elemento.derecha) { 
+            if(Game.triggers[2].intersectsPlato(elemento)) {
+                elemento.emplatado();
+                if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
+                    Game.platos.pop();
+                    Game.platos.push(GameLoop.creacionPlatos(true));
+                    Game.nivelEnfado.push(Game.enfadoImg);
+                }
+                else { // En caso de que el ingrediente seleccionado sea correcto
+                    if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platos[1].platoCompletado(Game.platos[1]);
+                        Game.platos.pop();
+                        Game.platos.push(GameLoop.creacionPlatos(true));
+                    }
+                }
+            }
+        }
+        // Plato izquierda
+        else { 
+            if(Game.triggers[1].intersectsPlato(elemento)) {
+                elemento.emplatado();
+                if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
+                    Game.platos.shift();
+                    Game.platos.unshift(GameLoop.creacionPlatos(false));
+                    Game.nivelEnfado.push(Game.enfadoImg);
+                }
+                else { // En caso de que el ingrediente seleccionado sea correcto
+                    if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platos[0].platoCompletado(Game.platos[0]);
+                        Game.platos.shift();
+                        Game.platos.unshift(GameLoop.creacionPlatos(false));
+                    }
+                }
+            }
+        }
     },
 
     // Controlador del teclado
