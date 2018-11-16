@@ -11,12 +11,15 @@ var GameLoop = {
     ups: 0,
     fps: 0,
     primeraEjecucion: false,
+    gameOver: false,
 
     ingredientesEmplatados: new Array(),
     platosCompletados: new Array(),
 
     iterar: function(registroTemporal) {
-        GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
+
+        if(!GameLoop.gameOver)
+            GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             if(!GameLoop.primeraEjecucion) {
@@ -35,7 +38,8 @@ var GameLoop = {
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             GameLoop.ultimoRegistro = registroTemporal;
 
-            Game.actualizarCronometro();
+            if(Game.contrareloj)
+                Game.actualizarCronometro();
             
             console.log("APS: " + GameLoop.ups + " | " + "FPS: " + GameLoop.fps);
 
@@ -78,8 +82,12 @@ var GameLoop = {
         })
 
         // Game over por fallos en los platos
-        if(Game.nivelEnfado.length >= 3) {
-            console.log("Fin de juego");
+        if(Game.maraton) {
+            if(Game.nivelEnfado.length >= 3) {
+                //console.log("Fin de juego");
+                GameLoop.gameOver = true;
+                $("#juego").load('./finjuego.html');
+            }
         }
     },
 
@@ -112,23 +120,29 @@ var GameLoop = {
         })
 
         // Cronometro
-        context.font = "bold 12px sans-serif";
-        if(Game.segundos >= 10 && Game.minutos >= 0) {
-            context.fillText(Game.minutos + ":" + Game.segundos, canvas.width/2, 20);
-        }
-        else if(Game.minutos < 0) {
-            context.fillText("Fin del juego", (canvas.width/2)-20, 20);
-        }
-        else {
-            context.fillText(Game.minutos + ":0" + Game.segundos, canvas.width/2, 20);
+        if(Game.contrareloj) {
+            context.font = "bold 12px sans-serif";
+            if(Game.segundos >= 10 && Game.minutos >= 0) {
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-10, 20);
+            }
+            else if(Game.minutos < 0) {
+                context.fillText("Fin del juego", (canvas.width/2)-20, 20);
+                GameLoop.gameOver = true;
+                $("#juego").load('./finjuego.html');
+            }
+            else {
+                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-10, 20);
+            }
         }
 
         // Nivel de enfado
-        let posImgX = 5;
-        Game.nivelEnfado.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, 5, 40, 20);
-            posImgX += 20;
-        })
+        if(Game.maraton) {
+            let posImgX = (canvas.width/2)-40;
+            Game.nivelEnfado.forEach(function(elemento) {
+                context.drawImage(elemento, posImgX, 5, 40, 20);
+                posImgX += 20;
+            })
+        }
     },
 
     // Creacion aleatoria de los ingredientes
@@ -162,7 +176,9 @@ var GameLoop = {
                 if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
                     Game.platos.pop();
                     Game.platos.push(GameLoop.creacionPlatos(true));
-                    Game.nivelEnfado.push(Game.enfadoImg);
+
+                    if(Game.maraton)
+                        Game.nivelEnfado.push(Game.enfadoImg);
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
@@ -180,7 +196,9 @@ var GameLoop = {
                 if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
                     Game.platos.shift();
                     Game.platos.unshift(GameLoop.creacionPlatos(false));
-                    Game.nivelEnfado.push(Game.enfadoImg);
+
+                    if(Game.maraton)
+                        Game.nivelEnfado.push(Game.enfadoImg);
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo

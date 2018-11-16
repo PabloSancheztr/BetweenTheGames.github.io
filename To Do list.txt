@@ -13,10 +13,13 @@
 
 ***** Tete *****
 - Imagen con la receta, los primeros ingredientes abajo y el último arriba
+- Fondo de menu
+- Imagenes de botones
 
 ***** Luis *****
-- Fondos
+- Fondo juego
 - Caricatura chicote
+- Fondo fin de juego
 
 ***** Bugs *****
 - Al llevar un ingrediente al plato eliminarlo, o sacarlo del array de pintado y control con el teclado [Arreglado]

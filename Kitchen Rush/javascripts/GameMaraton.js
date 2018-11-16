@@ -25,6 +25,8 @@ var Game = {
     segundos: 0,
     nivelEnfado: null,
     enfadoImg: null,
+    contrareloj: false,
+    maraton: true,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
