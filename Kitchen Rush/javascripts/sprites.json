@@ -2,21 +2,21 @@
     "ingredientes": [
         {
             "nombre": "aguacate",
-            "ruta": "assets/images/Alimentos/IMG_0095.png"
+            "ruta": "assets/images/Alimentos/Aguacate_30.png"
         },
         
         {
             "nombre": "huevo",
-            "ruta": "assets/images/Alimentos/Huevo.png"
+            "ruta": "assets/images/Alimentos/Huevo_30.png"
         },
         
         {
             "nombre": "salmon",
-            "ruta": "assets/images/Alimentos/Salmon.png"
+            "ruta": "assets/images/Alimentos/Salmon_30.png"
         },
         {
             "nombre": "soja",
-            "ruta": "assets/images/Alimentos/Soja.png"
+            "ruta": "assets/images/Alimentos/Soja_30.png"
         }
     ],
 
