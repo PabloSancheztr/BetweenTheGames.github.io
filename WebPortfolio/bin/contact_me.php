@@ -15,11 +15,11 @@ $email_address = strip_tags(htmlspecialchars($_POST['email']));
 $phone = strip_tags(htmlspecialchars($_POST['phone']));
 $message = strip_tags(htmlspecialchars($_POST['message']));
    
-// Create the email and send the message
-$to = 'betweenthegamesURJC@gmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+//Crear email y mandar mensaje
+$to = 'betweenthegamesURJC@gmail.com'; // Aqui se añade el correo entre las '' reemplazando por yourname@yourdomain.com o cualquier otro - Esta es la dirección a la que el formulario mandará el mensaje.
 $email_subject = "Mensaje de:  $name";
 $email_body = "Has recibido un mensaje desde el formulario de contacto de la web.\n\n"."Aquí están los detalles:\n\nNombre: $name\n\nEmail: $email_address\n\nTeléfono: $phone\n\nMensaje:\n$message";
-$headers = "From: betweenthegamesURJC@gmail.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+$headers = "From: $email_address\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
 return true;         
