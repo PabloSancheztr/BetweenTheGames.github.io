@@ -10,19 +10,27 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
-    primeraEjecucion: false,
+    debug: false,
+    primeraEjecucion: true,
+    gameOver: false,
+    velocidadIngredientes: 0.5,
+    incrementar: false,
 
+    nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
     platosCompletados: new Array(),
 
     iterar: function(registroTemporal) {
-        GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
+
+        if(!GameLoop.gameOver)
+            GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
-            if(!GameLoop.primeraEjecucion) {
+
+            // Primera ejecucion
+            if(GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
-                GameLoop.primeraEjecucion = true;
+                GameLoop.primeraEjecucion = false;
             }
             GameLoop.creacionIngredientes();
         }
@@ -35,7 +43,8 @@ var GameLoop = {
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             GameLoop.ultimoRegistro = registroTemporal;
 
-            Game.actualizarCronometro();
+            if(Game.contrareloj)
+                Game.actualizarCronometro();
             
             console.log("APS: " + GameLoop.ups + " | " + "FPS: " + GameLoop.fps);
 
@@ -78,18 +87,27 @@ var GameLoop = {
         })
 
         // Game over por fallos en los platos
-        if(Game.nivelEnfado.length >= 3) {
-            console.log("Fin de juego");
+        if(Game.maraton) {
+            if(Game.nivelEnfado.length >= 3) {
+                //console.log("Fin de juego");
+                GameLoop.gameOver = true;
+                $("#juego").load('./finjuego.html');
+            }
         }
     },
 
     // Pintado del canvas
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "black";
+        context.font = "800 10px Arial";
         GameLoop.fps++;       
 
+        // Fondo
+        context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
+
         // DEBUG visual
-        if(Game.debug) {
+        if(GameLoop.debug) {
             Game.triggers.forEach(function(elemento) {
                 elemento.drawGizmo();
             });
@@ -112,34 +130,65 @@ var GameLoop = {
         })
 
         // Cronometro
-        context.font = "bold 12px sans-serif";
-        if(Game.segundos >= 10 && Game.minutos >= 0) {
-            context.fillText(Game.minutos + ":" + Game.segundos, canvas.width/2, 20);
-        }
-        else if(Game.minutos < 0) {
-            context.fillText("Fin del juego", (canvas.width/2)-20, 20);
-        }
-        else {
-            context.fillText(Game.minutos + ":0" + Game.segundos, canvas.width/2, 20);
+        if(Game.contrareloj) {
+            //context.font = "bold 12px sans-serif";
+            if(Game.segundos >= 10 && Game.minutos >= 0) {
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-5, 20);
+            }
+            else if(Game.minutos < 0) {
+                context.fillText("Fin del juego", (canvas.width/2)-20, 20);
+                GameLoop.gameOver = true;
+                $("#juego").load('./finjuego.html');
+            }
+            else {
+                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-10, 20);
+            }
         }
 
         // Nivel de enfado
-        let posImgX = 5;
-        Game.nivelEnfado.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, 5, 40, 20);
-            posImgX += 20;
+        if(Game.maraton) {
+            let posImgX = (canvas.width/2)-40;
+            Game.nivelEnfado.forEach(function(elemento) {
+                context.drawImage(elemento, posImgX+15, 7, 30, 20);
+                posImgX += 15;
+            })
+        }
+
+        // Nivel de dificultad
+        let posImgX = canvas.width-90;
+        GameLoop.nivelDificultad.forEach(function(elemento) {
+            context.drawImage(elemento, posImgX, canvas.height-20, 10, 18);
+            posImgX += 15;
         })
+
+        // Platos completados
+        context.fillText("Platos servidos: " + Game.platosCompletados, 5, canvas.height-5);
     },
 
     // Creacion aleatoria de los ingredientes
     creacionIngredientes: function() {
         let randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
         let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
+
+        if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
+            GameLoop.velocidadIngredientes += 0.2;
+            GameLoop.nivelDificultad.push(Game.dificultad);
+            GameLoop.incrementar = false;
+
+            if(Game.contrareloj) {
+                Game.aumentarCronometro();
+                console.log("Aumentar");
+            }
+        }
+        if(Game.platosCompletados%5 != 0) {
+            GameLoop.incrementar = true;
+        }
+
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
-                        canvas.width/2,
-                        (canvas.height/2)-50,
-                        0.5);
+                        (canvas.width/2)+3,
+                        (canvas.height/2)-45,
+                        GameLoop.velocidadIngredientes);
     },
 
     // Creacion aleatoria de los platos
@@ -162,10 +211,13 @@ var GameLoop = {
                 if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
                     Game.platos.pop();
                     Game.platos.push(GameLoop.creacionPlatos(true));
-                    Game.nivelEnfado.push(Game.enfadoImg);
+
+                    if(Game.maraton)
+                        Game.nivelEnfado.push(Game.enfadoImg);
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platosCompletados++;
                         Game.platos[1].platoCompletado(Game.platos[1]);
                         Game.platos.pop();
                         Game.platos.push(GameLoop.creacionPlatos(true));
@@ -177,13 +229,16 @@ var GameLoop = {
         else { 
             if(Game.triggers[1].intersectsPlato(elemento)) {
                 elemento.emplatado();
-                if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
+                if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo
                     Game.platos.shift();
                     Game.platos.unshift(GameLoop.creacionPlatos(false));
-                    Game.nivelEnfado.push(Game.enfadoImg);
+
+                    if(Game.maraton)
+                        Game.nivelEnfado.push(Game.enfadoImg);
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platosCompletados++;
                         Game.platos[0].platoCompletado(Game.platos[0]);
                         Game.platos.shift();
                         Game.platos.unshift(GameLoop.creacionPlatos(false));
@@ -217,11 +272,11 @@ var GameLoop = {
 
         // Cambio modo debug/modo normal: f7
         if(e.keyCode == 118) {
-            if(Game.debug) {
-                Game.debug = false;
+            if(GameLoop.debug) {
+                GameLoop.debug = false;
             }
             else {
-                Game.debug = true;
+                GameLoop.debug = true;
             }
         }
     }
