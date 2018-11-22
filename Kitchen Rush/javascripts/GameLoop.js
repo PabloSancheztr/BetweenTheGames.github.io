@@ -104,7 +104,8 @@ var GameLoop = {
         GameLoop.fps++;       
 
         // Fondo
-        context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
+        //context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height); cambiado por Luis
+        context.drawImage(Game.fondo, 0, 0, 0, 0);
 
         // DEBUG visual
         if(GameLoop.debug) {
