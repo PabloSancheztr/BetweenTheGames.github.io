@@ -52,7 +52,7 @@ var Game = {
         Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
         Game.fondo = new Image();
-        Game.fondo.src = "assets/images/Backgrounds/overwatchBG.png";
+        Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
 
         // Colisiones
         Game.triggers = new Array();
