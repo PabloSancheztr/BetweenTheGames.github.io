@@ -99,6 +99,8 @@ var GameLoop = {
     // Pintado del canvas
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "black";
+        context.font = "800 10px Arial";
         GameLoop.fps++;       
 
         // Fondo
@@ -131,7 +133,7 @@ var GameLoop = {
         if(Game.contrareloj) {
             //context.font = "bold 12px sans-serif";
             if(Game.segundos >= 10 && Game.minutos >= 0) {
-                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-3, 20);
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-5, 20);
             }
             else if(Game.minutos < 0) {
                 context.fillText("Fin del juego", (canvas.width/2)-20, 20);
@@ -160,7 +162,7 @@ var GameLoop = {
         })
 
         // Platos completados
-        context.fillText("Platos servidos: " + Game.platosCompletados, 10, canvas.height-5);
+        context.fillText("Platos servidos: " + Game.platosCompletados, 5, canvas.height-5);
     },
 
     // Creacion aleatoria de los ingredientes
