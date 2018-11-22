@@ -10,7 +10,8 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
-    primeraEjecucion: false,
+    debug: false,
+    primeraEjecucion: true,
     gameOver: false,
     velocidadIngredientes: 0.5,
     incrementar: false,
@@ -25,10 +26,11 @@ var GameLoop = {
             GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
 
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
-            if(!GameLoop.primeraEjecucion) {
+
+            // Primera ejecucion
+            if(GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                console.log("Plato izq: " + Game.platos[0].nombre + " | Plato der: " + Game.platos[1].nombre);
-                GameLoop.primeraEjecucion = true;
+                GameLoop.primeraEjecucion = false;
             }
             GameLoop.creacionIngredientes();
         }
@@ -103,7 +105,7 @@ var GameLoop = {
         context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
 
         // DEBUG visual
-        if(Game.debug) {
+        if(GameLoop.debug) {
             Game.triggers.forEach(function(elemento) {
                 elemento.drawGizmo();
             });
@@ -145,16 +147,16 @@ var GameLoop = {
         if(Game.maraton) {
             let posImgX = (canvas.width/2)-40;
             Game.nivelEnfado.forEach(function(elemento) {
-                context.drawImage(elemento, posImgX, 5, 40, 20);
-                posImgX += 20;
+                context.drawImage(elemento, posImgX+15, 7, 30, 20);
+                posImgX += 15;
             })
         }
 
         // Nivel de dificultad
-        let posImgX = canvas.width-30;
+        let posImgX = canvas.width-90;
         GameLoop.nivelDificultad.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, 5, 10, 20);
-            posImgX -= 20;
+            context.drawImage(elemento, posImgX, canvas.height-20, 10, 18);
+            posImgX += 15;
         })
 
         // Platos completados
@@ -268,11 +270,11 @@ var GameLoop = {
 
         // Cambio modo debug/modo normal: f7
         if(e.keyCode == 118) {
-            if(Game.debug) {
-                Game.debug = false;
+            if(GameLoop.debug) {
+                GameLoop.debug = false;
             }
             else {
-                Game.debug = true;
+                GameLoop.debug = true;
             }
         }
     }

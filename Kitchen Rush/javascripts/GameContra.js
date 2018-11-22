@@ -20,7 +20,6 @@ var Game = {
     triggers: null,
     ingredientesJSON: null,
     platosJSON: null,
-    debug: true,
     minutos: 2,
     segundos: 0,
     nivelEnfado: null,
