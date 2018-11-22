@@ -48,14 +48,10 @@ Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
 Plato.prototype.destruirse = function() {
     let indice = Game.platos.indexOf(this);
     GameLoop.platosCompletados.splice(indice, 1);
-
-    console.log("Platos completado: " + GameLoop.platosCompletados.length);
 }
 
 Plato.prototype.platoCompletado = function(plato) {
     GameLoop.platosCompletados.push(plato);
-
-    console.log("Platos completados: " + GameLoop.platosCompletados.length);
 }
 
 Plato.prototype.moverLado = function() {

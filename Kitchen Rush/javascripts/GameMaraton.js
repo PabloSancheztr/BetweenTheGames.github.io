@@ -27,6 +27,8 @@ var Game = {
     enfadoImg: null,
     contrareloj: false,
     maraton: true,
+    dificultad: null,
+    platosCompletados: 0,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -46,6 +48,9 @@ var Game = {
         Game.enfadoImg = new Image();
         Game.enfadoImg.src = "assets/images/Emotes/nivelEnfado.png";
 
+        Game.dificultad = new Image();
+        Game.dificultad.src = "assets/images/Emotes/tenedor.png";
+
         // Colisiones
         Game.triggers = new Array();
         new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15, "#A00C0C"); // [0] - Area seleccion de ingredientes
@@ -59,14 +64,4 @@ var Game = {
         console.log("Juego iniciado");
         GameLoop.iterar();
     },
-
-    actualizarCronometro: function() {
-        if(Game.segundos == 0) {
-            Game.minutos--;
-            Game.segundos = 59;
-        }
-        else {
-            Game.segundos--;
-        }
-    }
 };

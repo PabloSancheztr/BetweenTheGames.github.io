@@ -12,7 +12,10 @@ var GameLoop = {
     fps: 0,
     primeraEjecucion: false,
     gameOver: false,
+    velocidadIngredientes: 0.5,
+    incrementar: false,
 
+    nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
     platosCompletados: new Array(),
 
@@ -121,7 +124,7 @@ var GameLoop = {
 
         // Cronometro
         if(Game.contrareloj) {
-            context.font = "bold 12px sans-serif";
+            //context.font = "bold 12px sans-serif";
             if(Game.segundos >= 10 && Game.minutos >= 0) {
                 context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-10, 20);
             }
@@ -143,17 +146,42 @@ var GameLoop = {
                 posImgX += 20;
             })
         }
+
+        // Nivel de dificultad
+        let posImgX = canvas.width-30;
+        GameLoop.nivelDificultad.forEach(function(elemento) {
+            context.drawImage(elemento, posImgX, 5, 10, 20);
+            posImgX -= 20;
+        })
+
+        // Platos completados
+        context.fillText("Platos completados: " + Game.platosCompletados, canvas.width-120, 40);
     },
 
     // Creacion aleatoria de los ingredientes
     creacionIngredientes: function() {
         let randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
         let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
+
+        if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
+            GameLoop.velocidadIngredientes += 0.2;
+            GameLoop.nivelDificultad.push(Game.dificultad);
+            GameLoop.incrementar = false;
+
+            if(Game.contrareloj) {
+                Game.aumentarCronometro();
+                console.log("Aumentar");
+            }
+        }
+        if(Game.platosCompletados%5 != 0) {
+            GameLoop.incrementar = true;
+        }
+
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
                         canvas.width/2,
                         (canvas.height/2)-50,
-                        0.5);
+                        GameLoop.velocidadIngredientes);
     },
 
     // Creacion aleatoria de los platos
@@ -182,6 +210,7 @@ var GameLoop = {
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platosCompletados++;
                         Game.platos[1].platoCompletado(Game.platos[1]);
                         Game.platos.pop();
                         Game.platos.push(GameLoop.creacionPlatos(true));
@@ -193,7 +222,7 @@ var GameLoop = {
         else { 
             if(Game.triggers[1].intersectsPlato(elemento)) {
                 elemento.emplatado();
-                if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo
+                if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo
                     Game.platos.shift();
                     Game.platos.unshift(GameLoop.creacionPlatos(false));
 
@@ -202,6 +231,7 @@ var GameLoop = {
                 }
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
+                        Game.platosCompletados++;
                         Game.platos[0].platoCompletado(Game.platos[0]);
                         Game.platos.shift();
                         Game.platos.unshift(GameLoop.creacionPlatos(false));

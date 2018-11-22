@@ -27,6 +27,8 @@ var Game = {
     enfadoImg: null,
     contrareloj: true,
     maraton: false,
+    dificultad: null,
+    platosCompletados: 0,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -45,6 +47,9 @@ var Game = {
         Game.nivelEnfado = new Array();
         Game.enfadoImg = new Image();
         Game.enfadoImg.src = "assets/images/Emotes/nivelEnfado.png";
+
+        Game.dificultad = new Image();
+        Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
         // Colisiones
         Game.triggers = new Array();
@@ -67,6 +72,16 @@ var Game = {
         }
         else {
             Game.segundos--;
+        }
+    },
+    
+    aumentarCronometro: function() {
+        let segundosViejos = Game.segundos;
+        Game.segundos += 30;
+
+        if(Game.segundos > 60) {
+            Game.minutos++;
+            Game.segundos = 30-(60-segundosViejos);
         }
     }
 };
