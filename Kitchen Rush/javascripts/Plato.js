@@ -9,12 +9,12 @@ function Plato(nombre, rutas, receta, derecha) {
     this.derecha = derecha;
 
     if(this.derecha) {
-        this.posX = 205
-        this.posY = 120;
+        this.posX = 215
+        this.posY = 105;
     }
     else {
-        this.posX = 65,
-        this.posY = 120;
+        this.posX = 60,
+        this.posY = 105;
     }
     
     //this.insertarEnArray();

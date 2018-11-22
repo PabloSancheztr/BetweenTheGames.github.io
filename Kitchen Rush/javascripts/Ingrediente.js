@@ -15,15 +15,12 @@ Ingrediente.prototype.insertarEnArray = function() {
     Game.ingredientes.push(this);
 }
 
-Ingrediente.prototype.dibujarEnCanvas = function() { // 20x17 maximo
+Ingrediente.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
     
-    if(this.ancho < 20 && this.alto < 17) {
+    if(this.ancho < 35 && this.alto < 25) {
         this.ancho += 0.08;
         this.alto += 0.08;
-    }
-    else {
-        //console.log("Ancho: " + this.sprite.naturalWidth + " | Alto: " + this.sprite.naturalHeight);
     }
 }
 

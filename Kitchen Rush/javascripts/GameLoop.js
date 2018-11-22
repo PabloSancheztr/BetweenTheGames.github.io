@@ -99,6 +99,9 @@ var GameLoop = {
         context.clearRect(0, 0, canvas.width, canvas.height);
         GameLoop.fps++;       
 
+        // Fondo
+        context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
+
         // DEBUG visual
         if(Game.debug) {
             Game.triggers.forEach(function(elemento) {
@@ -126,7 +129,7 @@ var GameLoop = {
         if(Game.contrareloj) {
             //context.font = "bold 12px sans-serif";
             if(Game.segundos >= 10 && Game.minutos >= 0) {
-                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-10, 20);
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-3, 20);
             }
             else if(Game.minutos < 0) {
                 context.fillText("Fin del juego", (canvas.width/2)-20, 20);
@@ -155,7 +158,7 @@ var GameLoop = {
         })
 
         // Platos completados
-        context.fillText("Platos completados: " + Game.platosCompletados, canvas.width-120, 40);
+        context.fillText("Platos servidos: " + Game.platosCompletados, 10, canvas.height-5);
     },
 
     // Creacion aleatoria de los ingredientes
@@ -179,8 +182,8 @@ var GameLoop = {
 
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
-                        canvas.width/2,
-                        (canvas.height/2)-50,
+                        (canvas.width/2)+3,
+                        (canvas.height/2)-45,
                         GameLoop.velocidadIngredientes);
     },
 

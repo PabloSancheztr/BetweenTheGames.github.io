@@ -29,6 +29,7 @@ var Game = {
     maraton: true,
     dificultad: null,
     platosCompletados: 0,
+    fondo: null,
     
     iniciarVariables: function() {
         // Obtener los elementos del JSON
@@ -51,11 +52,14 @@ var Game = {
         Game.dificultad = new Image();
         Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
+        Game.fondo = new Image();
+        Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
+
         // Colisiones
         Game.triggers = new Array();
-        new TriggerRect((canvas.width/2)-15, canvas.height-30, 40, 15, "#A00C0C"); // [0] - Area seleccion de ingredientes
-        new TriggerRect(65, 120, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
-        new TriggerRect(205, 120, 40, 20, "#12A7E8"); // [2] - Plato derecho
+        new TriggerRect((canvas.width/2)-18, canvas.height-50, 50, 20, "#A00C0C"); // [0] - Area seleccion de ingredientes
+        new TriggerRect(60, 100, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
+        new TriggerRect(215, 100, 40, 20, "#12A7E8"); // [2] - Plato derecho
 
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
     },
