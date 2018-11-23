@@ -30,6 +30,11 @@
   margin-top: 5%;
 }
 
+.divBotones {
+  display: flex;
+  align-items: flex-start; 
+}
+
 /* Canvas del juego */
 .gameCanvas {
   margin: 0 auto;
@@ -53,6 +58,10 @@
     width: 300px;
     height: 750px;
   }
+  .divBotones {
+    width: 300px;
+    height: 750px;
+  }
 }
  
 /* Tablets en horizonal y escritorios normales
@@ -70,6 +79,10 @@
     width: 700px;
     height: 900px;
   }
+  .divBotones {
+    width: 700px;
+    height: 900px;
+  }
  }
  
 /* Escritorios muy anchos
@@ -84,6 +97,10 @@
     height: 750px;
   }
   .gameCanvas {
+    width: 1000px;
+    height: 750px;
+  }
+  .divBotones {
     width: 1000px;
     height: 750px;
   }

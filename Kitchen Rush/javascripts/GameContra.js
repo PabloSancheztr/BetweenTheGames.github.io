@@ -44,13 +44,11 @@ var Game = {
         Game.ingredientes = new Array();
         Game.platos = new Array();
 
-        Game.nivelEnfado = new Array();
-        Game.enfadoImg = new Image();
-        Game.enfadoImg.src = "assets/images/Emotes/nivelEnfado.png";
-
+        // Imagene de la dificultad
         Game.dificultad = new Image();
         Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
+        // Imagen de fondo
         Game.fondo = new Image();
         Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
 
