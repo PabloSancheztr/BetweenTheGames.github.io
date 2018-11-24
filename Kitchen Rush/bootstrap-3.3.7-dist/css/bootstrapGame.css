@@ -31,8 +31,8 @@
 }
 
 .divBotones {
+  margin: 0 auto;
   display: flex;
-  align-items: flex-start; 
 }
 
 /* Canvas del juego */

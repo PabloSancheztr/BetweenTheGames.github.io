@@ -38,19 +38,18 @@ var Game = {
         // Boton izquierda
         Game.botonIzq = document.createElement("button");
         Game.botonIzq.type = "button";
-        let posX = div.clientWidth/2;
-        console.log("Ancho div: " + div.clientWidth);
-        Game.botonIzq.style = "background-color: green; height: 60px; width: 1000px; margin-left: " + posX + "px";
-        Game.botonIzq.addEventListener('click', Game.pulsarBoton, false);
+        let ancho = canvas.clientWidth/2;
+        console.log("Ancho de pantalla: " + screen.width);
+        let margen = (screen.width/2)-canvas.width;
+        Game.botonIzq.style = "background-color: green; height: 60px; width: " + ancho + "px";
+        Game.botonIzq.addEventListener('click', GameLoop.pulsarIzquierda, false);
         div.appendChild(Game.botonIzq);
 
         // Boton derecha
         Game.botonDer = document.createElement("button");
         Game.botonDer.type = "button";
-        posX = div.clientWidth/2;
-        console.log("Ancho div: " + div.clientWidth);
-        Game.botonDer.style = "background-color: red; height: 60px; width: 1000px; margin-left: " + posX + "px";
-        Game.botonDer.addEventListener('click', Game.pulsarBoton, false);
+        Game.botonDer.style = "background-color: red; height: 60px; width: " + ancho + "px";
+        Game.botonDer.addEventListener('click', GameLoop.pulsarDerecha, false);
         div.appendChild(Game.botonDer);
 
         // Obtener los elementos del JSON
@@ -77,7 +76,7 @@ var Game = {
 
         // Imagen de fondo
         Game.fondo = new Image();
-        //Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
+        Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
 
         // Colisiones
         Game.triggers = new Array();
