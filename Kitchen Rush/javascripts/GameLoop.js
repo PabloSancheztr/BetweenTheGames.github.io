@@ -30,6 +30,8 @@ var GameLoop = {
             // Primera ejecucion
             if(GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
+                
+
                 GameLoop.primeraEjecucion = false;
             }
             GameLoop.creacionIngredientes();
@@ -105,7 +107,6 @@ var GameLoop = {
 
         // Fondo
         context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
-        //context.drawImage(Game.fondo, 0, 0, 0, 0);
 
         // DEBUG visual
         if(GameLoop.debug) {
@@ -253,22 +254,12 @@ var GameLoop = {
     controladorTeclado: function(e) {
         // Derecha: D || ->
         if(e.keyCode == 68 || e.keyCode == 39) {
-            for(let elemento of Game.ingredientes) {
-                if(Game.triggers[0].intersectsArea(elemento)) {
-                    elemento.llevarAPlato(true);
-                    break;
-                }
-            }
+            GameLoop.pulsarDerecha();
         }
 
         // Izquierda: A || <-
         if(e.keyCode == 65 || e.keyCode == 37) {
-            for(let elemento of Game.ingredientes) {
-                if(Game.triggers[0].intersectsArea(elemento)) {
-                    elemento.llevarAPlato(false);
-                    break;
-                }
-            }
+            GameLoop.pulsarIzquierda();
         }
 
         // Cambio modo debug/modo normal: f7
@@ -278,6 +269,24 @@ var GameLoop = {
             }
             else {
                 GameLoop.debug = true;
+            }
+        }
+    },
+
+    pulsarDerecha: function() {
+        for(let elemento of Game.ingredientes) {
+            if(Game.triggers[0].intersectsArea(elemento)) {
+                elemento.llevarAPlato(true);
+                break;
+            }
+        }
+    },
+
+    pulsarIzquierda: function() {
+        for(let elemento of Game.ingredientes) {
+            if(Game.triggers[0].intersectsArea(elemento)) {
+                elemento.llevarAPlato(false);
+                break;
             }
         }
     }
