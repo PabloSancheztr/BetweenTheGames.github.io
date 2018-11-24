@@ -48,19 +48,19 @@
 @media (min-height: 768px) { 
   .containerMenu {
     width: 300px;
-    height: 520px;
+    height: 400px;
   }
   .containerFin {
     width: 300px;
-    height: 520px;
+    height: 400px;
   }
   .gameCanvas {
     width: 300px;
-    height: 520px;
+    height: 400px;
   }
   .divBotones {
     width: 300px;
-    height: 520px;
+    height: 400px;
   }
 }
  
