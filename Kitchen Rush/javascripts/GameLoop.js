@@ -15,6 +15,8 @@ var GameLoop = {
     gameOver: false,
     velocidadIngredientes: 0.5,
     incrementar: false,
+    tiempoCreacionIngredientes: 60,
+    crear: 0,
 
     nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
@@ -22,18 +24,11 @@ var GameLoop = {
 
     iterar: function(registroTemporal) {
 
-        if(!GameLoop.gameOver)
+        if(!GameLoop.gameOver) {
             GameLoop.idEjecucion = window.requestAnimationFrame(GameLoop.iterar);
-
-        if(registroTemporal-GameLoop.ultimoRegistro > 999) {
-
-            // Primera ejecucion
-            if(GameLoop.primeraEjecucion) {
-                Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                
-
-                GameLoop.primeraEjecucion = false;
-            }
+        }
+        if(GameLoop.crear >= GameLoop.tiempoCreacionIngredientes) {
+            GameLoop.crear = 0;
             GameLoop.creacionIngredientes();
         }
 
@@ -44,6 +39,14 @@ var GameLoop = {
         // Contador de FPS y APS
         if(registroTemporal-GameLoop.ultimoRegistro > 999) {
             GameLoop.ultimoRegistro = registroTemporal;
+
+            // Primera ejecucion
+            if(GameLoop.primeraEjecucion) {
+                Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
+                
+
+                GameLoop.primeraEjecucion = false;
+            }
 
             if(Game.contrareloj)
                 Game.actualizarCronometro();
@@ -62,6 +65,7 @@ var GameLoop = {
     // Actualizacion de los platos e ingredientes y manejo de controles. [999 = 1s]
     actualizar: function(registroTemporal) {
         GameLoop.ups++;
+        GameLoop.crear++;
 
         // Controlador de teclado
         document.onkeydown = GameLoop.controladorTeclado;
@@ -173,6 +177,7 @@ var GameLoop = {
         let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
 
         if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
+            GameLoop.tiempoCreacionIngredientes -= 10;
             GameLoop.velocidadIngredientes += 0.2;
             GameLoop.nivelDificultad.push(Game.dificultad);
             GameLoop.incrementar = false;
