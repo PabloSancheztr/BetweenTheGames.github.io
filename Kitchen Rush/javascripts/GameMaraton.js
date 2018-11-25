@@ -84,10 +84,6 @@ var Game = {
         new TriggerRect(60, 100, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
         new TriggerRect(215, 100, 40, 20, "#12A7E8"); // [2] - Plato derecho
 
-        // Debug visual de los botones
-        new TriggerRect(Game.botonDer.style.left, Game.botonDer.style.top, Game.botonDer.width, Game.botonDer.height, "#9B108F");
-        /////////////////////////////
-
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
     },
     
