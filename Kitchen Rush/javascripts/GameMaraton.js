@@ -39,8 +39,6 @@ var Game = {
         Game.botonIzq = document.createElement("button");
         Game.botonIzq.type = "button";
         let ancho = canvas.clientWidth/2;
-        console.log("Ancho de pantalla: " + screen.width);
-        let margen = (screen.width/2)-canvas.width;
         Game.botonIzq.style = "background-color: blue; height: 60px; width: " + ancho + "px";
         Game.botonIzq.addEventListener('click', GameLoop.pulsarIzquierda, false);
         div.appendChild(Game.botonIzq);
@@ -83,10 +81,6 @@ var Game = {
         new TriggerRect((canvas.width/2)-18, canvas.height-50, 50, 20, "#A00C0C"); // [0] - Area seleccion de ingredientes
         new TriggerRect(60, 100, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
         new TriggerRect(215, 100, 40, 20, "#12A7E8"); // [2] - Plato derecho
-
-        // Debug visual de los botones
-        new TriggerRect(Game.botonDer.style.left, Game.botonDer.style.top, Game.botonDer.width, Game.botonDer.height, "#9B108F");
-        /////////////////////////////
 
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
     },
