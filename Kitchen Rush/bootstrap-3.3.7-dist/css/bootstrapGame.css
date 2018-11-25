@@ -1,26 +1,21 @@
 /* Contenedo de menus */
 .containerMenu {
   margin: 0 auto;
-  padding-left: 0%;
-  padding-top: 40%;
-  display: absolute;
-  align-items: center;
-  margin-top: 5%;
-  background-image: url(/assets/images/Backgrounds/overwatchBG.png);
-  width: 300px;
-  height: 600px;
-}
-
-.containerFin {
-  margin: 0 auto;
-  padding-left: 25%;
+  padding-left: 12%;
   padding-top: 25%;
   display: flex;
   align-items: center;
   margin-top: 5%;
   background-image: url(/assets/images/Backgrounds/overwatchBG.png);
-  width: 300px;
-  height: 600px;
+}
+
+.containerFin {
+  margin: 0 auto;
+  padding-left: 22%;
+  padding-top: 25%;
+  display: flex;
+  align-items: center;
+  background-image: url(/assets/images/Backgrounds/overwatchBG.png);
 }
 
 .salto {
@@ -38,82 +33,75 @@
 .divBotones {
   margin: 0 auto;
   display: flex;
-  margin-left: 8%;
 }
 
 /* Canvas del juego */
 .gameCanvas {
   margin: 0 auto;
   width: 300px;
-  height: 550px;
+  height: 600px;
 }
 
 /* Distintas resoluciones según el dispositivo */
-/* Móviles
+/* Móviles en horizontal o tablets en vertical
    ------------------------------------------------------------------------- */
 @media (min-height: 768px) { 
   .containerMenu {
     width: 300px;
-    height: 700px;
-    padding-top: 60%;
+    height: 400px;
   }
   .containerFin {
     width: 300px;
-    height: 700px;
+    height: 400px;
   }
   .gameCanvas {
     width: 300px;
-    height: 600px;
+    height: 400px;
   }
   .divBotones {
-    margin-left: 10%;
+    width: 300px;
+    height: 400px;
   }
 }
  
-/* Tablets
+/* Tablets en horizonal y escritorios normales
    ------------------------------------------------------------------------- */
 @media (min-height: 1024px) {
   .containerMenu {
     width: 700px;
     height: 900px;
-    padding-top: 50%;
-    padding-left: 25%;
   }
   .containerFin {
     width: 700px;
     height: 900px;
-    padding-top: 10%;
-    padding-left: 35%;
   }
   .gameCanvas {
     width: 700px;
     height: 900px;
   }
   .divBotones {
-    margin-left: 4%;
+    width: 700px;
+    height: 900px;
   }
  }
  
-/* Ordenadores
+/* Escritorios muy anchos
    ------------------------------------------------------------------------- */
 @media (min-width: 1200px) { 
   .containerMenu {
     width: 1000px;
     height: 750px;
-    padding-top: 20%;
-    padding-left: 18%;
   }
   .containerFin {
     width: 1000px;
     height: 750px;
-    padding-top: 20%;
-    padding-left: 23%;
   }
   .gameCanvas {
     width: 1000px;
     height: 750px;
   }
   .divBotones {
-    margin-left: 24%;
+    width: 1000px;
+    height: 750px;
   }
 }

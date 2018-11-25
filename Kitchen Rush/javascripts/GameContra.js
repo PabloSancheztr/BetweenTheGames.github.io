@@ -7,7 +7,6 @@
 var canvas = document.getElementById('gameCanvas');
 var context = canvas.getContext('2d');
 var request = new XMLHttpRequest();
-var div = document.getElementById('botones');
 
 // Documento cargado
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,26 +29,8 @@ var Game = {
     dificultad: null,
     platosCompletados: 0,
     fondo: null,
-    botonDer: null,
-    botonIzq: null,
-
+    
     iniciarVariables: function() {
-        // Botones
-        // Boton izquierda
-        Game.botonIzq = document.createElement("button");
-        Game.botonIzq.type = "button";
-        let ancho = canvas.clientWidth/2;
-        Game.botonIzq.style = "background-color: blue; height: 60px; width: " + ancho + "px";
-        Game.botonIzq.addEventListener('click', GameLoop.pulsarIzquierda, false);
-        div.appendChild(Game.botonIzq);
-
-        // Boton derecha
-        Game.botonDer = document.createElement("button");
-        Game.botonDer.type = "button";
-        Game.botonDer.style = "background-color: red; height: 60px; width: " + ancho + "px";
-        Game.botonDer.addEventListener('click', GameLoop.pulsarDerecha, false);
-        div.appendChild(Game.botonDer);
-
         // Obtener los elementos del JSON
         request.open('GET', 'javascripts/sprites.json', true);
         request.responseText = 'json';
