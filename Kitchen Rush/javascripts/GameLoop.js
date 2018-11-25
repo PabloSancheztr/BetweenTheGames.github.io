@@ -17,6 +17,7 @@ var GameLoop = {
     incrementar: false,
     tiempoCreacionIngredientes: 60,
     crear: 0,
+    audioCorrecto: new Audio("assets/audios/correcto.mp3"),
 
     nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
@@ -225,6 +226,7 @@ var GameLoop = {
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[1].ingredienteActual >= Game.platos[1].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
                         Game.platosCompletados++;
+                        GameLoop.audioCorrecto.play();
                         Game.platos[1].platoCompletado(Game.platos[1]);
                         Game.platos.pop();
                         Game.platos.push(GameLoop.creacionPlatos(true));
@@ -246,6 +248,7 @@ var GameLoop = {
                 else { // En caso de que el ingrediente seleccionado sea correcto
                     if(Game.platos[0].ingredienteActual >= Game.platos[0].numIngredientes) { // En caso de que el plato ya este completo. Se crea uno nuevo
                         Game.platosCompletados++;
+                        GameLoop.audioCorrecto.play();
                         Game.platos[0].platoCompletado(Game.platos[0]);
                         Game.platos.shift();
                         Game.platos.unshift(GameLoop.creacionPlatos(false));
