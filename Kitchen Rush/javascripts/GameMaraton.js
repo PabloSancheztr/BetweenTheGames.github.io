@@ -39,8 +39,6 @@ var Game = {
         Game.botonIzq = document.createElement("button");
         Game.botonIzq.type = "button";
         let ancho = canvas.clientWidth/2;
-        console.log("Ancho de pantalla: " + screen.width);
-        let margen = (screen.width/2)-canvas.width;
         Game.botonIzq.style = "background-color: blue; height: 60px; width: " + ancho + "px";
         Game.botonIzq.addEventListener('click', GameLoop.pulsarIzquierda, false);
         div.appendChild(Game.botonIzq);
