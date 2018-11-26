@@ -2,55 +2,55 @@
     "ingredientes": [
         {
             "nombre": "aguacate",
-            "ruta": "assets/images/Alimentos/Aguacate_30.png"
+            "ruta": "assets/images/Alimentos/Aguacate.png"
         },
         {
             "nombre": "huevo",
-            "ruta": "assets/images/Alimentos/Huevo_30.png"
+            "ruta": "assets/images/Alimentos/Huevo.png"
         },
         {
             "nombre": "salmon",
-            "ruta": "assets/images/Alimentos/Salmon_30.png"
+            "ruta": "assets/images/Alimentos/Salmon.png"
         },
         {
             "nombre": "soja",
-            "ruta": "assets/images/Alimentos/Soja_30.png"
+            "ruta": "assets/images/Alimentos/soja.png"
         },
         {
             "nombre": "alga",
-            "ruta": "assets/images/Alimentos/Alga_30.png"
+            "ruta": "assets/images/Alimentos/Alga.png"
         },
         {
             "nombre": "arroz",
-            "ruta": "assets/images/Alimentos/Arroz_30.png"
+            "ruta": "assets/images/Alimentos/Arroz.png"
         },
         {
             "nombre": "caldo",
-            "ruta": "assets/images/Alimentos/Caldo_30.png"
+            "ruta": "assets/images/Alimentos/Caldo.png"
         },
         {
             "nombre": "carne",
-            "ruta": "assets/images/Alimentos/Carne_30.png"
+            "ruta": "assets/images/Alimentos/Carne.png"
         },
         {
             "nombre": "cebolla",
-            "ruta": "assets/images/Alimentos/Cebolla_30.png"
+            "ruta": "assets/images/Alimentos/cebolla.png"
         },
         {
             "nombre": "col",
-            "ruta": "assets/images/Alimentos/Col_30.png"
+            "ruta": "assets/images/Alimentos/Col.png"
         },
         {
             "nombre": "fideos",
-            "ruta": "assets/images/Alimentos/Fideos_30.png"
+            "ruta": "assets/images/Alimentos/Fideos.png"
         },
         {
             "nombre": "masa",
-            "ruta": "assets/images/Alimentos/MasaGyo_30.png"
+            "ruta": "assets/images/Alimentos/MasaGyo.png"
         },
         {
             "nombre": "relleno",
-            "ruta": "assets/images/Alimentos/Relleno_30.png"
+            "ruta": "assets/images/Alimentos/relleno.png"
         },
         {
             "nombre": "pan",

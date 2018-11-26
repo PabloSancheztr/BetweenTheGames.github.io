@@ -10,7 +10,7 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
-    debug: false,
+    debug: true,
     primeraEjecucion: true,
     gameOver: false,
     velocidadIngredientes: 0.5,
@@ -123,13 +123,8 @@ var GameLoop = {
         GameLoop.fps++;       
 
         // Fondo
-        context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);//
+        context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
         //console.log("fondo ancho: " + canvas.width + " fondo alto: " + canvas.height);
-
-        /*Game.fondo.onload = function () {
-            context.drawImage(Game.fondo, 0, 0);
-            console.log("fondo ancho: " + canvas.width + " fondo alto: " + canvas.height);
-        }*/
 
         // DEBUG visual
         if(GameLoop.debug) {
