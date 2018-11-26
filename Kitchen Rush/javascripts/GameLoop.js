@@ -17,7 +17,8 @@ var GameLoop = {
     incrementar: false,
     tiempoCreacionIngredientes: 60,
     crear: 0,
-    audioCorrecto: new Audio("assets/audios/correcto.mp3"),
+    audioCorrecto: new Audio("assets/audios/correcto.wav"),
+    musicaJuego: new Audio("assets/audios/Game_Theme.m4a"),
 
     nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
@@ -44,7 +45,11 @@ var GameLoop = {
             // Primera ejecucion
             if(GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                
+                GameLoop.musicaJuego.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+                GameLoop.musicaJuego.play();
 
                 GameLoop.primeraEjecucion = false;
             }

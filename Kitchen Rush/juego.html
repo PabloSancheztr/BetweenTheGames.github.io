@@ -22,5 +22,14 @@
                     <button class="btn">Modo maraton</button>
                 </a>
         </div>     
+
+        <script language = "JavaScript">
+            let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
+            musicaMenu.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            musicaMenu.play();
+        </script>
     </body>
 </html>

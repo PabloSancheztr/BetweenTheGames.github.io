@@ -17,5 +17,14 @@
                 <button class="btn">Volver al menu</button>
             </a>
         </div>     
+
+        <script language = "JavaScript">
+            let musicaFin = new Audio("assets/audios/End_Theme.m4a");
+            musicaFin.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            musicaFin.play();
+        </script>
     </body>
 </html>
