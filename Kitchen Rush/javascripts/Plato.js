@@ -1,9 +1,11 @@
-function Plato(nombre, rutas, receta, derecha) {
+function Plato(nombre, rutas, receta, lista, derecha) {
     this.nombre = nombre;
     this.sprite = new Image(40, 15);
     this.rutas = rutas;
     this.sprite.src = this.rutas[0];
     this.receta = receta;
+    this.lista = lista;
+    this.listaImg = new Image(40, 40);
     this.ingredienteActual = 0;
     this.numIngredientes = receta.length;
     this.derecha = derecha;
@@ -31,13 +33,21 @@ Plato.prototype.sacarDeArray = function() {
 
 Plato.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, 40, 15);
+
+    if(this.derecha) {
+        context.drawImage(this.listaImg, 215, 10, 40, 40);
+    }
+    else {
+        context.drawImage(this.listaImg, 60, 10, 40, 40);
+    }
 }
 
 Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
     if(nombreIngrediente == this.receta[this.ingredienteActual]) {
         this.ingredienteActual++;
         this.sprite.src = this.rutas[this.ingredienteActual];
-        
+        this.listaImg.src = this.lista[this.ingredienteActual];
+
         return true;
     }
     else {

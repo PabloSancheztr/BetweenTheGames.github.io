@@ -213,6 +213,7 @@ var GameLoop = {
         return new Plato(platoSeleccionado.nombre,
                   platoSeleccionado.rutas,
                   platoSeleccionado.receta,
+                  platoSeleccionado.lista,
                   derecha);
         //console.log("Plato: " + platoSeleccionado.nombre);
     },

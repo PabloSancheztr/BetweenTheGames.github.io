@@ -21,6 +21,7 @@ var Game = {
     triggers: null,
     ingredientesJSON: null,
     platosJSON: null,
+    listaJSON: null,
     minutos: 2,
     segundos: 0,
     nivelEnfado: null,

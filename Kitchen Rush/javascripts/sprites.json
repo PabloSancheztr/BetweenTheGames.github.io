@@ -4,12 +4,10 @@
             "nombre": "aguacate",
             "ruta": "assets/images/Alimentos/Aguacate_30.png"
         },
-        
         {
             "nombre": "huevo",
             "ruta": "assets/images/Alimentos/Huevo_30.png"
         },
-        
         {
             "nombre": "salmon",
             "ruta": "assets/images/Alimentos/Salmon_30.png"
@@ -20,40 +18,47 @@
         },
         {
             "nombre": "alga",
-            "ruta": "assets/images/Alimentos/Alga.png"
+            "ruta": "assets/images/Alimentos/Alga_30.png"
         },
         {
             "nombre": "arroz",
-            "ruta": "assets/images/Alimentos/Arroz.png"
+            "ruta": "assets/images/Alimentos/Arroz_30.png"
         },
         {
             "nombre": "caldo",
-            "ruta": "assets/images/Alimentos/Caldo.png"
+            "ruta": "assets/images/Alimentos/Caldo_30.png"
         },
         {
             "nombre": "carne",
-            "ruta": "assets/images/Alimentos/Carne.png"
+            "ruta": "assets/images/Alimentos/Carne_30.png"
         },
         {
             "nombre": "cebolla",
-            "ruta": "assets/images/Alimentos/Cebolla.png"
+            "ruta": "assets/images/Alimentos/Cebolla_30.png"
         },
         {
             "nombre": "col",
-            "ruta": "assets/images/Alimentos/Col.png"
+            "ruta": "assets/images/Alimentos/Col_30.png"
         },
         {
             "nombre": "fideos",
-            "ruta": "assets/images/Alimentos/Fideos.png"
+            "ruta": "assets/images/Alimentos/Fideos_30.png"
         },
-    
         {
-            "nombre": "gyoza",
-            "ruta": "assets/images/Alimentos/MasaGyo.png"
+            "nombre": "masa",
+            "ruta": "assets/images/Alimentos/MasaGyo_30.png"
         },
         {
             "nombre": "relleno",
-            "ruta": "assets/images/Alimentos/Relleno.png"
+            "ruta": "assets/images/Alimentos/Relleno_30.png"
+        },
+        {
+            "nombre": "pan",
+            "ruta": "assets/images/Alimentos/Pan.png"
+        },
+        {
+            "nombre": "zanahoria",
+            "ruta": "assets/images/Alimentos/Zanahoria.png"
         }
     ],
 
@@ -79,39 +84,89 @@
     "platos": [
         {
             "nombre": "gyoza",
-            "receta": ["aguacate", "salmon", "huevo"],
+            "receta": ["masa", "relleno"],
             "rutas": ["assets/images/Platos/Gyoza/Gyoza0.png", 
                       "assets/images/Platos/Gyoza/Gyoza1.png",
-                      "assets/images/Platos/Gyoza/Gyoza2.png"]
+                      "assets/images/Platos/Gyoza/Gyoza2.png"],
+            "lista": ["assets/images/Platos/Gyoza/ListaGyo0.png",
+                      "assets/images/Platos/Gyoza/ListaGyo1.png",
+                      "assets/images/Platos/Gyoza/ListaGyo2.png"]
         },
         {
             "nombre": "maki",
-            "receta": ["aguacate", "salmon", "huevo"],
+            "receta": ["alga", "arroz", "salmon", "aguacate"],
             "rutas": ["assets/images/Platos/Maki/maki0.png",
                       "assets/images/Platos/Maki/maki1.png",
                       "assets/images/Platos/Maki/maki2.png",
                       "assets/images/Platos/Maki/maki3.png",
-                      "assets/images/Platos/Maki/maki4.png"]
+                      "assets/images/Platos/Maki/maki4.png"],
+            "lista": ["assets/images/Platos/Maki/ListaM0.png",
+                      "assets/images/Platos/Maki/ListaM1.png",
+                      "assets/images/Platos/Maki/ListaM2.png",
+                      "assets/images/Platos/Maki/ListaM3.png",
+                      "assets/images/Platos/Maki/ListaM4.png"]
         },
         {
             "nombre": "ramen",
-            "receta": ["aguacate", "salmon", "huevo"],
+            "receta": ["caldo", "fideos", "alga", "carne", "huevo"],
             "rutas": ["assets/images/Platos/Ramen/Ramen0.png",
                       "assets/images/Platos/Ramen/Ramen1.png",
                       "assets/images/Platos/Ramen/Ramen2.png",
                       "assets/images/Platos/Ramen/Ramen3.png",
                       "assets/images/Platos/Ramen/Ramen4.png",
-                      "assets/images/Platos/Ramen/Ramen5.png"]
+                      "assets/images/Platos/Ramen/Ramen5.png"],
+            "lista": ["assets/images/Platos/Ramen/ListaRmn0.png",
+                      "assets/images/Platos/Ramen/ListaRmn1.png",
+                      "assets/images/Platos/Ramen/ListaRmn2.png",
+                      "assets/images/Platos/Ramen/ListaRmn3.png",
+                      "assets/images/Platos/Ramen/ListaRmn4.png",
+                      "assets/images/Platos/Ramen/ListaRmn5.png"]
         },
         {
             "nombre": "rollito",
-            "receta": ["aguacate", "salmon", "huevo"],
+            "receta": ["masa", "col", "soja", "cebolla", "carne"],
             "rutas": ["assets/images/Platos/Rollito/Rolli0.png",
                       "assets/images/Platos/Rollito/Rolli1.png",
                       "assets/images/Platos/Rollito/Rolli2.png",
                       "assets/images/Platos/Rollito/Rolli3.png",
                       "assets/images/Platos/Rollito/Rolli4.png",
-                      "assets/images/Platos/Rollito/Rolli5.png"]
+                      "assets/images/Platos/Rollito/Rolli5.png"],
+            "lista": ["assets/images/Platos/Rollito/ListaRllt0.png",
+                      "assets/images/Platos/Rollito/ListaRllt1.png",
+                      "assets/images/Platos/Rollito/ListaRllt2.png",
+                      "assets/images/Platos/Rollito/ListaRllt3.png",
+                      "assets/images/Platos/Rollito/ListaRllt4.png",
+                      "assets/images/Platos/Rollito/ListaRllt5.png"]
+        },
+        {
+            "nombre": "arrozFrito",
+            "receta": ["arroz", "zanahoria", "col", "carne"],
+            "rutas": ["assets/images/Platos/ArrozFrito/Afrito0.png",
+                      "assets/images/Platos/ArrozFrito/Afrito1.png",
+                      "assets/images/Platos/ArrozFrito/Afrito2.png",
+                      "assets/images/Platos/ArrozFrito/Afrito3.png",
+                      "assets/images/Platos/ArrozFrito/Afrito4.png"],
+            "lista": ["assets/images/Platos/ArrozFrito/ListaAF0.png",
+                      "assets/images/Platos/ArrozFrito/ListaAF1.png",
+                      "assets/images/Platos/ArrozFrito/ListaAF2.png",
+                      "assets/images/Platos/ArrozFrito/ListaAF3.png",
+                      "assets/images/Platos/ArrozFrito/ListaAF4.png"]
+        },
+        {
+            "nombre": "pabloCata",
+            "receta": ["pan", "aguacate", "salmon", "huevo", "pan"],
+            "rutas": ["assets/images/Platos/Pablocata/Bocata0.png",
+                      "assets/images/Platos/Pablocata/Bocata1.png",
+                      "assets/images/Platos/Pablocata/Bocata2.png",
+                      "assets/images/Platos/Pablocata/Bocata3.png",
+                      "assets/images/Platos/Pablocata/Bocata4.png",
+                      "assets/images/Platos/Pablocata/Bocata5.png"],
+            "lista": ["assets/images/Platos/Pablocata/ListaPbl0.png",
+                      "assets/images/Platos/Pablocata/ListaPbl1.png",
+                      "assets/images/Platos/Pablocata/ListaPbl2.png",
+                      "assets/images/Platos/Pablocata/ListaPbl3.png",
+                      "assets/images/Platos/Pablocata/ListaPbl4.png",
+                      "assets/images/Platos/Pablocata/ListaPbl5.png"]
         }
     ]
 }
