@@ -124,7 +124,7 @@ var GameLoop = {
 
         // Fondo
         context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);//
-        //console.log("fondo ancho: " + canvas.width + " fondo alto: " + canvas.height);
+        console.log("fondo ancho: " + canvas.width + " fondo alto: " + canvas.height);
 
         /*Game.fondo.onload = function () {
             context.drawImage(Game.fondo, 0, 0);
