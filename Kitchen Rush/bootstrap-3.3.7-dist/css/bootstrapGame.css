@@ -43,10 +43,9 @@
 
 /* Canvas del juego */
 .gameCanvas {
-  display: absolute;
   margin: 0 auto;
-  width: 300; /*300*/
-  height: 550; /*550*/
+  /*width: 300;
+  height: 550;*/
 }
 
 /* Distintas resoluciones según el dispositivo */
