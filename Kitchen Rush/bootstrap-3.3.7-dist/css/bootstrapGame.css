@@ -44,8 +44,6 @@
 /* Canvas del juego */
 .gameCanvas {
   margin: 0 auto;
-  /*width: 300;
-  height: 550;*/
 }
 
 /* Distintas resoluciones según el dispositivo */
@@ -61,10 +59,10 @@
     width: 300px;
     height: 700px;
   }
-  .gameCanvas {
+  /*.gameCanvas {
     width: 300px;
     height: 600px;
-  }
+  }*/
   .divBotones {
     margin-left: 10%;
   }
@@ -85,10 +83,10 @@
     padding-top: 10%;
     padding-left: 35%;
   }
-  .gameCanvas {
+  /*.gameCanvas {
     width: 700px;
     height: 900px;
-  }
+  }*/
   .divBotones {
     margin-left: 4%;
   }
@@ -109,10 +107,11 @@
     padding-top: 20%;
     padding-left: 23%;
   }
-  .gameCanvas {
+  /*#gameCanvas {
     width: 1000px;
     height: 750px;
-  }
+    style: "width='1000' height='750'";
+  }*/
   .divBotones {
     margin-left: 24%;
   }
