@@ -51,6 +51,9 @@ var GameLoop = {
                 }, false);
                 GameLoop.musicaJuego.play();
 
+                GameLoop.nivelDificultad.push(Game.dificultad);
+                GameLoop.nivelDificultad.push(Game.dificultad);
+
                 GameLoop.primeraEjecucion = false;
             }
 
