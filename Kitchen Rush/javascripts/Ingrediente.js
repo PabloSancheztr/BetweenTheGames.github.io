@@ -5,8 +5,8 @@ function Ingrediente(nombre, ruta, posX, posY, velocidad) {
     this.posX = posX;
     this.posY = posY;
     this.velocidad = velocidad;
-    this.ancho = 8;
-    this.alto = 5;
+    this.ancho = 40;
+    this.alto = 37;
 
     this.insertarEnArray();
 }
@@ -18,9 +18,9 @@ Ingrediente.prototype.insertarEnArray = function() {
 Ingrediente.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
     
-    if(this.ancho < 35 && this.alto < 25) {
-        this.ancho += 0.08;
-        this.alto += 0.08;
+    if(this.ancho < 100 && this.alto < 97) {
+        this.ancho += 0.3;
+        this.alto += 0.3;
     }
 }
 

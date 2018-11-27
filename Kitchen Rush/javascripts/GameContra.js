@@ -73,7 +73,6 @@ var Game = {
 
         // Colisiones
         Game.triggers = new Array();
-        console.log("trigger");
         if(screen.width < 500) {
             
         }
@@ -81,10 +80,9 @@ var Game = {
             
         }
         else {
-            new TriggerRect(500, canvas.height/2, 50, 20, "#A00C0C"); // [0] - Area seleccion de ingredientes
-            console.log("trigger rojo");
-            new TriggerRect(60, 100, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
-            new TriggerRect(215, 100, 40, 20, "#12A7E8"); // [2] - Plato derecho
+            new TriggerRect((canvas.width/2)-50, (canvas.height/2)+120, 150, 120, "#A00C0C"); // [0] - Area seleccion de ingredientes
+            new TriggerRect((canvas.width/2)-280, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [1] - Plato izquierdo
+            new TriggerRect((canvas.width/2)+180, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [2] - Plato derecho
         }
 
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);

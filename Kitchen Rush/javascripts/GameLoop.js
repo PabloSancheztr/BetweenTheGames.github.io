@@ -13,7 +13,7 @@ var GameLoop = {
     debug: true,
     primeraEjecucion: true,
     gameOver: false,
-    velocidadIngredientes: 0.5,
+    velocidadIngredientes: 2.5,
     incrementar: false,
     tiempoCreacionIngredientes: 60,
     crear: 0,
@@ -187,7 +187,7 @@ var GameLoop = {
 
         if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
             GameLoop.tiempoCreacionIngredientes -= 10;
-            GameLoop.velocidadIngredientes += 0.2;
+            GameLoop.velocidadIngredientes += 2.5;
             GameLoop.nivelDificultad.push(Game.dificultad);
             GameLoop.incrementar = false;
 
@@ -202,8 +202,8 @@ var GameLoop = {
 
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
-                        (canvas.width/2)+3,
-                        (canvas.height/2)-45,
+                        (canvas.width/2),
+                        (canvas.height/2)-230,
                         GameLoop.velocidadIngredientes);
     },
 

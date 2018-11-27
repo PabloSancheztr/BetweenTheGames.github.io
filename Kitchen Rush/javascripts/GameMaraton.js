@@ -87,7 +87,6 @@ var Game = {
         }
         else {
             new TriggerRect((canvas.width/2)-50, (canvas.height/2)+120, 150, 120, "#A00C0C"); // [0] - Area seleccion de ingredientes
-            console.log("trigger rojo");
             new TriggerRect((canvas.width/2)-280, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [1] - Plato izquierdo
             new TriggerRect((canvas.width/2)+180, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [2] - Plato derecho
         }

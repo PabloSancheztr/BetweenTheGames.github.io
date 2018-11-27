@@ -12,12 +12,12 @@ function Plato(nombre, rutas, receta, lista, derecha) {
     this.derecha = derecha;
 
     if(this.derecha) {
-        this.posX = 215
-        this.posY = 105;
+        this.posX = (canvas.width/2)+190;
+        this.posY = (canvas.height/2)+130;
     }
     else {
-        this.posX = 60,
-        this.posY = 105;
+        this.posX = (canvas.width/2)-270;
+        this.posY = (canvas.height/2)+130;
     }
     
     //this.insertarEnArray();
@@ -33,7 +33,7 @@ Plato.prototype.sacarDeArray = function() {
 }
 
 Plato.prototype.dibujarEnCanvas = function() {
-    context.drawImage(this.sprite, this.posX, this.posY, 40, 15);
+    context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
 
     if(this.derecha) {
         context.drawImage(this.listaImg, 230, 20, 40, 60);
