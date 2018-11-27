@@ -50,10 +50,10 @@ var GameLoop = {
                     this.play();
                 }, false);
                 GameLoop.musicaJuego.play();
-
+                //////////////////////
                 GameLoop.nivelDificultad.push(Game.dificultad);
                 GameLoop.nivelDificultad.push(Game.dificultad);
-
+                ///////////////////////
                 GameLoop.primeraEjecucion = false;
             }
 
@@ -173,10 +173,10 @@ var GameLoop = {
         }
 
         // Nivel de dificultad
-        let posImgX = (canvas.width/2);
+        let posImgX = (canvas.width/2)+200;
         GameLoop.nivelDificultad.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, canvas.height-20, 10, 18);
-            posImgX += 15;
+            context.drawImage(elemento, posImgX, canvas.height-80, 25, 70);
+            posImgX += 35;
         })
 
         // Platos completados

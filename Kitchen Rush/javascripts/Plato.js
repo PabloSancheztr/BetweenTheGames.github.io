@@ -36,10 +36,10 @@ Plato.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
 
     if(this.derecha) {
-        context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 180, 250);
+        context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 160, 300);
     }
     else {
-        context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 180, 250);
+        context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 160, 300);
     }
 }
 
@@ -67,9 +67,9 @@ Plato.prototype.platoCompletado = function(plato) {
 
 Plato.prototype.moverLado = function() {
     if(this.derecha) {
-        this.posX += 4;
+        this.posX += 8;
     }
     else {
-        this.posX -= 4;
+        this.posX -= 8;
     }
 }
