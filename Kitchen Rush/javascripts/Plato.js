@@ -36,10 +36,10 @@ Plato.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
 
     if(this.derecha) {
-        context.drawImage(this.listaImg, 230, 20, 40, 60);
+        context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 180, 250);
     }
     else {
-        context.drawImage(this.listaImg, 30, 20, 40, 60);
+        context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 180, 250);
     }
 }
 

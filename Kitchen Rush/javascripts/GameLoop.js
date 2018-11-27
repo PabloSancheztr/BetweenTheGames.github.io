@@ -119,7 +119,7 @@ var GameLoop = {
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = "black";
-        context.font = "800 10px Arial";
+        context.font = "900 35px Arial";
         GameLoop.fps++;       
 
         // Fondo
@@ -153,19 +153,19 @@ var GameLoop = {
         if(Game.contrareloj) {
             //context.font = "bold 12px sans-serif";
             if(Game.segundos >= 10 && Game.minutos >= 0) {
-                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-5, 20);
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 90);
             }
             else {
-                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-5, 20);
+                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);
             }
         }
 
         // Nivel de enfado
         if(Game.maraton) {
-            let posImgX = (canvas.width/2)-40;
+            let posImgX = (canvas.width/2)-80;
             Game.nivelEnfado.forEach(function(elemento) {
-                context.drawImage(elemento, posImgX+15, 7, 30, 20);
-                posImgX += 15;
+                context.drawImage(elemento, posImgX, 40, 100, 90);
+                posImgX += 50;
             })
         }
 
