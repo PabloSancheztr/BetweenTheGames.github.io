@@ -173,7 +173,7 @@ var GameLoop = {
         }
 
         // Nivel de dificultad
-        let posImgX = canvas.width-90;
+        let posImgX = (canvas.width/2);
         GameLoop.nivelDificultad.forEach(function(elemento) {
             context.drawImage(elemento, posImgX, canvas.height-20, 10, 18);
             posImgX += 15;
