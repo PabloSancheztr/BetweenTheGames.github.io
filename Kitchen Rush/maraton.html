@@ -13,7 +13,7 @@
 
     <body>
         <div id="juego" class="divGame">
-            <canvas id="gameCanvas" style="border:1px solid #000000;" class="gameCanvas">
+            <canvas id="gameCanvas" style="border:1px solid #000000" class="gameCanvas">
             </canvas>
         </div>
         <div id="botones" class="divBotones">
@@ -21,21 +21,27 @@
         
 
         <!-- Scripts -->
+        <script src="javascripts/jquery-3.3.1.min.js"></script>
         <script language="JavaScript">
-            if(screen.height < 768) {
+            if(screen.width < 500) {
                 console.log("Movil pequeño");
+                let canvas = document.getElementById("gameCanvas");
+                canvas.setAttribute("width", "340");
+                canvas.setAttribute("height", "500");
             }
-            else if(screen.height < 1024) {
-                console.log("Movil normal");
-            }
-            else if(screen.width < 1200) {
+            else if(screen.width < 1100) {
                 console.log("Tablet");
+                let canvas = document.getElementById("gameCanvas");
+                canvas.setAttribute("width", "800");
+                canvas.setAttribute("height", "1000");
             }
             else {
                 console.log("Ordenador");
+                let canvas = document.getElementById("gameCanvas");
+                canvas.setAttribute("width", "1000");
+                canvas.setAttribute("height", "750");
             }
-        </script>
-        <script src="javascripts/jquery-3.3.1.min.js"></script>
+        </script>        
         <script src="javascripts/TriggerRect.js"></script>
         <script src="javascripts/Ingrediente.js"></script>
         <script src="javascripts/Plato.js"></script>

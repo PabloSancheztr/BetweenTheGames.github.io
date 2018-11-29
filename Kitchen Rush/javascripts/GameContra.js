@@ -63,7 +63,7 @@ var Game = {
         Game.ingredientes = new Array();
         Game.platos = new Array();
 
-        // Imagene de la dificultad
+        // Imagen de la dificultad
         Game.dificultad = new Image();
         Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
@@ -73,9 +73,17 @@ var Game = {
 
         // Colisiones
         Game.triggers = new Array();
-        new TriggerRect((canvas.width/2)-18, canvas.height-50, 50, 20, "#A00C0C"); // [0] - Area seleccion de ingredientes
-        new TriggerRect(60, 100, 40, 20, "#12A7E8"); // [1] - Plato izquierdo
-        new TriggerRect(215, 100, 40, 20, "#12A7E8"); // [2] - Plato derecho
+        if(screen.width < 500) {
+            
+        }
+        else if(screen.width < 1100) {
+            
+        }
+        else {
+            new TriggerRect((canvas.width/2)-50, (canvas.height/2)+120, 150, 120, "#A00C0C"); // [0] - Area seleccion de ingredientes
+            new TriggerRect((canvas.width/2)-280, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [1] - Plato izquierdo
+            new TriggerRect((canvas.width/2)+180, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [2] - Plato derecho
+        }
 
         console.log("Ancho canvas: " + canvas.width + " | Alto canvas: " + canvas.height);
     },

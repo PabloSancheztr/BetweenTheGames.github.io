@@ -10,14 +10,15 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
-    debug: false,
+    debug: true,
     primeraEjecucion: true,
     gameOver: false,
-    velocidadIngredientes: 0.5,
+    velocidadIngredientes: 2.5,
     incrementar: false,
     tiempoCreacionIngredientes: 60,
     crear: 0,
-    audioCorrecto: new Audio("assets/audios/correcto.mp3"),
+    audioCorrecto: new Audio("assets/audios/correcto.wav"),
+    musicaJuego: new Audio("assets/audios/Game_Theme.m4a"),
 
     nivelDificultad: new Array(),
     ingredientesEmplatados: new Array(),
@@ -44,8 +45,15 @@ var GameLoop = {
             // Primera ejecucion
             if(GameLoop.primeraEjecucion) {
                 Game.platos = [GameLoop.creacionPlatos(false), GameLoop.creacionPlatos(true)];
-                
-
+                GameLoop.musicaJuego.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+                GameLoop.musicaJuego.play();
+                //////////////////////
+                GameLoop.nivelDificultad.push(Game.dificultad);
+                GameLoop.nivelDificultad.push(Game.dificultad);
+                ///////////////////////
                 GameLoop.primeraEjecucion = false;
             }
 
@@ -114,11 +122,12 @@ var GameLoop = {
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = "black";
-        context.font = "800 10px Arial";
+        context.font = "900 35px Arial";
         GameLoop.fps++;       
 
         // Fondo
         context.drawImage(Game.fondo, 0, 0, canvas.width, canvas.height);
+        //console.log("fondo ancho: " + canvas.width + " fondo alto: " + canvas.height);
 
         // DEBUG visual
         if(GameLoop.debug) {
@@ -147,27 +156,27 @@ var GameLoop = {
         if(Game.contrareloj) {
             //context.font = "bold 12px sans-serif";
             if(Game.segundos >= 10 && Game.minutos >= 0) {
-                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-5, 20);
+                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 90);
             }
             else {
-                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-5, 20);
+                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);
             }
         }
 
         // Nivel de enfado
         if(Game.maraton) {
-            let posImgX = (canvas.width/2)-40;
+            let posImgX = (canvas.width/2)-80;
             Game.nivelEnfado.forEach(function(elemento) {
-                context.drawImage(elemento, posImgX+15, 7, 30, 20);
-                posImgX += 15;
+                context.drawImage(elemento, posImgX, 40, 100, 90);
+                posImgX += 50;
             })
         }
 
         // Nivel de dificultad
-        let posImgX = canvas.width-90;
+        let posImgX = (canvas.width/2)+200;
         GameLoop.nivelDificultad.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, canvas.height-20, 10, 18);
-            posImgX += 15;
+            context.drawImage(elemento, posImgX, canvas.height-80, 25, 70);
+            posImgX += 35;
         })
 
         // Platos completados
@@ -181,7 +190,7 @@ var GameLoop = {
 
         if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
             GameLoop.tiempoCreacionIngredientes -= 10;
-            GameLoop.velocidadIngredientes += 0.2;
+            GameLoop.velocidadIngredientes += 2.5;
             GameLoop.nivelDificultad.push(Game.dificultad);
             GameLoop.incrementar = false;
 
@@ -196,8 +205,8 @@ var GameLoop = {
 
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
-                        (canvas.width/2)+3,
-                        (canvas.height/2)-45,
+                        (canvas.width/2),
+                        (canvas.height/2)-230,
                         GameLoop.velocidadIngredientes);
     },
 
@@ -208,6 +217,7 @@ var GameLoop = {
         return new Plato(platoSeleccionado.nombre,
                   platoSeleccionado.rutas,
                   platoSeleccionado.receta,
+                  platoSeleccionado.lista,
                   derecha);
         //console.log("Plato: " + platoSeleccionado.nombre);
     },

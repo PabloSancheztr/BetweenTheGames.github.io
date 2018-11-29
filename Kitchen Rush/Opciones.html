@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <head>
+        <title>Kitchen rush</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">        
+        <link href="bootstrap-3.3.7-dist/css/bootstrapGame.css" rel="stylesheet">
+        <script src="javascripts/jquery-3.3.1.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    </head>
+
+    <body>
+        <div class="containerMenu ir">
+
+            <button class="btn">Volumen(Css)</button>
+
+            <button class="btn">Ingles</button>
+
+            <button class="btn">Español</button>
+
+            <a href="Menu.html">
+                <button class="btn">Volver</button>
+            </a>
+            <!--
+            <head>
+            <script type="application/javascript" src="javascript.js">
+            <link id="pagestyle" href="default.css" rel="stylesheet" type="text/css" />
+            </head>
+            <body>
+            <button id="Español" onclick="initate();"> Default Style Sheet </button>
+            <button id="Ingles" onclick="onclick="initate();"> Dark Style Sheet </button>
+            </body> 
+            -->
+
+
+        </div>     
+
+        <script language = "JavaScript">
+            let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
+            musicaMenu.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            musicaMenu.volume = 0.7;
+            musicaMenu.play();
+        </script>
+    </body>
+</html>
