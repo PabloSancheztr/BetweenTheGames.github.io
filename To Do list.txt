@@ -23,3 +23,28 @@
 
 ***** Bugs *****
 - Al llevar un ingrediente al plato eliminarlo, o sacarlo del array de pintado y control con el teclado [Arreglado]
+
+***** Objetos a cambiar para la resolucion de las distintas versiones *****
+Fondo: GameMaraton.js / GameContra.js
+Triggers: GameMaraton.js / GameContra.js
+Dibujado de los platos: Plato.js -> dibujarEnCanvas()
+Dibujado y agrandamiento de los ingredientes: Ingredientes.js -> constructor() y dibujarEnCanvas()
+Listas de la receta: Platos.js -> dibujarEnCanvas()
+Layout: GameLoop.js -> Pintar()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

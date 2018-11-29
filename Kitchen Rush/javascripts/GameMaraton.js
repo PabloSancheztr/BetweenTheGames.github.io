@@ -73,19 +73,23 @@ var Game = {
         Game.dificultad = new Image();
         Game.dificultad.src = "assets/images/Emotes/tenedor.png";
 
-        // Imagen de fondo
-        Game.fondo = new Image();
-        Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
-
-        // Colisiones
+        // Versiones: Movil - Tablet - PC
         Game.triggers = new Array();
         if(screen.width < 500) {
-            
+            Game.fondo = new Image();
+            Game.fondo.src = "assets/images/Backgrounds/Fondo_juego_movil.png";
+
+            new TriggerRect((canvas.width/2)-40, (canvas.height/2)+60, 80, 100, "#A00C0C"); // [0] - Area seleccion de ingredientes
+            new TriggerRect((canvas.width/2)-150, (canvas.height/2)+60, 80, 100, "#12A7E8"); // [1] - Plato izquierdo
+            new TriggerRect((canvas.width/2)+70, (canvas.height/2)+60, 80, 100, "#12A7E8"); // [2] - Plato derecho
         }
         else if(screen.width < 1100) {
             
         }
         else {
+            Game.fondo = new Image();
+            Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
+
             new TriggerRect((canvas.width/2)-50, (canvas.height/2)+100, 150, 140, "#A00C0C"); // [0] - Area seleccion de ingredientes
             new TriggerRect((canvas.width/2)-280, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [1] - Plato izquierdo
             new TriggerRect((canvas.width/2)+180, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [2] - Plato derecho
