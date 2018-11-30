@@ -159,7 +159,7 @@ var GameLoop = {
             if(Game.contrareloj) {
                 //context.font = "bold 12px sans-serif";
                 if(Game.segundos >= 10 && Game.minutos >= 0) {
-                    context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 90);
+                    context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 30);
                 }
                 else {
                     context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);

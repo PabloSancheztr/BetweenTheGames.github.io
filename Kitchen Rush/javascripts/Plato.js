@@ -10,8 +10,10 @@ function Plato(nombre, rutas, receta, lista, derecha) {
     this.ingredienteActual = 0;
     this.numIngredientes = receta.length;
     this.derecha = derecha;
+    this.posX = 0;
+    this.posY = 0;
     
-    //this.insertarEnArray();
+    this.insertarEnArray();
 }
 
 Plato.prototype.insertarEnArray = function() {
