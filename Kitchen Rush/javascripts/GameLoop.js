@@ -50,10 +50,12 @@ var GameLoop = {
                     this.play();
                 }, false);
                 GameLoop.musicaJuego.play();
-                //////////////////////
+
+                ///////////////////////////
                 GameLoop.nivelDificultad.push(Game.dificultad);
                 GameLoop.nivelDificultad.push(Game.dificultad);
-                ///////////////////////
+                //////////////////////////
+                
                 GameLoop.primeraEjecucion = false;
             }
 
@@ -122,7 +124,6 @@ var GameLoop = {
     pintar: function(registroTemporal) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = "black";
-        context.font = "900 35px Arial";
         GameLoop.fps++;       
 
         // Fondo
@@ -152,35 +153,73 @@ var GameLoop = {
             elemento.dibujarEnCanvas();
         })
 
-        // Cronometro
-        if(Game.contrareloj) {
-            //context.font = "bold 12px sans-serif";
-            if(Game.segundos >= 10 && Game.minutos >= 0) {
-                context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 90);
+        if(screen.width < 500) {
+            context.font = "900 17px Arial";
+            // Cronometro
+            if(Game.contrareloj) {
+                //context.font = "bold 12px sans-serif";
+                if(Game.segundos >= 10 && Game.minutos >= 0) {
+                    context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 30);
+                }
+                else {
+                    context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);
+                }
             }
-            else {
-                context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);
-            }
-        }
 
-        // Nivel de enfado
-        if(Game.maraton) {
-            let posImgX = (canvas.width/2)-80;
-            Game.nivelEnfado.forEach(function(elemento) {
-                context.drawImage(elemento, posImgX, 40, 100, 90);
-                posImgX += 50;
+            // Nivel de enfado
+            if(Game.maraton) {
+                let posImgX = (canvas.width/2)-50;
+                Game.nivelEnfado.forEach(function(elemento) {
+                    context.drawImage(elemento, posImgX, 10, 50, 40);
+                    posImgX += 25;
+                })
+            }
+
+            // Nivel de dificultad
+            let posImgX = (canvas.width/2)+80;
+            GameLoop.nivelDificultad.forEach(function(elemento) {
+                context.drawImage(elemento, posImgX, canvas.height-45, 15, 40);
+                posImgX += 20;
             })
+
+            // Platos completados
+            context.fillText("Platos: " + Game.platosCompletados, 5, canvas.height-5);
         }
+        else if(screen.width < 1100) {
 
-        // Nivel de dificultad
-        let posImgX = (canvas.width/2)+200;
-        GameLoop.nivelDificultad.forEach(function(elemento) {
-            context.drawImage(elemento, posImgX, canvas.height-80, 25, 70);
-            posImgX += 35;
-        })
+        }
+        else {
+            context.font = "900 35px Arial";
+            // Cronometro
+            if(Game.contrareloj) {
+                //context.font = "bold 12px sans-serif";
+                if(Game.segundos >= 10 && Game.minutos >= 0) {
+                    context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-20, 90);
+                }
+                else {
+                    context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-20, 90);
+                }
+            }
 
-        // Platos completados
-        context.fillText("Platos servidos: " + Game.platosCompletados, 5, canvas.height-5);
+            // Nivel de enfado
+            if(Game.maraton) {
+                let posImgX = (canvas.width/2)-80;
+                Game.nivelEnfado.forEach(function(elemento) {
+                    context.drawImage(elemento, posImgX, 40, 100, 90);
+                    posImgX += 50;
+                })
+            }
+
+            // Nivel de dificultad
+            let posImgX = (canvas.width/2)+200;
+            GameLoop.nivelDificultad.forEach(function(elemento) {
+                context.drawImage(elemento, posImgX, canvas.height-80, 25, 70);
+                posImgX += 35;
+            })
+
+            // Platos completados
+            context.fillText("Platos servidos: " + Game.platosCompletados, 5, canvas.height-5);
+        }
     },
 
     // Creacion aleatoria de los ingredientes
@@ -205,8 +244,6 @@ var GameLoop = {
 
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
-                        (canvas.width/2),
-                        (canvas.height/2)-230,
                         GameLoop.velocidadIngredientes);
     },
 

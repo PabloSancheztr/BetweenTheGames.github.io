@@ -10,17 +10,10 @@ function Plato(nombre, rutas, receta, lista, derecha) {
     this.ingredienteActual = 0;
     this.numIngredientes = receta.length;
     this.derecha = derecha;
-
-    if(this.derecha) {
-        this.posX = (canvas.width/2)+190;
-        this.posY = (canvas.height/2)+130;
-    }
-    else {
-        this.posX = (canvas.width/2)-270;
-        this.posY = (canvas.height/2)+130;
-    }
+    this.posX = 0;
+    this.posY = 0;
     
-    //this.insertarEnArray();
+    this.insertarEnArray();
 }
 
 Plato.prototype.insertarEnArray = function() {
@@ -33,14 +26,47 @@ Plato.prototype.sacarDeArray = function() {
 }
 
 Plato.prototype.dibujarEnCanvas = function() {
-    context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
+    if(screen.width < 500) {
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+75;
+            this.posY = (canvas.height/2)+80;
+        }
+        else {
+            this.posX = (canvas.width/2)-145;
+            this.posY = (canvas.height/2)+80;
+        }
 
-    if(this.derecha) {
-        context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 160, 300);
+        context.drawImage(this.sprite, this.posX, this.posY, 70, 60);
+
+        if(this.derecha) {
+            context.drawImage(this.listaImg, (canvas.width/2)+70, 60, 40, 180);
+        }
+        else {
+            context.drawImage(this.listaImg, (canvas.width/2)-110, 60, 40, 180);
+        }
+    }
+    else if(screen.width < 1100) {
+
     }
     else {
-        context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 160, 300);
-    }
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+190;
+            this.posY = (canvas.height/2)+130;
+        }
+        else {
+            this.posX = (canvas.width/2)-270;
+            this.posY = (canvas.height/2)+130;
+        }
+
+        context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
+
+        if(this.derecha) {
+            context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 160, 300);
+        }
+        else {
+            context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 160, 300);
+        }
+    }    
 }
 
 Plato.prototype.comprobarIngrediente = function(nombreIngrediente) {
