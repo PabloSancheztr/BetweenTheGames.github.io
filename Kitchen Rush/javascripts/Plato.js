@@ -46,7 +46,23 @@ Plato.prototype.dibujarEnCanvas = function() {
         }
     }
     else if(screen.width < 1100) {
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+140;
+            this.posY = (canvas.height/2)+160;
+        }
+        else {
+            this.posX = (canvas.width/2)-220;
+            this.posY = (canvas.height/2)+160;
+        }
 
+        context.drawImage(this.sprite, this.posX, this.posY, 120, 90);
+
+        if(this.derecha) {
+            context.drawImage(this.listaImg, (canvas.width/2)+180, 110, 120, 300);
+        }
+        else {
+            context.drawImage(this.listaImg, (canvas.width/2)-290, 110, 120, 300);
+        }
     }
     else {
         if(this.derecha) {

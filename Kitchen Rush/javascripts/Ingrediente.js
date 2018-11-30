@@ -12,7 +12,11 @@ function Ingrediente(nombre, ruta, velocidad) {
         this.posY = (canvas.height/2)-160;
     }
     else if(screen.width < 1100) {
+        this.ancho = 10;
+        this.alto = 7;
 
+        this.posX = (canvas.width/2);
+        this.posY = (canvas.height/2)-230;
     }
     else {
         this.ancho = 20;
@@ -30,25 +34,12 @@ Ingrediente.prototype.insertarEnArray = function() {
 }
 
 Ingrediente.prototype.dibujarEnCanvas = function() {
-    if(screen.width < 500) {
-        context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
+    context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
     
-        if(this.ancho < 100 && this.alto < 97) {
-            this.ancho += 0.35;
-            this.alto += 0.35;
-        }
+    if(this.ancho < 100 && this.alto < 97) {
+        this.ancho += 0.35;
+        this.alto += 0.35;
     }
-    else if(screen.width < 1100) {
-
-    }
-    else {
-        context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
-    
-        if(this.ancho < 100 && this.alto < 97) {
-            this.ancho += 0.35;
-            this.alto += 0.35;
-        }
-    }    
 }
 
 Ingrediente.prototype.mover = function() {
