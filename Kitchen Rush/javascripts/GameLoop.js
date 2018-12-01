@@ -10,7 +10,7 @@ var GameLoop = {
     ultimoRegistro: 0,
     ups: 0,
     fps: 0,
-    debug: true,
+    debug: false,
     primeraEjecucion: true,
     gameOver: false,
     velocidadIngredientes: 2.5,
@@ -50,11 +50,6 @@ var GameLoop = {
                     this.play();
                 }, false);
                 GameLoop.musicaJuego.play();
-
-                ///////////////////////////
-                GameLoop.nivelDificultad.push(Game.dificultad);
-                GameLoop.nivelDificultad.push(Game.dificultad);
-                //////////////////////////
                 
                 GameLoop.primeraEjecucion = false;
             }
@@ -186,7 +181,36 @@ var GameLoop = {
             context.fillText("Platos: " + Game.platosCompletados, 5, canvas.height-5);
         }
         else if(screen.width < 1100) {
+            context.font = "900 25px Arial";
+            // Cronometro
+            if(Game.contrareloj) {
+                //context.font = "bold 12px sans-serif";
+                if(Game.segundos >= 10 && Game.minutos >= 0) {
+                    context.fillText(Game.minutos + ":" + Game.segundos, (canvas.width/2)-10, 90);
+                }
+                else {
+                    context.fillText(Game.minutos + ":0" + Game.segundos, (canvas.width/2)-10, 90);
+                }
+            }
 
+            // Nivel de enfado
+            if(Game.maraton) {
+                let posImgX = (canvas.width/2)-60;
+                Game.nivelEnfado.forEach(function(elemento) {
+                    context.drawImage(elemento, posImgX, 50, 80, 70);
+                    posImgX += 40;
+                })
+            }
+
+            // Nivel de dificultad
+            let posImgX = (canvas.width/2)+140;
+            GameLoop.nivelDificultad.forEach(function(elemento) {
+                context.drawImage(elemento, posImgX, canvas.height-75, 25, 70);
+                posImgX += 30;
+            })
+
+            // Platos completados
+            context.fillText("Platos servidos: " + Game.platosCompletados, 5, canvas.height-5);
         }
         else {
             context.font = "900 35px Arial";

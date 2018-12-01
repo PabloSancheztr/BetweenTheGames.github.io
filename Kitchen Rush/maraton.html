@@ -21,7 +21,6 @@
         
 
         <!-- Scripts -->
-        <script src="javascripts/jquery-3.3.1.min.js"></script>
         <script language="JavaScript">
             if(screen.width < 500) {
                 console.log("Movil");
@@ -32,8 +31,8 @@
             else if(screen.width < 1100) {
                 console.log("Tablet");
                 let canvas = document.getElementById("gameCanvas");
-                canvas.setAttribute("width", "800");
-                canvas.setAttribute("height", "1000");
+                canvas.setAttribute("width", "700");
+                canvas.setAttribute("height", "800");
             }
             else {
                 console.log("Ordenador");
@@ -41,7 +40,8 @@
                 canvas.setAttribute("width", "1000");
                 canvas.setAttribute("height", "750");
             }
-        </script>        
+        </script>    
+        <script src="javascripts/jquery-3.3.1.min.js"></script>    
         <script src="javascripts/TriggerRect.js"></script>
         <script src="javascripts/Ingrediente.js"></script>
         <script src="javascripts/Plato.js"></script>
