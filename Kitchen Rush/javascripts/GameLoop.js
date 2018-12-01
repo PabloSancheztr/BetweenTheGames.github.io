@@ -142,12 +142,15 @@ var GameLoop = {
 
         // Pintado de los platos
         Game.platos.forEach(function (elemento) {
-            elemento.dibujarEnCanvas();
+            elemento.dibujarEnCanvas(false);
+            //console.log("PosX: " + elemento.posX);
         })
         GameLoop.platosCompletados.forEach(function(elemento) {
-            elemento.dibujarEnCanvas();
+            elemento.dibujarEnCanvas(true);
+            //console.log("PosX: " + elemento.posX);
         })
 
+        // Pintado del Layout (segun el dispositivo)
         if(screen.width < 500) {
             context.font = "900 17px Arial";
             // Cronometro
@@ -302,7 +305,7 @@ var GameLoop = {
                         GameLoop.audioCorrecto.play();
                         Game.platos[1].platoCompletado(Game.platos[1]);
                         Game.platos.pop();
-                        Game.platos.push(GameLoop.creacionPlatos(true));
+                        GameLoop.creacionPlatos(true);
                     }
                 }
             }
@@ -324,7 +327,7 @@ var GameLoop = {
                         GameLoop.audioCorrecto.play();
                         Game.platos[0].platoCompletado(Game.platos[0]);
                         Game.platos.shift();
-                        Game.platos.unshift(GameLoop.creacionPlatos(false));
+                        GameLoop.creacionPlatos(false);
                     }
                 }
             }
