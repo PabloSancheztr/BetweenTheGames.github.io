@@ -257,7 +257,7 @@ var GameLoop = {
 
         // Algoritmo de creacion de los platos
         let numeroRandom = Math.random();
-        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquieda
+        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquierda
             let nombreIngrediente = Game.platos[0].receta[Game.platos[0].ingredienteActual]
             for(i = 0; i < Game.ingredientesJSON.length; i++) {
                 if(Game.ingredientesJSON[i].nombre == nombreIngrediente) {
