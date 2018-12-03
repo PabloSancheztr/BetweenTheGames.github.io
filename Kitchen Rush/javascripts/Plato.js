@@ -12,12 +12,68 @@ function Plato(nombre, rutas, receta, lista, derecha) {
     this.derecha = derecha;
     this.posX = 0;
     this.posY = 0;
+    this.listaPosX = 0;
+    this.listaPosY = 0;
+
+    if(screen.width < 500) {
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+75;
+            this.posY = (canvas.height/2)+80;
+
+            this.listaPosX = (canvas.width/2)+70;
+            this.listaPosY = 60;
+        }
+        else {
+            this.posX = (canvas.width/2)-145;
+            this.posY = (canvas.height/2)+80;
+
+            this.listaPosX = (canvas.width/2)-110;
+            this.listaPosY = 60;
+        }
+    }
+    else if(screen.width < 1100) {
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+140;
+            this.posY = (canvas.height/2)+160;
+
+            this.listaPosX = (canvas.width/2)+180;
+            this.listaPosY = 110;
+        }
+        else {
+            this.posX = (canvas.width/2)-220;
+            this.posY = (canvas.height/2)+160;
+
+            this.listaPosX = (canvas.width/2)-290;
+            this.listaPosY = 110;
+        }
+    }
+    else {
+        if(this.derecha) {
+            this.posX = (canvas.width/2)+190;
+            this.posY = (canvas.height/2)+130;
+
+            this.listaPosX = (canvas.width/2)+250;
+            this.listaPosY = 100;
+        }
+        else {
+            this.posX = (canvas.width/2)-270;
+            this.posY = (canvas.height/2)+130;
+
+            this.listaPosX = (canvas.width/2)-420;
+            this.listaPosY = 100;
+        }
+    }
     
     this.insertarEnArray();
 }
 
 Plato.prototype.insertarEnArray = function() {
-    Game.platos.push(this);
+    if(this.derecha) {
+        Game.platos.push(this);
+    }
+    else {
+        Game.platos.unshift(this);
+    }
 }
 
 Plato.prototype.sacarDeArray = function() {
@@ -25,62 +81,41 @@ Plato.prototype.sacarDeArray = function() {
     Game.platos.splice(indice, 1);
 }
 
-Plato.prototype.dibujarEnCanvas = function() {
+Plato.prototype.dibujarEnCanvas = function(emplatado) {
     if(screen.width < 500) {
-        if(this.derecha) {
-            this.posX = (canvas.width/2)+75;
-            this.posY = (canvas.height/2)+80;
-        }
-        else {
-            this.posX = (canvas.width/2)-145;
-            this.posY = (canvas.height/2)+80;
-        }
-
         context.drawImage(this.sprite, this.posX, this.posY, 70, 60);
 
-        if(this.derecha) {
-            context.drawImage(this.listaImg, (canvas.width/2)+70, 60, 40, 180);
-        }
-        else {
-            context.drawImage(this.listaImg, (canvas.width/2)-110, 60, 40, 180);
+        if(!emplatado) {
+            if(this.derecha) {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 40, 180);
+            }
+            else {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 40, 180);
+            }
         }
     }
     else if(screen.width < 1100) {
-        if(this.derecha) {
-            this.posX = (canvas.width/2)+140;
-            this.posY = (canvas.height/2)+160;
-        }
-        else {
-            this.posX = (canvas.width/2)-220;
-            this.posY = (canvas.height/2)+160;
-        }
-
         context.drawImage(this.sprite, this.posX, this.posY, 120, 90);
 
-        if(this.derecha) {
-            context.drawImage(this.listaImg, (canvas.width/2)+180, 110, 120, 300);
-        }
-        else {
-            context.drawImage(this.listaImg, (canvas.width/2)-290, 110, 120, 300);
+        if(!emplatado) {
+            if(this.derecha) {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 120, 300);
+            }
+            else {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 120, 300);
+            }   
         }
     }
     else {
-        if(this.derecha) {
-            this.posX = (canvas.width/2)+190;
-            this.posY = (canvas.height/2)+130;
-        }
-        else {
-            this.posX = (canvas.width/2)-270;
-            this.posY = (canvas.height/2)+130;
-        }
-
         context.drawImage(this.sprite, this.posX, this.posY, 130, 100);
 
-        if(this.derecha) {
-            context.drawImage(this.listaImg, (canvas.width/2)+250, 100, 160, 300);
-        }
-        else {
-            context.drawImage(this.listaImg, (canvas.width/2)-420, 100, 160, 300);
+        if(!emplatado) {
+            if(this.derecha) {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 160, 300);
+            }
+            else {
+                context.drawImage(this.listaImg, this.listaPosX, this.listaPosY, 160, 300);
+            }
         }
     }    
 }

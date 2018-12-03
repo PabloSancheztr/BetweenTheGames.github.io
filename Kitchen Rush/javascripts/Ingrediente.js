@@ -37,8 +37,14 @@ Ingrediente.prototype.dibujarEnCanvas = function() {
     context.drawImage(this.sprite, this.posX, this.posY, this.ancho, this.alto);
     
     if(this.ancho < 100 && this.alto < 97) {
-        this.ancho += 0.35;
-        this.alto += 0.35;
+        if(GameLoop.nivelDificultad.length > 0) {
+            this.ancho += (0.35 * (GameLoop.nivelDificultad.length+1));
+            this.alto += (0.35 * (GameLoop.nivelDificultad.length+1));
+        }
+        else {
+            this.ancho += 0.35;
+            this.alto += 0.35;
+        }
     }
 }
 

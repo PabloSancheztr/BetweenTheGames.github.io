@@ -6,9 +6,69 @@
   display: absolute;
   align-items: center;
   margin-top: 5%;
-  background-image: url(/assets/images/Backgrounds/overwatchBG.png);
-  width: 300px;
-  height: 600px;
+  background-image: url("../../assets/images/Menus/Menu_def.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.containerCred {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Backgrounds/Creditos.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.containerOpt {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Backgrounds/Opciones.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.containerModo {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Menus/Modos_esp.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .containerFin {
@@ -18,15 +78,145 @@
   display: flex;
   align-items: center;
   margin-top: 5%;
-  background-image: url(/assets/images/Backgrounds/overwatchBG.png);
-  width: 300px;
-  height: 600px;
+  background-image: url("../../assets/images/Menus/Menu_def.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
+
 
 .salto {
   content: '\A'; 
   white-space: pre;
 }
+
+
+
+/*Contenedores de botones*/
+.btnJugar {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Jugar.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	position:absolute;
+    top: 50%;
+    left: 45%;
+}
+
+.btnContra {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Contra_Reloj.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute;
+    top: 50%;
+    left: 45%;
+}
+
+.btnMaraton {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Maraton.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute;
+    top: 70%;
+    left: 45%;
+}
+
+.btnOpciones {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Opciones.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	  position:absolute;
+    top: 70%;
+    left: 45%;
+}
+
+.btnRanking {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Ranking.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	  position:absolute;
+    top: 60%;
+    left: 55%;
+}
+
+.btnCreditos {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Creditos.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	  position:absolute;
+    top: 60%;
+    left: 35%;
+}
+
 
 /* Contenedor del juego */
 .divGame {
@@ -64,7 +254,7 @@
     height: 600px;
   }*/
   .divBotones {
-    margin-left: 0%;
+    margin-left: 4%;
   }
 }
  
@@ -76,6 +266,7 @@
     height: 900px;
     padding-top: 50%;
     padding-left: 25%;
+	background-image: url("../../assets/images/Menus/Portada_movil.png");
   }
   .containerFin {
     width: 700px;
