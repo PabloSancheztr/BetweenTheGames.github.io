@@ -251,13 +251,13 @@ var GameLoop = {
 
     // Creacion aleatoria de los ingredientes
     creacionIngredientes: function() {
-        let randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
-        let ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
+        let randomIngrediente;
+        let ingredienteSeleccionado;
 
 
         // Algoritmo de creacion de los platos
         let numeroRandom = Math.random();
-        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquieda
+        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquierda
             let nombreIngrediente = Game.platos[0].receta[Game.platos[0].ingredienteActual]
             for(i = 0; i < Game.ingredientesJSON.length; i++) {
                 if(Game.ingredientesJSON[i].nombre == nombreIngrediente) {
