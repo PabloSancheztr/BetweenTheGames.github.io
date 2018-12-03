@@ -153,7 +153,14 @@
     left: 35%;
 }
 
+/* Canvas del juego */
+.gameCanvas {
+  margin: 0 auto;
+}
 
+/* Distintas resoluciones según el dispositivo */
+/* Móviles
+   ------------------------------------------------------------------------- */
 /* Contenedor del juego */
 .divGame {
   display: flex;
@@ -167,32 +174,6 @@
   margin-left: 2%;
 }
 
-/* Canvas del juego */
-.gameCanvas {
-  margin: 0 auto;
-}
-
-/* Distintas resoluciones según el dispositivo */
-/* Móviles
-   ------------------------------------------------------------------------- */
-@media (min-height: 768px) { 
-  .containerMenu {
-    width: 300px;
-    height: 700px;
-    padding-top: 60%;
-  }
-  .containerFin {
-    width: 300px;
-    height: 700px;
-  }
-  /*.gameCanvas {
-    width: 300px;
-    height: 600px;
-  }*/
-  .divBotones {
-    margin-left: 4%;
-  }
-}
  
 /* Tablets
    ------------------------------------------------------------------------- */
@@ -202,21 +183,21 @@
     height: 900px;
     padding-top: 50%;
     padding-left: 25%;
-	background-image: url("../../assets/images/Menus/Portada_movil.png");
+	  background-image: url("../../assets/images/Menus/Portada_movil.png");
   }
+
   .containerFin {
     width: 700px;
     height: 900px;
     padding-top: 10%;
     padding-left: 35%;
   }
-  /*.gameCanvas {
-    width: 700px;
-    height: 900px;
-  }*/
+
   .divBotones {
     margin-left: 4%;
   }
+
+  /* Botones */
  }
  
 /* Ordenadores
@@ -228,18 +209,28 @@
     padding-top: 20%;
     padding-left: 18%;
   }
+
   .containerFin {
     width: 1000px;
     height: 750px;
     padding-top: 20%;
     padding-left: 23%;
   }
-  /*#gameCanvas {
-    width: 1000px;
-    height: 750px;
-    style: "width='1000' height='750'";
-  }*/
+
   .divBotones {
     margin-left: 24%;
+  }
+
+  /* Botones */
+  #contrarrelojBoton {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: ("../assets/images/Botones/espanol/Contra_reloj.png");
+    width: 80%;
+    height: 40%;
+  }
+
+  #maratonBoton {
+    /*width: 80%;
+    height: 80%;*/
   }
 }
