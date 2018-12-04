@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <div class="containerModo salto">
+        <div id="botones" class="containerModo salto">
             
                 <a href="contrarreloj.html" lang='es'>
                     <button id="contrarrelojBoton" class="btn btnContra"></button>
@@ -29,10 +29,10 @@
                 </a>
 				
 				<a href="Menu.html" lang='es'>
-					<button class="btn">Volver</button>
+					<button class="btn btnVolver">Volver</button>
 				</a>
 				<a href="Menu.html" lang ='en'>
-					<button class="btn">Back</button>
+					<button class="btnVolver">Back</button>
 				</a>
         </div>     
 
@@ -44,7 +44,15 @@
                 this.play();
             }, false);
 			musicaMenu.volumen = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
+			alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				alert("cambio");
+				sessionStorage.Momento = musicaMenu.currentTime;
+				alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
         </script>
     </body>
 </html>

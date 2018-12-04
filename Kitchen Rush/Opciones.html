@@ -13,7 +13,7 @@
     </head>
 
     <body onload="drawvolumecontroller(20,70,6);">
-        <div class="containerOpt ir">
+        <div id="botones" class="containerOpt ir">
 			<div id="volumcontroller"></div>
 			<div id="volumeindicator"></div>
 			<button onclick=" sessionStorage.VolumenAntes = sessionStorage.Volumen, 
@@ -22,10 +22,10 @@
 			musicaMenu = sessionStorage.VolumenAntes">Unmute</button>			
 			<!---->	
 			<a href="Menu.html" lang="es">
-				<button class="btn" >Volver</button>
+				<button class="btn btnVolver" >Volver</button>
 			</a>
 			<a href="Menu.html" lang="en">
-				<button class="btn" >Back</button>
+				<button class="btn btnVolver" >Back</button>
 			</a>
 			
 			<a href="" lang="es">español</a>
@@ -43,8 +43,15 @@
                 this.play();
             }, false);
             musicaMenu.volumen = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
-
+			alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				alert("cambio");
+				sessionStorage.Momento = musicaMenu.currentTime;
+				alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
 			function drawvolumecontroller(length,height,nowselected){    
 				document.getElementById("volumcontroller").innerHTML = "";
 				for (i=0;i<length;i++){

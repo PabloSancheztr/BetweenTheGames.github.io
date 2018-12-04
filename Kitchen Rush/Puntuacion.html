@@ -12,13 +12,13 @@
     </head>
 
     <body>
-        <div class="containerMenu ir">
+        <div id="botones" class="containerMenu ir">
 
             <a href="Menu.html" lang="es">
-				<button class="btn btnIdioma" >Volver</button>
+				<button class="btn btnVolver" >Volver</button>
 			</a>
 			<a href="Menu.html" lang="en">
-				<button class="btn btnIdioma" >Back</button>
+				<button class="btn btnVolver" >Back</button>
 			</a>
         
        </div>     
@@ -31,7 +31,15 @@
                 this.play();
             }, false);
 			musicaMenu.volumen = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
+			alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				alert("cambio");
+				sessionStorage.Momento = musicaMenu.currentTime;
+				alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
         </script>
     </body>
 </html>
