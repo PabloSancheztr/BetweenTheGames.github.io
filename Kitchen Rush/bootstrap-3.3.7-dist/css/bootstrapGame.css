@@ -21,14 +21,14 @@
 
 .containerCred {
   margin: 0 auto;
-  padding-left: 0%;
+  padding-left: 10%;
   padding-top: 40%;
   display: absolute;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Backgrounds/Creditos.png");
-  width: 1000px;
-  height: 750px;
+  background-image: url("../../assets/images/Backgrounds/Creditos_movil.png");
+  width: 340px;
+  height: 500px;
   /*width: 300px;
   height: 600px;*/
   background-position: center;
@@ -36,7 +36,6 @@
   background-size: cover;
   position: relative;
 }
-
 .containerOpt {
   margin: 0 auto;
   padding-left: 0%;
@@ -44,9 +43,9 @@
   display: absolute;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Backgrounds/Opciones.png");
-  width: 1000px;
-  height: 750px;
+  background-image: url("../../assets/images/Backgrounds/Opciones_movil.png");
+  width: 340px;
+  height: 500px;
   /*width: 300px;
   height: 600px;*/
   background-position: center;
@@ -69,6 +68,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+  
+.containerModoIng {
+   background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
 }
 
 .containerFin {
@@ -274,7 +277,7 @@ body.es :lang(en) {
     height: 900px;
     padding-top: 50%;
     padding-left: 25%;
-	  background-image: url("../../assets/images/Menus/Portada_movil.png");
+	 background-image: url("../../assets/images/Menus/Portada_movil.png");
   }
 
   .containerFin {
@@ -283,6 +286,19 @@ body.es :lang(en) {
     height: 900px;
     padding-top: 10%;
     padding-left: 35%;
+  }
+  .containerOpt{
+  	width: 700px;
+    height: 900px;
+    padding-top: 50%;
+    padding-left: 25%;
+  }
+
+  .containerCred{
+  	width: 700px;
+    height: 900px;
+    padding-top: 50%;
+    padding-left: 25%;
   }
 
   #menuBtn {
@@ -311,6 +327,9 @@ body.es :lang(en) {
     width: 700px;
     height: 800px;
   }
+  .containerModoIng { 
+    background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
+   }
 
   .btnContra {
     top: 50%;
@@ -381,7 +400,19 @@ body.es :lang(en) {
     padding-top: 20%;
     padding-left: 23%;
   }
+  .containerOpt{
+  	background-image: url("../../assets/images/Backgrounds/Opciones.png");
+  	width: 1000px;
+    height: 750px;
+  }
 
+   .containerCred{
+   	background-image: url("../../assets/images/Backgrounds/Creditos.png");
+  	width: 1000px;
+    height: 750px;
+    padding-left: 5%;
+  	padding-top: 10%;
+  }
   #menuBtn {
     width: 20%;
     left: 20%;
@@ -405,6 +436,9 @@ body.es :lang(en) {
     width: 1000px;
     height: 750px;
   }
+  .containerModoIng { 
+    background-image: url("../../assets/images/Menus/Modos_ing.png"); 
+   }
 
   .btnContra {
     top: 50%;
