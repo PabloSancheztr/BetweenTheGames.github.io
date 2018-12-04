@@ -78,11 +78,9 @@
   display: flex;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Menus/Menu_def.png");
-  width: 1000px;
-  height: 750px;
-  /*width: 300px;
-  height: 600px;*/
+  background-image: url("../../assets/images/Menus/Puntuacion_movil.png");
+  width: 340px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -95,10 +93,38 @@
   white-space: pre;
 }
 
+#puntuacionPartida {
+  color: #F72717;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+  top: 34%;
+  left: 45%;
+}
+
+#menuBtn {
+  background-color:rgba(0, 0, 0, 0);
+  background-image: url("../../assets/images/Botones/espanol/Menu.png");
+  width: 18%;
+  height: 15%;
+  position: absolute;
+  top:70%;
+  left: 10%;
+}
+
+#jugarBtn {
+  background-color:rgba(0, 0, 0, 0);
+  background-image: url("../../assets/images/Botones/espanol/Jugar_otra.png");
+  width: 18%;
+  height: 15%;
+  position: absolute;
+  top:70%;
+  left: 55%;
+}
+
 /*Contenedores de botones*/
-.btnJugar {
-    background-color:rgba(0, 0, 0, 0);
-    background-image: url("../../assets/images/Botones/espanol/Jugar.png");
+.btn{
+    transition: all .1s ease-in-out;
     background-size: cover;
     background-position: center;
     display: inline-block;
@@ -111,108 +137,114 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-	  position:absolute;
+    position:absolute;
+
+}
+
+.btn:hover {
+  transform: scale(1.15); 
+}
+
+.btnVolver{
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Volver.png");
+    position: absolute;
+    top:86%;
+    left:60%;
+    width:10%;
+    height: 10%;
+}
+.btnJugar {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Jugar.png");
     top: 50%;
     left: 33%;
+}
+.btnJugarIng {
+    background-image: url("../../assets/images/Botones/ingles/Play.png");
 }
 
 .btnContra {
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Contra_Reloj.png");
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-    border: none;
-    color: white;
-    padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position:absolute;
     top: 50%;
     left: 30%;
 }
-
+.btnContraIng {
+    background-image: url("../../assets/images/Botones/ingles/Race.png");
+}
 .btnMaraton {
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Maraton.png");
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-    border: none;
-    color: white;
-    padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position:absolute;
     top: 70%;
     left: 30%;
+}
+.btnMaratonIng {
+    background-image: url("../../assets/images/Botones/ingles/Marathon.png");
 }
 
 .btnOpciones {
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Opciones.png");
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-    border: none;
-    color: white;
-    padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	  position:absolute;
     top: 83%;
     left: 33%;
+}
+.btnOpcionesIng {
+    background-image: url("../../assets/images/Botones/ingles/Options.png");
 }
 
 .btnRanking {
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Ranking.png");
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-    border: none;
-    padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	  position:absolute;
     top: 65%;
     left: 60%;
+}
+.btnRankingIng {
+    background-image: url("../../assets/images/Botones/ingles/Ranking.png");
 }
 
 .btnCreditos {
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Creditos.png");
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-    border: none;
-    color: white;
-    padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	  position:absolute;
     top: 65%;
     left: 10%;
+}
+.btnCreditosIng {
+    background-image: url("../../assets/images/Botones/ingles/Credits.png");
+}
+
+
+/*Idioma*/
+body.en :lang(es) {
+  display:none;
+}
+body.es :lang(en) {
+  display: none;
+}
+/*Volumen*/
+#volumcontroller {
+    height: 35px;
+    width: 90px;
+    position:absolute;
+    top: 70%;
+    left: 10%;
+}
+#volumcontroller div{
+    height:40px;
+}
+.volumecontrollerbar{
+    border-left:1px solid #222;
+    float:right;
+    width:4px;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    border-top-left-radius: 3px;
+    background-color: #4c4c4c;
+    cursor:pointer;
+
+}
+.volumecontrollerbar:hover{
+    background-color:#bcbcbc !important;
 }
 
 /* Contenedor del juego */
@@ -246,10 +278,28 @@
   }
 
   .containerFin {
+    background-image: url("../../assets/images/Menus/Puntuacion_movil.png");
     width: 700px;
     height: 900px;
     padding-top: 10%;
     padding-left: 35%;
+  }
+
+  #menuBtn {
+    width: 30%;
+    top: 70%;
+    left: 15%;
+  }
+
+  #jugarBtn {
+    width: 33%;
+    top: 70%;
+    left: 50%;
+  }
+
+  #puntuacionPartida {
+    font-size: 80px;
+    left: 44%;
   }
 
   .divBotones {
@@ -283,6 +333,12 @@
     height: 800px;
   }
 
+  .btnVolver{
+    width: 25%;
+    top: 87%;
+    left: 70%;
+  }
+  
   .btnJugar {
     width: 200px;
     height: 150px;
@@ -319,10 +375,25 @@
   }
 
   .containerFin {
+    background-image: url("../../assets/images/Menus/Puntuacion.png");
     width: 1000px;
     height: 750px;
     padding-top: 20%;
     padding-left: 23%;
+  }
+
+  #menuBtn {
+    width: 20%;
+    left: 20%;
+  }
+
+  #jugarBtn {
+    left: 57%;
+  }
+
+  #puntuacionPartida {
+    font-size: 100px;
+    top: 45%;
   }
 
   .divBotones {
@@ -354,7 +425,12 @@
     width: 1000px;
     height: 750px;
   }
-
+  .btnVolver{
+    width: 17%;
+    height: 10%;
+    top: 88%;
+    left: 82%;
+  }
   .btnJugar {
     width: 20%;
     height: 20%;

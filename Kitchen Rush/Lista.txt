@@ -1,10 +1,15 @@
-Creditos ajustar
-Css y resolucion/tamaño para botones en opciones/volver
-Crear ranking
-Idioma: Cambiar fondos
-Mirar finPartida
-volumen quitar numero
+Sonido -> Añadir barra de sonido y funcionalidad HECHO
+Idioma -> Style sheet con diferentes fondos/botones FALTA (funcionalidad core hecha, añadir el cambio de sheet segun idioma/resolucion)
+Efectos -> (?)
 
 
 
+Efectos: sonido pulsar/ hacerse grande al hover
+Idioma
+Sonido: Session storage
+Mirar como trnasimitr informacion: Local o Session sotrage
 
+
+
+Sonido: Musica no empieza, javascript o html?
+Idioma:Funcionar
