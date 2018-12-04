@@ -1,0 +1,404 @@
+/* Distintas resoluciones según el dispositivo */
+/* Móviles (Por defecto)
+   ------------------------------------------------------------------------- */
+
+/* Contenedo de menus */
+.containerMenu {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Menus/Portada_movil.png");
+  width: 340px;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.containerCred {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Backgrounds/Creditos.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.containerCred {
+    background-image: url("../../assets/images/Backgrounds/Creditos.png");
+}
+
+.containerOpt {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Backgrounds/Opciones.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;     
+  background-size: cover;
+  position: relative;
+}
+
+.containerModo {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Menus/Modos_movil_esp.png");
+  width: 340px;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.containerModoIng {
+    background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
+}
+
+.containerFin {
+  margin: 0 auto;
+  padding-left: 25%;
+  padding-top: 25%;
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Menus/Menu_def.png");
+  width: 1000px;
+  height: 750px;
+  /*width: 300px;
+  height: 600px;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.salto {
+  content: '\A'; 
+  white-space: pre;
+}
+
+/*Contenedores de botones*/
+.btn{
+    transition: all .1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute;
+
+}
+
+.btn:hover {
+  transform: scale(1.15); 
+}
+
+.btnVolver{
+    background-color:black;
+    /*top:86%;
+    left:60%;
+    width:10%;
+    height:10%;*/
+}
+.btnJugar {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Jugar.png");
+    top: 50%;
+    left: 33%;
+}
+.btnJugarIng {
+    background-image: url("../../assets/images/Botones/ingles/Play.png");
+}
+
+.btnContra {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Contra_Reloj.png");
+    top: 50%;
+    left: 30%;
+}
+.btnContraIng {
+    background-image: url("../../assets/images/Botones/ingles/Race.png");
+}
+.btnMaraton {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Maraton.png");
+    top: 70%;
+    left: 30%;
+}
+.btnMaratonIng {
+    background-image: url("../../assets/images/Botones/ingles/Marathon.png");
+}
+
+.btnOpciones {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Opciones.png");
+    top: 83%;
+    left: 33%;
+}
+.btnOpcionesIng {
+    background-image: url("../../assets/images/Botones/ingles/Options.png");
+}
+
+.btnRanking {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Ranking.png");
+    top: 65%;
+    left: 60%;
+}
+.btnRankingIng {
+    background-image: url("../../assets/images/Botones/ingles/Ranking.png");
+}
+
+.btnCreditos {
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/espanol/Creditos.png");
+    top: 65%;
+    left: 10%;
+}
+.btnCreditosIng {
+    background-image: url("../../assets/images/Botones/ingles/Credits.png");
+}
+
+
+/*Idioma*/
+body.en :lang(es) {
+  display:none;
+}
+body.es :lang(en) {
+  display: none;
+}
+/*Volumen*/
+#volumcontroller {
+    height: 35px;
+    width: 90px;
+    position:absolute;
+    top: 70%;
+    left: 10%;
+}
+#volumcontroller div{
+    height:40px;
+}
+.volumecontrollerbar{
+    border-left:1px solid #222;
+    float:right;
+    width:4px;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    border-top-left-radius: 3px;
+    background-color: #4c4c4c;
+    cursor:pointer;
+
+}
+.volumecontrollerbar:hover{
+    background-color:#bcbcbc !important;
+}
+
+/* Contenedor del juego */
+.divGame {
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.divBotones {
+  margin: 0 auto;
+  display: flex;
+  margin-left: 2%;
+}
+
+/* Canvas del juego */
+.gameCanvas {
+  margin: 0 auto;
+}
+ 
+
+/* Tablets
+   ------------------------------------------------------------------------- */
+@media (min-height: 1024px) {
+  .containerMenu {
+    width: 700px;
+    height: 900px;
+    padding-top: 50%;
+    padding-left: 25%;
+	  background-image: url("../../assets/images/Menus/Portada_movil.png");
+  }
+
+  .containerFin {
+    width: 700px;
+    height: 900px;
+    padding-top: 10%;
+    padding-left: 35%;
+  }
+
+  .divBotones {
+    margin-left: 4%;
+  }
+
+  .containerModo {
+    background-image: url("../../assets/images/Menus/Modos_movil_esp.png");
+    width: 700px;
+    height: 800px;
+  }
+    .containerModoIng {
+        background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
+    }
+  .btnContra {
+    top: 50%;
+    left: 40%;
+    width: 25%;
+    height: 15%;
+  }
+
+  .btnMaraton {
+    top: 70%;
+    left: 40%;
+    width: 25%;
+    height: 15%;
+  }
+
+  .containerMenu {
+    background-image: url("../../assets/images/Menus/Portada_movil.png");
+    padding-bottom: 70%;
+    width: 700px;
+    height: 800px;
+  }
+
+  .btnVolver{
+    width:200px;
+    height:150px;
+  }
+  
+  .btnJugar {
+    width: 200px;
+    height: 150px;
+  }
+
+  .btnCreditos {
+    width: 200px;
+    height: 150px;
+  }
+
+  .btnRanking {
+    width: 250px;
+    height: 100px;
+    top: 68%;
+  }
+
+  .btnOpciones {
+    width: 250px;
+    height: 150px;
+    top: 80%;
+    left: 30%;
+  }
+ }
+ 
+
+/* Ordenadores
+   ------------------------------------------------------------------------- */
+@media (min-width: 1200px) { 
+  .containerMenu {
+    width: 1000px;
+    height: 750px;
+    padding-top: 20%;
+    padding-left: 18%;
+  }
+
+  .containerFin {
+    width: 1000px;
+    height: 750px;
+    padding-top: 20%;
+    padding-left: 23%;
+  }
+
+  .divBotones {
+    margin-left: 24%;
+  }
+
+  .containerModo {
+    background-image: url("../../assets/images/Menus/Modos_esp.png");
+    width: 1000px;
+    height: 750px;
+  }
+    .containerModoIng {
+        background-image: url("../../assets/images/Menus/Modos_ing.png");
+    }
+  .btnContra {
+    top: 50%;
+    left: 40%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .btnMaraton {
+    top: 75%;
+    left: 40%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .containerMenu {
+    background-image: url("../../assets/images/Menus/Menu_def.png");
+    width: 1000px;
+    height: 750px;
+  }
+  .btnVolver{
+    top: 88%;
+    left: 82%;
+  }
+  .btnJugar {
+    width: 20%;
+    height: 20%;
+    top: 50%;
+    left: 38%;
+  }
+
+  .btnCreditos {
+    width: 20%;
+    height: 20%;
+    left: 17%;
+  }
+
+  .btnRanking {
+    width: 28%;
+    height: 15%;
+    top: 68%;
+  }
+
+  .btnOpciones {
+    width: 23%;
+    height: 15%;
+    top: 80%;
+    left: 36%;
+  }
+}
