@@ -120,10 +120,10 @@
 
 .btnVolver{
     background-color:black;
-    top:86%;
+    /*top:86%;
     left:60%;
     width:10%;
-    height:10%;
+    height:10%;*/
 }
 .btnJugar {
     background-color:rgba(0, 0, 0, 0);
@@ -279,12 +279,12 @@ body.es :lang(en) {
     height: 15%;
   }
 
-  /*.containerMenu {
+  .containerMenu {
     background-image: url("../../assets/images/Menus/Portada_movil.png");
     padding-bottom: 70%;
     width: 700px;
     height: 800px;
-  }*/
+  }
 
   .btnVolver{
     width:200px;
@@ -357,11 +357,11 @@ body.es :lang(en) {
     height: 20%;
   }
 
-  /*.containerMenu {
+  .containerMenu {
     background-image: url("../../assets/images/Menus/Menu_def.png");
     width: 1000px;
     height: 750px;
-  }*/
+  }
   .btnVolver{
     top: 88%;
     left: 82%;
