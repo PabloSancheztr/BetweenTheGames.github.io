@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
     <head>
         <title>Kitchen rush</title>
 
@@ -11,40 +12,75 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     </head>
 
-    <body>
-        <div class="containerOpt ir">
-
-            <button class="btn">Volumen(Css)</button>
-
-            <button class="btn">Ingles</button>
-
-            <button class="btn">Espa�ol</button>
-
-            <a href="Menu.html">
-                <button class="btn">Volver</button>
-            </a>
-            <!--
-            <head>
-            <script type="application/javascript" src="javascript.js">
-            <link id="pagestyle" href="default.css" rel="stylesheet" type="text/css" />
-            </head>
-            <body>
-            <button id="Espa�ol" onclick="initate();"> Default Style Sheet </button>
-            <button id="Ingles" onclick="onclick="initate();"> Dark Style Sheet </button>
-            </body> 
-            -->
-
-
-        </div>     
+    <body onload="drawvolumecontroller(20,70,6);">
+        <div id="botones" class="containerOpt ir">
+			<div id="volumcontroller"></div>
+			<div id="volumeindicator"></div>
+			<button onclick=" sessionStorage.VolumenAntes = sessionStorage.Volumen, 
+			sessionStorage.Volumen = 0.0, musicaMenu.volume = 0.0">Mute</button>
+			<button onclick=" sessionStorage.Volumen = sessionStorage.VolumenAntes, 
+			musicaMenu.volume = sessionStorage.VolumenAntes">Unmute</button>			
+			<!---->	
+			<a href="Menu.html" lang="es">
+				<button class="btn btnVolver" >Volver</button>
+			</a>
+			<a href="Menu.html" lang="en">
+				<button class="btn btnVolver" >Back</button>
+			</a>
+			
+			<a href="" lang="es">español</a>
+			<a href="" lang="en">ingles</a>		
+			<button onclick="sessionStorage.Idioma='en',document.body.className='en'">english</button>
+			<button onclick="sessionStorage.Idioma='es',document.body.className='es'">espanol</button>
+			<!---->
+        </div>	
 
         <script language = "JavaScript">
+			document.body.className= sessionStorage.Idioma;
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             }, false);
-            musicaMenu.volume = 0.7;
+            musicaMenu.volume = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
-        </script>
+			//alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				//alert("cambio");
+                sessionStorage.Momento = musicaMenu.currentTime;
+                musicaMenu.play();
+				//alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
+			function drawvolumecontroller(length,height,nowselected){    
+				document.getElementById("volumcontroller").innerHTML = "";
+				for (i=0;i<length;i++){
+					magassag = 7 + Math.round((1.4)*(length - i)); 
+					margintop = height-magassag;
+					if (margintop <= 0) {margintop=0;}
+					if (i >= nowselected){        
+						document.getElementById("volumcontroller").innerHTML = 
+						document.getElementById("volumcontroller").innerHTML + 
+						'<div  onmouseup="volumecontrolchanged(' + i + 
+						')" style="background-color:#898989;height:' + magassag + 
+						'px;margin-top:'+margintop+'px;" class="volumecontrollerbar"></div>';
+					} else {
+						document.getElementById("volumcontroller").innerHTML = 
+						document.getElementById("volumcontroller").innerHTML + 
+						'<div  onmouseup="volumecontrolchanged(' + i + 
+						')" style="height:'+magassag+'px;margin-top:' + margintop + 
+						'px;"class="volumecontrollerbar"></div>';
+					}        
+				}    
+			}
+			function volumecontrolchanged(newvolume){
+				drawvolumecontroller(20,70,newvolume);
+				document.getElementById("volumeindicator").innerHTML = newvolume;
+				sessionStorage.Volumen = (20-newvolume)/20;
+				musicaMenu.volume = sessionStorage.Volumen;
+				//alert (sessionStorage.Volumen);
+			}
+		</script>
     </body>
 </html>

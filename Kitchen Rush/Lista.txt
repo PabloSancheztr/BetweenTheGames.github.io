@@ -1,5 +1,10 @@
-Fondos -> Adaptar al cambio de resolucion, revisar preguntar cual deberia ser usada en cada resolucion(Padding?) FALTA (depende de revisar resoluciones)
-Botones -> Colocar correctamente y adapatar al cambio de resolucion -relative padding) FALTA (depende del equivalente de fondos. tamaño hacer relativo en cuanto a la fuente, fuente en cuanto a resolucion.)
-Sonido -> Añadir barra de sonido y funcionalidad HECHO
-Idioma -> Style sheet con diferentes fondos/botones FALTA (funcionalidad core hecha, añadir el cambio de sheet segun idioma/resolucion)
-Efectos -> (?)
+Creditos ajustar
+Css y resolucion/tamaño para botones en opciones/volver
+Crear ranking
+Idioma: Cambiar fondos
+Mirar finPartida
+volumen quitar numero
+
+
+
+
