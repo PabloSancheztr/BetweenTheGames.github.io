@@ -12,21 +12,35 @@
     </head>
 
     <body>
-        <div class="containerMenu ir">
+        <div id="botones" class="containerMenu ir">
 
-            <a href="Menu.html">
-                <button class="btn">Volver</button>
-            </a>
+            <a href="Menu.html" lang="es">
+				<button class="btn btnVolver" >Volver</button>
+			</a>
+			<a href="Menu.html" lang="en">
+				<button class="btn btnVolver" >Back</button>
+			</a>
         
        </div>     
 
         <script language = "JavaScript">
+			document.body.className= sessionStorage.Idioma;
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             }, false);
+			musicaMenu.volume = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
+			//alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				//alert("cambio");
+                sessionStorage.Momento = musicaMenu.currentTime;
+                musicaMenu.play();
+				//alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
         </script>
     </body>
 </html>

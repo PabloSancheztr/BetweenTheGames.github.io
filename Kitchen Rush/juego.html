@@ -12,24 +12,48 @@
     </head>
 
     <body>
-        <div class="containerMenu salto">
+        <div id="botones" class="containerModo salto">
             
-                <a href="contrarreloj.html">
-                    <button class="btn">Modo contrarreloj</button>
+                <a href="contrarreloj.html" lang='es'>
+                    <button id="contrarrelojBoton" class="btn btnContra"></button>
+                </a>
+				<a href="contrarreloj.html" lang='en'>
+                    <button id="contrarrelojBoton" class="btn btnContra btnContraIng"></button>
                 </a>
                 
-                <a href="maraton.html">
-                    <button class="btn">Modo maraton</button>
+                <a href="maraton.html" lang='es'>
+                    <button id="maratonBoton" class="btn btnMaraton"></button>
                 </a>
+				<a href="maraton.html" lang='en'>
+                    <button id="maratonBoton" class="btn btnMaraton btnMaratonIng"></button>
+                </a>
+				
+				<a href="Menu.html" lang='es'>
+					<button class="btn btnVolver">Volver</button>
+				</a>
+				<a href="Menu.html" lang ='en'>
+					<button class="btnVolver">Back</button>
+				</a>
         </div>     
 
         <script language = "JavaScript">
+			document.body.className= sessionStorage.Idioma;
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             }, false);
+			musicaMenu.volume = sessionStorage.Volumen;
+			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
+			//alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				//alert("cambio");
+                sessionStorage.Momento = musicaMenu.currentTime;
+                musicaMenu.play();
+				//alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
         </script>
     </body>
 </html>
