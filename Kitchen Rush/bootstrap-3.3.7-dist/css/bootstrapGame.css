@@ -95,6 +95,13 @@
   white-space: pre;
 }
 
+#puntuacionPartida {
+  color: #656172;
+  font-weight: bold;
+  font-size: 40px;
+  top: 20%;
+}
+
 /*Contenedores de botones*/
 .btn{
     transition: all .1s ease-in-out;

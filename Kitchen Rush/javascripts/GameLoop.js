@@ -113,6 +113,8 @@ var GameLoop = {
         if(Game.maraton) {
             if(Game.nivelEnfado.length >= 3) {
                 GameLoop.gameOver = true;
+                let puntuacion = Game.platosCompletados * (GameLoop.nivelDificultad.length+1);
+                sessionStorage.setItem("puntosPartida", puntuacion);
                 location.href = "finjuego.html";
             }
         }
