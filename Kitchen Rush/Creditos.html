@@ -30,7 +30,12 @@
     <body>
         
         <div class="containerCred ir">
-
+				<a href="Menu.html" lang="es">
+					<button class="btn btnIdioma" >Volver</button>
+				</a>
+				<a href="Menu.html" lang="en">
+					<button class="btn btnIdioma" >Back</button>
+				</a>
                 <div class="row">
                         <div class="col-md-4 text-center">
                                 <div class="thumbnail">
@@ -133,17 +138,22 @@
 
             <!--<a href="Menu.html">
                 <button class="btn">Volver</button>
-            </a>-->
-
+            </a>
+			
+			<a href="Menu.html" lang="es">Volver</a>
+			<a href="Menu.html" lang="en">Back</a>
+			-->
         
        </div>     
 
         <script language = "JavaScript">
+			document.body.className= sessionStorage.Idioma;
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             }, false);
+			musicaMenu.volumen = sessionStorage.Volumen;
             musicaMenu.play();
         </script>
     </body>
