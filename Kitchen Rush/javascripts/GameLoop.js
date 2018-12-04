@@ -103,6 +103,8 @@ var GameLoop = {
         if(Game.contrareloj) {
             if(Game.minutos < 0) {
                 GameLoop.gameOver = true;
+                let puntuacion = Game.platosCompletados * (GameLoop.nivelDificultad.length+1);
+                sessionStorage.setItem("puntosPartida", puntuacion);
                 location.href = "finjuego.html";
             }
         }        
