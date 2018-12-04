@@ -1,3 +1,7 @@
+/* Distintas resoluciones según el dispositivo */
+/* Móviles (Por defecto)
+   ------------------------------------------------------------------------- */
+
 /* Contenedo de menus */
 .containerMenu {
   margin: 0 auto;
@@ -6,11 +10,9 @@
   display: absolute;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Menus/Menu_def.png");
-  width: 1000px;
-  height: 750px;
-  /*width: 300px;
-  height: 600px;*/
+  background-image: url("../../assets/images/Menus/Portada_movil.png");
+  width: 340px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,11 +62,9 @@
   display: absolute;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Menus/Modos_esp.png");
-  width: 1000px;
-  height: 750px;
-  /*width: 300px;
-  height: 600px;*/
+  background-image: url("../../assets/images/Menus/Modos_movil_esp.png");
+  width: 340px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -95,8 +95,6 @@
   white-space: pre;
 }
 
-
-
 /*Contenedores de botones*/
 .btnJugar {
     background-color:rgba(0, 0, 0, 0);
@@ -113,9 +111,9 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-	position:absolute;
+	  position:absolute;
     top: 50%;
-    left: 45%;
+    left: 33%;
 }
 
 .btnContra {
@@ -135,7 +133,7 @@
     cursor: pointer;
     position:absolute;
     top: 50%;
-    left: 45%;
+    left: 30%;
 }
 
 .btnMaraton {
@@ -155,7 +153,7 @@
     cursor: pointer;
     position:absolute;
     top: 70%;
-    left: 45%;
+    left: 30%;
 }
 
 .btnOpciones {
@@ -174,8 +172,8 @@
     margin: 4px 2px;
     cursor: pointer;
 	  position:absolute;
-    top: 70%;
-    left: 45%;
+    top: 83%;
+    left: 33%;
 }
 
 .btnRanking {
@@ -193,8 +191,8 @@
     margin: 4px 2px;
     cursor: pointer;
 	  position:absolute;
-    top: 60%;
-    left: 55%;
+    top: 65%;
+    left: 60%;
 }
 
 .btnCreditos {
@@ -213,10 +211,9 @@
     margin: 4px 2px;
     cursor: pointer;
 	  position:absolute;
-    top: 60%;
-    left: 35%;
+    top: 65%;
+    left: 10%;
 }
-
 
 /* Contenedor del juego */
 .divGame {
@@ -235,29 +232,8 @@
 .gameCanvas {
   margin: 0 auto;
 }
-
-/* Distintas resoluciones según el dispositivo */
-/* Móviles
-   ------------------------------------------------------------------------- */
-@media (min-height: 768px) { 
-  .containerMenu {
-    width: 300px;
-    height: 700px;
-    padding-top: 60%;
-  }
-  .containerFin {
-    width: 300px;
-    height: 700px;
-  }
-  /*.gameCanvas {
-    width: 300px;
-    height: 600px;
-  }*/
-  .divBotones {
-    margin-left: 4%;
-  }
-}
  
+
 /* Tablets
    ------------------------------------------------------------------------- */
 @media (min-height: 1024px) {
@@ -266,23 +242,72 @@
     height: 900px;
     padding-top: 50%;
     padding-left: 25%;
-	background-image: url("../../assets/images/Menus/Portada_movil.png");
+	  background-image: url("../../assets/images/Menus/Portada_movil.png");
   }
+
   .containerFin {
     width: 700px;
     height: 900px;
     padding-top: 10%;
     padding-left: 35%;
   }
-  /*.gameCanvas {
-    width: 700px;
-    height: 900px;
-  }*/
+
   .divBotones {
     margin-left: 4%;
   }
+
+  .containerModo {
+    background-image: url("../../assets/images/Menus/Modos_movil_esp.png");
+    width: 700px;
+    height: 800px;
+  }
+
+  .btnContra {
+    top: 50%;
+    left: 40%;
+    width: 25%;
+    height: 15%;
+  }
+
+  .btnMaraton {
+    top: 70%;
+    left: 40%;
+    width: 25%;
+    height: 15%;
+  }
+
+  .containerMenu {
+    background-image: url("../../assets/images/Menus/Portada_movil.png");
+    padding-bottom: 70%;
+    width: 700px;
+    height: 800px;
+  }
+
+  .btnJugar {
+    width: 200px;
+    height: 150px;
+  }
+
+  .btnCreditos {
+    width: 200px;
+    height: 150px;
+  }
+
+  .btnRanking {
+    width: 250px;
+    height: 100px;
+    top: 68%;
+  }
+
+  .btnOpciones {
+    width: 250px;
+    height: 150px;
+    top: 80%;
+    left: 30%;
+  }
  }
  
+
 /* Ordenadores
    ------------------------------------------------------------------------- */
 @media (min-width: 1200px) { 
@@ -292,18 +317,67 @@
     padding-top: 20%;
     padding-left: 18%;
   }
+
   .containerFin {
     width: 1000px;
     height: 750px;
     padding-top: 20%;
     padding-left: 23%;
   }
-  /*#gameCanvas {
-    width: 1000px;
-    height: 750px;
-    style: "width='1000' height='750'";
-  }*/
+
   .divBotones {
     margin-left: 24%;
+  }
+
+  .containerModo {
+    background-image: url("../../assets/images/Menus/Modos_esp.png");
+    width: 1000px;
+    height: 750px;
+  }
+
+  .btnContra {
+    top: 50%;
+    left: 40%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .btnMaraton {
+    top: 75%;
+    left: 40%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .containerMenu {
+    background-image: url("../../assets/images/Menus/Menu_def.png");
+    width: 1000px;
+    height: 750px;
+  }
+
+  .btnJugar {
+    width: 20%;
+    height: 20%;
+    top: 50%;
+    left: 38%;
+  }
+
+  .btnCreditos {
+    width: 20%;
+    height: 20%;
+    left: 17%;
+  }
+
+  .btnRanking {
+    width: 28%;
+    height: 15%;
+    top: 68%;
+  }
+
+  .btnOpciones {
+    width: 23%;
+    height: 15%;
+    top: 80%;
+    left: 36%;
   }
 }

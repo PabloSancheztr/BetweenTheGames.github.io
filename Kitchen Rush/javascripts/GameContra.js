@@ -21,7 +21,7 @@ var Game = {
     triggers: null,
     ingredientesJSON: null,
     platosJSON: null,
-    minutos: 2,
+    minutos: 3,
     segundos: 0,
     nivelEnfado: null,
     enfadoImg: null,
@@ -39,14 +39,14 @@ var Game = {
         Game.botonIzq = document.createElement("button");
         Game.botonIzq.type = "button";
         let ancho = canvas.clientWidth/2;
-        Game.botonIzq.style = "background-color: blue; height: 60px; width: " + ancho + "px";
+        Game.botonIzq.style = "height: 60px; width: " + ancho + "px";
         Game.botonIzq.addEventListener('click', GameLoop.pulsarIzquierda, false);
         div.appendChild(Game.botonIzq);
 
         // Boton derecha
         Game.botonDer = document.createElement("button");
         Game.botonDer.type = "button";
-        Game.botonDer.style = "background-color: red; height: 60px; width: " + ancho + "px";
+        Game.botonDer.style = "height: 60px; width: " + ancho + "px";
         Game.botonDer.addEventListener('click', GameLoop.pulsarDerecha, false);
         div.appendChild(Game.botonDer);
 
@@ -77,6 +77,18 @@ var Game = {
             Game.fondo = new Image();
             Game.fondo.src = "assets/images/Backgrounds/Fondo_juego_movil.png";
 
+            let imagenBtnIzq = new Image();
+            imagenBtnIzq.width = canvas.clientWidth/2;
+            imagenBtnIzq.height = 60;
+            imagenBtnIzq.src = "assets/images/Botones/BotonIzquierda.png";
+            this.botonIzq.appendChild(imagenBtnIzq);
+
+            let imagenBtnDer = new Image();
+            imagenBtnDer.width = canvas.clientWidth/2;
+            imagenBtnDer.height = 60;
+            imagenBtnDer.src = "assets/images/Botones/BotonDerecha.png";
+            this.botonDer.appendChild(imagenBtnDer);
+
             new TriggerRect((canvas.width/2)-40, (canvas.height/2)+60, 80, 100, "#A00C0C"); // [0] - Area seleccion de ingredientes
             new TriggerRect((canvas.width/2)-150, (canvas.height/2)+60, 80, 100, "#12A7E8"); // [1] - Plato izquierdo
             new TriggerRect((canvas.width/2)+70, (canvas.height/2)+60, 80, 100, "#12A7E8"); // [2] - Plato derecho
@@ -85,6 +97,8 @@ var Game = {
             Game.fondo = new Image();
             Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
 
+
+
             new TriggerRect((canvas.width/2)-40, (canvas.height/2)+110, 120, 150, "#A00C0C"); // [0] - Area seleccion de ingredientes
             new TriggerRect((canvas.width/2)-220, (canvas.height/2)+110, 120, 150, "#12A7E8"); // [1] - Plato izquierdo
             new TriggerRect((canvas.width/2)+140, (canvas.height/2)+110, 120, 150, "#12A7E8"); // [2] - Plato derecho
@@ -92,6 +106,14 @@ var Game = {
         else {
             Game.fondo = new Image();
             Game.fondo.src = "assets/images/Backgrounds/Fondo_juego.png";
+
+            let imagenBtnIzq = new Image();
+            imagenBtnIzq.src = "assets/images/Botones/BotonIzquierda.png";
+            this.botonIzq.appendChild(imagenBtnIzq);
+
+            let imagenBtnDer = new Image();
+            imagenBtnDer.src = "assets/images/Botones/BotonDerecha.png";
+            this.botonDer.appendChild(imagenBtnDer);
 
             new TriggerRect((canvas.width/2)-50, (canvas.height/2)+100, 150, 140, "#A00C0C"); // [0] - Area seleccion de ingredientes
             new TriggerRect((canvas.width/2)-280, (canvas.height/2)+120, 150, 120, "#12A7E8"); // [1] - Plato izquierdo
