@@ -78,11 +78,9 @@
   display: flex;
   align-items: center;
   margin-top: 5%;
-  background-image: url("../../assets/images/Menus/Menu_def.png");
-  width: 1000px;
-  height: 750px;
-  /*width: 300px;
-  height: 600px;*/
+  background-image: url("../../assets/images/Menus/Puntuacion_movil.png");
+  width: 340px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -96,10 +94,32 @@
 }
 
 #puntuacionPartida {
-  color: #656172;
+  color: #F72717;
   font-weight: bold;
-  font-size: 40px;
-  top: 20%;
+  font-size: 30px;
+  position: absolute;
+  top: 34%;
+  left: 45%;
+}
+
+#menuBtn {
+  background-color:rgba(0, 0, 0, 0);
+  background-image: url("../../assets/images/Botones/espanol/Menu.png");
+  width: 18%;
+  height: 15%;
+  position: absolute;
+  top:70%;
+  left: 10%;
+}
+
+#jugarBtn {
+  background-color:rgba(0, 0, 0, 0);
+  background-image: url("../../assets/images/Botones/espanol/Jugar_otra.png");
+  width: 18%;
+  height: 15%;
+  position: absolute;
+  top:70%;
+  left: 55%;
 }
 
 /*Contenedores de botones*/
@@ -256,10 +276,28 @@ body.es :lang(en) {
   }
 
   .containerFin {
+    background-image: url("../../assets/images/Menus/Puntuacion_movil.png");
     width: 700px;
     height: 900px;
     padding-top: 10%;
     padding-left: 35%;
+  }
+
+  #menuBtn {
+    width: 30%;
+    top: 70%;
+    left: 15%;
+  }
+
+  #jugarBtn {
+    width: 33%;
+    top: 70%;
+    left: 50%;
+  }
+
+  #puntuacionPartida {
+    font-size: 80px;
+    left: 44%;
   }
 
   .divBotones {
@@ -334,10 +372,25 @@ body.es :lang(en) {
   }
 
   .containerFin {
+    background-image: url("../../assets/images/Menus/Puntuacion.png");
     width: 1000px;
     height: 750px;
     padding-top: 20%;
     padding-left: 23%;
+  }
+
+  #menuBtn {
+    width: 20%;
+    left: 20%;
+  }
+
+  #jugarBtn {
+    left: 57%;
+  }
+
+  #puntuacionPartida {
+    font-size: 100px;
+    top: 45%;
   }
 
   .divBotones {
