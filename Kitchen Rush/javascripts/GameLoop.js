@@ -16,6 +16,7 @@ var GameLoop = {
     velocidadIngredientes: 2.5,
     incrementar: false,
     tiempoCreacionIngredientes: 60,
+    auxTiempoCreacionIngredientes: 60,
     crear: 0,
     audioCorrecto: new Audio("assets/audios/correcto.wav"),
     musicaJuego: new Audio("assets/audios/Game_Theme.m4a"),
@@ -254,7 +255,6 @@ var GameLoop = {
         let randomIngrediente;
         let ingredienteSeleccionado;
 
-
         // Algoritmo de creacion de los platos
         let numeroRandom = Math.random();
         if(numeroRandom < 0.3) { // Crea el ingrediente de la izquierda
@@ -276,10 +276,9 @@ var GameLoop = {
             }
         }
         else { // Crea un ingrediente aleatorio
-            randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
+            randomIngrediente = Math.floor(Math.random() * Game.ingredientesJSON.length);
             ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
         }
-
 
         // Aumento de la velocidad de los ingredientes cada 5 platos completados
         if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
@@ -287,6 +286,7 @@ var GameLoop = {
             GameLoop.velocidadIngredientes += 2.5;
             GameLoop.nivelDificultad.push(Game.dificultad);
             GameLoop.incrementar = false;
+            Game.ingredientes = [];
 
             if(Game.contrareloj) {
                 Game.aumentarCronometro();
@@ -296,7 +296,6 @@ var GameLoop = {
         if(Game.platosCompletados%5 != 0) {
             GameLoop.incrementar = true;
         }
-
 
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
