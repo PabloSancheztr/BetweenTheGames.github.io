@@ -13,9 +13,7 @@
 
     <body>
         <div class="containerFin">
-            <a href="Menu.html">
-                <button class="btn">Volver al menu</button>
-            </a>
+            <button class="btn">Volver al menu</button>
         </div>     
 
         <script language = "JavaScript">
@@ -26,24 +24,7 @@
             }, false);
             musicaFin.play();
 
-            var canvas = document.getElementById('canvasFin');
-            var context = canvas.getContext('2d');
-            var botonVolver = document.getElementById('botonVolver');
-
-            if(screen.width < 500) {
-                canvas.setAttribute("width", "340");
-                canvas.setAttribute("height", "500");
-                canvas.clientTop = 0;
-            }
-            else if(screen.width < 1100) {
-                canvas.setAttribute("width", "700");
-                canvas.setAttribute("height", "800");
-            }
-            else {
-                canvas.setAttribute("width", "1000");
-                canvas.setAttribute("height", "750");
-            }
-            canvas.appendChild(botonVolver);
+            
             sessionStorage.getItem("puntosPartida");
         </script>
     </body>
