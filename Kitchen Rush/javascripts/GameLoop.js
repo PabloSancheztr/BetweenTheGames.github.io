@@ -310,6 +310,7 @@ var GameLoop = {
     creacionPlatos: function(derecha) {
         let randomPlato = Math.floor(Math.random() * (Game.platosJSON.length - 0) + 0);
         let platoSeleccionado = Game.platosJSON[randomPlato];
+        
         return new Plato(platoSeleccionado.nombre,
                   platoSeleccionado.rutas,
                   platoSeleccionado.receta,
@@ -326,7 +327,7 @@ var GameLoop = {
                 elemento.emplatado();
                 if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
                     Game.platos.pop();
-                    Game.platos.push(GameLoop.creacionPlatos(true));
+                    GameLoop.creacionPlatos(true);
 
                     if(Game.maraton)
                         Game.nivelEnfado.push(Game.enfadoImg);
@@ -348,7 +349,7 @@ var GameLoop = {
                 elemento.emplatado();
                 if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo
                     Game.platos.shift();
-                    Game.platos.unshift(GameLoop.creacionPlatos(false));
+                    GameLoop.creacionPlatos(false);
 
                     if(Game.maraton)
                         Game.nivelEnfado.push(Game.enfadoImg);
