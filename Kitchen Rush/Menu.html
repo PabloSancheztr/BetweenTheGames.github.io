@@ -2,6 +2,7 @@
     <head>
         <title>Kitchen rush</title>
 
+
         <!-- Bootstrap CSS -->
         <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">        
         <link href="bootstrap-3.3.7-dist/css/bootstrapGame.css" rel="stylesheet">
@@ -12,33 +13,71 @@
     </head>
 
     <body>
-        <div class="containerMenu ir">
+        <div id="botones" class="containerMenu ir">
 
-            <a href="creditos.html">
-                <button class="btnCreditos"></button>
+            <a href="creditos.html" lang='es'>
+                <button class="btn btnCreditos"></button>
+            </a>
+			<a href="creditos.html" lang='en'>
+                <button class="btn btnCreditos btnCreditosIng"></button>
             </a>
 
-            <a href="juego.html">
-                <button class="btnJugar"></button>
+            <a href="juego.html" lang='es'>
+                <button class="btn btnJugar"></button>
+            </a>
+			<a href="juego.html" lang='en'>
+                <button class="btn btnJugar btnJugarIng"></button>
             </a>
 
-            <a href="puntuacion.html">
-                <button class="btnRanking"></button>
+            <a href="puntuacion.html" lang='es'>
+                <button class="btn btnRanking"></button>
             </a>
-
-            <a href="Opciones.html">
-                <button class="btnOpciones"></button>
+			<a href="puntuacion.html" lang='en'>
+                <button class="btn btnRanking btnRankingIng"></button>
+            </a>
+			
+			
+            <a href="Opciones.html" lang='es'>
+                <button class="btn btnOpciones"></button>
+            </a>
+			<a href="Opciones.html" lang='en'>
+                <button class="btn btnOpciones btnOpcionesIng"></button>
             </a>
         
        </div>     
 
         <script language = "JavaScript">
+		
+			if (sessionStorage.Idioma == null){
+				sessionStorage.Idioma = 'es';}
+			document.body.className= sessionStorage.Idioma;
+			//alert(sessionStorage.Idioma);
+			
+			if (sessionStorage.Volumen == null){
+				sessionStorage.Volumen = 0.7;}
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
+				//alert (sessionStorage.Volumen);
             }, false);
+			musicaMenu.volume = sessionStorage.Volumen;
+			if (sessionStorage.Momento == null){
+                sessionStorage.Momento = 0;
+            }
+            /*musicaMenu.onloadedmetadata = function () {
+                alert(sessionStorage.Momento + "/" + musicaMenu.duration + "Metadata")
+            };*/
+            musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
+            //alert(sessionStorage.Volumen);
+			
+			document.getElementById("botones").addEventListener("click", function(){
+				//alert("cambio");
+                sessionStorage.Momento = musicaMenu.currentTime;
+                musicaMenu.play();
+				//alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
         </script>
     </body>
 </html>

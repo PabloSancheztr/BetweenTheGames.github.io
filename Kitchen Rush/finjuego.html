@@ -13,8 +13,12 @@
 
     <body>
         <div class="containerFin">
+            <h3 id="puntuacionPartida">50</h3>
+            <a href="Menu.html">
+                <button id="menuBtn" class="btn"></button>
+            </a>
             <a href="juego.html">
-                <button class="btn">Volver al menu</button>
+                <button id="jugarBtn" class="btn"></button>
             </a>
         </div>     
 
@@ -25,6 +29,8 @@
                 this.play();
             }, false);
             musicaFin.play();
+
+            document.getElementById('puntuacionPartida').innerHTML = sessionStorage.getItem("puntosPartida").toString();
         </script>
     </body>
 </html>

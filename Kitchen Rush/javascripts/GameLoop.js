@@ -16,6 +16,7 @@ var GameLoop = {
     velocidadIngredientes: 2.5,
     incrementar: false,
     tiempoCreacionIngredientes: 60,
+    auxTiempoCreacionIngredientes: 60,
     crear: 0,
     audioCorrecto: new Audio("assets/audios/correcto.wav"),
     musicaJuego: new Audio("assets/audios/Game_Theme.m4a"),
@@ -102,6 +103,8 @@ var GameLoop = {
         if(Game.contrareloj) {
             if(Game.minutos < 0) {
                 GameLoop.gameOver = true;
+                let puntuacion = Game.platosCompletados * (GameLoop.nivelDificultad.length+1);
+                sessionStorage.setItem("puntosPartida", puntuacion);
                 location.href = "finjuego.html";
             }
         }        
@@ -110,6 +113,8 @@ var GameLoop = {
         if(Game.maraton) {
             if(Game.nivelEnfado.length >= 3) {
                 GameLoop.gameOver = true;
+                let puntuacion = Game.platosCompletados * (GameLoop.nivelDificultad.length+1);
+                sessionStorage.setItem("puntosPartida", puntuacion);
                 location.href = "finjuego.html";
             }
         }
@@ -254,10 +259,9 @@ var GameLoop = {
         let randomIngrediente;
         let ingredienteSeleccionado;
 
-
         // Algoritmo de creacion de los platos
         let numeroRandom = Math.random();
-        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquieda
+        if(numeroRandom < 0.3) { // Crea el ingrediente de la izquierda
             let nombreIngrediente = Game.platos[0].receta[Game.platos[0].ingredienteActual]
             for(i = 0; i < Game.ingredientesJSON.length; i++) {
                 if(Game.ingredientesJSON[i].nombre == nombreIngrediente) {
@@ -276,10 +280,9 @@ var GameLoop = {
             }
         }
         else { // Crea un ingrediente aleatorio
-            randomIngrediente = Math.floor(Math.random() * (Game.ingredientesJSON.length - 0) + 0);
+            randomIngrediente = Math.floor(Math.random() * Game.ingredientesJSON.length);
             ingredienteSeleccionado = Game.ingredientesJSON[randomIngrediente];
         }
-
 
         // Aumento de la velocidad de los ingredientes cada 5 platos completados
         if((Game.platosCompletados%5) == 0 && GameLoop.incrementar) {
@@ -287,6 +290,7 @@ var GameLoop = {
             GameLoop.velocidadIngredientes += 2.5;
             GameLoop.nivelDificultad.push(Game.dificultad);
             GameLoop.incrementar = false;
+            Game.ingredientes = [];
 
             if(Game.contrareloj) {
                 Game.aumentarCronometro();
@@ -297,7 +301,6 @@ var GameLoop = {
             GameLoop.incrementar = true;
         }
 
-
         return new Ingrediente(ingredienteSeleccionado.nombre,
                         ingredienteSeleccionado.ruta,
                         GameLoop.velocidadIngredientes);
@@ -307,6 +310,7 @@ var GameLoop = {
     creacionPlatos: function(derecha) {
         let randomPlato = Math.floor(Math.random() * (Game.platosJSON.length - 0) + 0);
         let platoSeleccionado = Game.platosJSON[randomPlato];
+        
         return new Plato(platoSeleccionado.nombre,
                   platoSeleccionado.rutas,
                   platoSeleccionado.receta,
@@ -323,7 +327,7 @@ var GameLoop = {
                 elemento.emplatado();
                 if(!Game.platos[1].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo;
                     Game.platos.pop();
-                    Game.platos.push(GameLoop.creacionPlatos(true));
+                    GameLoop.creacionPlatos(true);
 
                     if(Game.maraton)
                         Game.nivelEnfado.push(Game.enfadoImg);
@@ -345,7 +349,7 @@ var GameLoop = {
                 elemento.emplatado();
                 if(!Game.platos[0].comprobarIngrediente(elemento.nombre)) { // En caso de que el ingrediente seleccionado sea erroneo. Se crea un plato nuevo
                     Game.platos.shift();
-                    Game.platos.unshift(GameLoop.creacionPlatos(false));
+                    GameLoop.creacionPlatos(false);
 
                     if(Game.maraton)
                         Game.nivelEnfado.push(Game.enfadoImg);
