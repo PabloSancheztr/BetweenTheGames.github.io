@@ -18,6 +18,21 @@
   background-size: cover;
   position: relative;
 }
+.containerScore {
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-top: 40%;
+  display: absolute;
+  align-items: center;
+  margin-top: 5%;
+  background-image: url("../../assets/images/Backgrounds/Score_movil.png");
+  width: 340px;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
 .containerCred {
   margin: 0 auto;
@@ -36,6 +51,9 @@
   background-size: cover;
   position: relative;
 }
+.containerCredIng{
+	background-image: url("../../assets/images/Backgrounds/Credits_ing_movil.png");
+}
 .containerOpt {
   margin: 0 auto;
   padding-left: 0%;
@@ -53,7 +71,9 @@
   background-size: cover;
   position: relative;
 }
-
+.containerOptIng{
+	background-image: url("../../assets/images/Backgrounds/Options_ing_movil.png");
+}
 .containerModo {
   margin: 0 auto;
   padding-left: 0%;
@@ -442,7 +462,9 @@ body.es :lang(en) {
     padding-top: 20%;
     padding-left: 18%;
   }
-
+  .containerScore{
+  	background-image: url("../../assets/images/Backgrounds/Score.png");
+  }
   .containerFin {
     background-image: url("../../assets/images/Menus/Puntuacion.png");
     width: 1000px;
@@ -455,6 +477,9 @@ body.es :lang(en) {
   	width: 1000px;
     height: 750px;
   }
+  .containerOptIng{
+  	background-image: url("../../assets/images/Backgrounds/Options_ing.png");
+  }
 
    .containerCred{
    	background-image: url("../../assets/images/Backgrounds/Creditos.png");
@@ -463,6 +488,10 @@ body.es :lang(en) {
     padding-left: 8%;
   	padding-top: 10%;
   }
+  .containerCredIng{
+		background-image: url("../../assets/images/Backgrounds/Credits_ing.png");
+  }
+
   #menuBtn {
     width: 20%;
     left: 20%;
