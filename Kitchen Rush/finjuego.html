@@ -51,12 +51,13 @@
             }
             else {
                 var nombre = prompt("What's your name, chef?", "Anonimous");
-                sessionStorage.setItem("nombreJugador", nombre);
-				var ranking = sessionStorage.Ranking;}
-				
+                sessionStorage.setItem("nombreJugador", nombre);}
+			
+			var ranking = sessionStorage.Ranking;	
 			ranking[ranking.length] = ({persona:sessionStorage.nombreJugador, puntos:sessionStorage.puntosPartida});
+			console.debug("hola" + ranking[ranking.length-1])
 			sessionStorage.Ranking = ranking;
-			alert(ranking[ranking.lengh-1]);
+			alert(ranking[ranking.length-1]);
             document.getElementById('puntuacionPartida').innerHTML = sessionStorage.getItem("puntosPartida").toString();
         </script>
     </body>
