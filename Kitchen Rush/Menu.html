@@ -48,6 +48,9 @@
 
         <script language = "JavaScript">
 		
+			if (sessionStorage.Ranking == null){
+				var ranking = [];
+				sessionStorage.Ranking == ranking;}
 			if (sessionStorage.Idioma == null){
 				sessionStorage.Idioma = 'es';}
 			document.body.className= sessionStorage.Idioma;

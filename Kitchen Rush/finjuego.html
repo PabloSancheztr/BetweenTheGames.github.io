@@ -14,10 +14,16 @@
     <body background="assets/images/Backgrounds/Fonfo_liso.png" style="background-attachment: fixed; background-repeat: no-repeat">
         <div class="containerFin">
             <h3 id="puntuacionPartida">50</h3>
-            <a href="Menu.html">
+            <a href="Menu.html" lang='es'>
                 <button id="menuBtn" class="btn"></button>
             </a>
-            <a href="juego.html">
+			<a href="Menu.html" lang='es'>
+                <button id="menuBtn" class="btn"></button>
+            </a>
+            <a href="juego.html" lang='en'>
+                <button id="jugarBtn" class="btn"></button>
+            </a>
+			<a href="juego.html" lang='en'>
                 <button id="jugarBtn" class="btn"></button>
             </a>
         </div>     
@@ -37,6 +43,11 @@
             else {
                 var nombre = prompt("What's your name, chef?", "Anonimous");
                 sessionStorage.setItem("nombreJugador", nombre);
+				var ranking = sessionStorage.Ranking;
+				
+				ranking[ranking.length] = ({persona:sessionStorage.nombreJugador, puntos:sessionStorage.puntosPartida}) 
+				sessionStorage.Ranking = ranking;
+			//alert(sessionStorage.nombreJugador + sessionStorage.puntosPartida);
             }
             document.getElementById('puntuacionPartida').innerHTML = sessionStorage.getItem("puntosPartida").toString();
         </script>

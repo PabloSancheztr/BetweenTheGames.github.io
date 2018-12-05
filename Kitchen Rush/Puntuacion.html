@@ -17,6 +17,7 @@
 			<a href="Menu.html" lang='es'>
 				<button class="btn btnVolver" ></button>
 			</a>
+
 			<a href="Menu.html" lang='en'>
 				<button class="btn btnVolver btnVolverIng" ></button>
 			</a>
@@ -34,6 +35,10 @@
 			musicaMenu.currentTime = sessionStorage.Momento;
             musicaMenu.play();
 			//alert(sessionStorage.Volumen);
+			
+			for(let k in ranking){
+				alert(ranking[k].persona + ranking[k].puntos);
+			}
 			
 			document.getElementById("botones").addEventListener("click", function(){
 				//alert("cambio");
