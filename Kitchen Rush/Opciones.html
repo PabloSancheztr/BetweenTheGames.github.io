@@ -16,19 +16,21 @@
         <div id="botones" class="containerOpt ir">
 			<div id="volumcontroller"></div>
 			<div id="volumeindicator"></div>
-			<button onclick=" sessionStorage.VolumenAntes = sessionStorage.Volumen, 
-			sessionStorage.Volumen = 0.0, musicaMenu.volume = 0.0">Mute</button>
-			<button onclick=" sessionStorage.Volumen = sessionStorage.VolumenAntes, 
-			musicaMenu.volume = sessionStorage.VolumenAntes">Unmute</button>			
-			<!---->	
-			<a href="Menu.html">
+			
+			<button class="btn btnMute" onclick=" sessionStorage.VolumenAntes = sessionStorage.Volumen, 
+			sessionStorage.Volumen = 0.0, musicaMenu.volume = 0.0"></button>
+			<button class="btn btnUnmute"  onclick=" sessionStorage.Volumen = sessionStorage.VolumenAntes, 
+			musicaMenu.volume = sessionStorage.VolumenAntes"></button>
+			
+			<a href="Menu.html" lang='es'>
 				<button class="btn btnVolver" ></button>
 			</a>
-			
-			<a href="" lang="es">español</a>
-			<a href="" lang="en">ingles</a>		
-			<button onclick="sessionStorage.Idioma='en',document.body.className='en'">english</button>
-			<button onclick="sessionStorage.Idioma='es',document.body.className='es'">espanol</button>
+			<a href="Menu.html" lang='en'>
+				<button class="btn btnVolver btnVolverIng" ></button>
+			</a>	
+
+			<button lang='es' class="btn btnCambioIng" onclick="sessionStorage.Idioma='en',document.body.className='en'"></button>
+			<button lang='en'class="btn btnCambioEsp" onclick="sessionStorage.Idioma='es',document.body.className='es'"></button>
 			<!---->
         </div>	
 

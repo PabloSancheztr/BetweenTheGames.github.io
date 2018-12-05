@@ -151,11 +151,13 @@
 .btnVolver{
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Volver.png");
-    position: absolute;
     top:86%;
     left:60%;
     width:10%;
     height: 10%;
+}
+.btnVolverIng{
+  background-image: url("../../assets/images/Botones/ingles/Back.png");
 }
 .btnJugar {
     background-color:rgba(0, 0, 0, 0);
@@ -216,7 +218,33 @@
     background-image: url("../../assets/images/Botones/ingles/Credits.png");
 }
 
+.btnCambioEsp{
+    background-image: url("../../assets/images/Botones/espanol/Spanish.png");
+    padding: 37px 64px;
+    top: 60%;
+    left: 35%;
+}
 
+.btnCambioIng{
+    background-image: url("../../assets/images/Botones/ingles/English.png");
+    padding: 37px 64px;
+    top: 60%;
+    left: 35%;
+}
+
+.btnMute{
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/ingles/Mute.png");
+    top: 60%;
+    left: 55%;
+}
+
+.btnUnmute{
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/ingles/Unmute.png");
+    top: 60%;
+    left: 75%;
+}
 /*Idioma*/
 body.en :lang(es) {
   display:none;
