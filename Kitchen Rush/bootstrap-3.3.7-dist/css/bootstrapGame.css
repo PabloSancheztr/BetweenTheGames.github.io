@@ -69,9 +69,8 @@
   background-size: cover;
   position: relative;
 }
-  
-.containerModoIng {
-   background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
+.containerModoIng{
+	background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
 }
 
 .containerFin {
@@ -115,16 +114,6 @@
   left: 10%;
 }
 
-#jugarBtn {
-  background-color:rgba(0, 0, 0, 0);
-  background-image: url("../../assets/images/Botones/espanol/Jugar_otra.png");
-  width: 18%;
-  height: 15%;
-  position: absolute;
-  top:70%;
-  left: 55%;
-}
-
 /*Contenedores de botones*/
 .btn{
     transition: all .1s ease-in-out;
@@ -148,14 +137,28 @@
   transform: scale(1.15); 
 }
 
+.btnOtra {
+  background-color:rgba(0, 0, 0, 0);
+  background-image: url("../../assets/images/Botones/espanol/Jugar_otra.png");
+  width: 18%;
+  height: 15%;
+  position: absolute;
+  top:70%;
+  left: 55%;
+}
+.btnOtraIng{
+	background-image: url("../../assets/images/Botones/ingles/Play_again.png");
+}
 .btnVolver{
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/espanol/Volver.png");
-    position: absolute;
     top:86%;
     left:60%;
     width:10%;
     height: 10%;
+}
+.btnVolverIng{
+  background-image: url("../../assets/images/Botones/ingles/Back.png");
 }
 .btnJugar {
     background-color:rgba(0, 0, 0, 0);
@@ -216,7 +219,30 @@
     background-image: url("../../assets/images/Botones/ingles/Credits.png");
 }
 
+.btnCambio{
+    background-image: url("../../assets/images/Botones/espanol/Spanish.png");
+    padding: 37px 64px;
+    top: 32%;
+    left: 32%;
+}
 
+.btnCambioIng{
+    background-image: url("../../assets/images/Botones/ingles/English.png");
+}
+
+.btnMute{
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/ingles/Mute.png");
+    top: 64%;
+    left: 7%;
+}
+
+.btnUnmute{
+    background-color:rgba(0, 0, 0, 0);
+    background-image: url("../../assets/images/Botones/ingles/Unmute.png");
+    top: 64%;
+    left: 52%;
+}
 /*Idioma*/
 body.en :lang(es) {
   display:none;
@@ -229,8 +255,8 @@ body.es :lang(en) {
     height: 35px;
     width: 90px;
     position:absolute;
-    top: 70%;
-    left: 10%;
+    top: 45%;
+    left: 35%;
 }
 #volumcontroller div{
     height:40px;
@@ -242,12 +268,12 @@ body.es :lang(en) {
     -webkit-border-top-left-radius: 3px;
     -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;
-    background-color: #4c4c4c;
+    background-color:#1f7a1f;
     cursor:pointer;
 
 }
 .volumecontrollerbar:hover{
-    background-color:#bcbcbc !important;
+    background-color:#33cc33 !important;
 }
 
 /* Contenedor del juego */
@@ -307,11 +333,6 @@ body.es :lang(en) {
     left: 15%;
   }
 
-  #jugarBtn {
-    width: 33%;
-    top: 70%;
-    left: 50%;
-  }
 
   #puntuacionPartida {
     font-size: 80px;
@@ -351,7 +372,11 @@ body.es :lang(en) {
     width: 700px;
     height: 800px;
   }
-
+  .btnOtra {
+    width: 33%;
+    top: 70%;
+    left: 50%;
+  }
   .btnVolver{
     width: 25%;
     top: 87%;
@@ -380,6 +405,31 @@ body.es :lang(en) {
     top: 80%;
     left: 30%;
   }
+
+ 	.btnCambio{
+    	padding: 50px 90px;
+    	top: 37%;
+    	left: 40%;
+	}
+	.btnMute{
+	    width: 200px;
+    	height: 150px;
+	    top: 55%;
+	    left:10%;
+	}
+	.btnUnmute{
+	    width: 200px;
+    	height: 150px;
+	    top: 55%;
+	    left: 65%;
+	}
+	#volumcontroller {
+	    height: 35px;
+	    width: 90px;
+	    position:absolute;
+	    top: 57%;
+	    left: 45%;
+	}
  }
  
 
@@ -410,7 +460,7 @@ body.es :lang(en) {
    	background-image: url("../../assets/images/Backgrounds/Creditos.png");
   	width: 1000px;
     height: 750px;
-    padding-left: 5%;
+    padding-left: 8%;
   	padding-top: 10%;
   }
   #menuBtn {
@@ -418,9 +468,6 @@ body.es :lang(en) {
     left: 20%;
   }
 
-  #jugarBtn {
-    left: 57%;
-  }
 
   #puntuacionPartida {
     font-size: 100px;
@@ -459,6 +506,10 @@ body.es :lang(en) {
     width: 1000px;
     height: 750px;
   }
+
+  .btnOtra{
+    left: 57%;
+  }
   .btnVolver{
     width: 17%;
     height: 10%;
@@ -490,4 +541,25 @@ body.es :lang(en) {
     top: 80%;
     left: 36%;
   }
+  .btnCambio{
+    padding: 37px 64px;
+    top: 42%;
+    left: 45%;
+	}
+	.btnMute{
+	    top: 60%;
+	    left: 30%;
+	}
+
+	.btnUnmute{
+	    top: 60%;
+	    left: 60%;
+	}
+	#volumcontroller {
+	    height: 35px;
+	    width: 90px;
+	    position:absolute;
+	    top: 57%;
+	    left: 46%;
+	}
 }

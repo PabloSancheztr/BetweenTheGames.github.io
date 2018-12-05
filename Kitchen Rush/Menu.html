@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     </head>
 
-    <body>
+    <body background="assets/images/Backgrounds/Fonfo_liso.png" style="background-attachment: fixed; background-repeat: no-repeat">
         <div id="botones" class="containerMenu ir">
 
             <a href="creditos.html" lang='es'>
@@ -48,6 +48,9 @@
 
         <script language = "JavaScript">
 		
+			if (sessionStorage.Ranking == null){
+				var ranking = [];
+				sessionStorage.Ranking == ranking;}
 			if (sessionStorage.Idioma == null){
 				sessionStorage.Idioma = 'es';}
 			document.body.className= sessionStorage.Idioma;
