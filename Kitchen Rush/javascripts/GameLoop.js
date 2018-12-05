@@ -50,6 +50,7 @@ var GameLoop = {
                     this.currentTime = 0;
                     this.play();
                 }, false);
+				musicaJuego.volume = sessionStorage.Volumen;
                 GameLoop.musicaJuego.play();
                 
                 GameLoop.primeraEjecucion = false;

@@ -57,7 +57,8 @@
 			//alert(sessionStorage.Idioma);
 			
 			if (sessionStorage.Volumen == null){
-				sessionStorage.Volumen = 0.7;}
+				sessionStorage.Volumen = 0.7;
+				sessionStorage.VolumenAntes = 0.7;}
             let musicaMenu = new Audio("assets/audios/Main_Theme.m4a");
             musicaMenu.addEventListener('ended', function() {
                 this.currentTime = 0;

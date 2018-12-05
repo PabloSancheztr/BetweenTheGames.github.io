@@ -78,6 +78,7 @@
 				document.getElementById("volumeindicator").innerHTML = newvolume;
 				sessionStorage.Volumen = (20-newvolume)/20;
 				musicaMenu.volume = sessionStorage.Volumen;
+				sessionStorage.VolumenAntes = sessionStorage.Volumen;
 				//alert (sessionStorage.Volumen);
 			}
 		</script>
