@@ -69,6 +69,9 @@
   background-size: cover;
   position: relative;
 }
+.containerModoIng{
+	background-image: url("../../assets/images/Menus/Modos_movil_ing.png");
+}
 
 .containerFin {
   margin: 0 auto;

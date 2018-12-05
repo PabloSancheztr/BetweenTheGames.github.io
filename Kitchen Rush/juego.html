@@ -12,7 +12,29 @@
     </head>
 
     <body background="assets/images/Backgrounds/Fonfo_liso.png" style="background-attachment: fixed; background-repeat: no-repeat">
-        <div id="botones" class="containerModo salto">
+        <div id="botones" lang='es' class="containerModo salto">
+                <a href="contrarreloj.html" lang='es'>
+                    <button id="contrarrelojBoton" class="btn btnContra"></button>
+                </a>
+				<a href="contrarreloj.html" lang='en'>
+                    <button id="contrarrelojBoton" class="btn btnContra btnContraIng"></button>
+                </a>
+                
+                <a href="maraton.html" lang='es'>
+                    <button id="maratonBoton" class="btn btnMaraton"></button>
+                </a>
+				<a href="maraton.html" lang='en'>
+                    <button id="maratonBoton" class="btn btnMaraton btnMaratonIng"></button>
+                </a>
+					
+				<a href="Menu.html" lang='es'>
+					<button class="btn btnVolver" ></button>
+				</a>
+				<a href="Menu.html" lang='en'>
+					<button class="btn btnVolver btnVolverIng" ></button>
+				</a>
+        </div>
+		<div id="botones1" lang='en' class="containerModo containerModoIng salto">
                 <a href="contrarreloj.html" lang='es'>
                     <button id="contrarrelojBoton" class="btn btnContra"></button>
                 </a>
@@ -48,6 +70,12 @@
 			//alert(sessionStorage.Volumen);
 			
 			document.getElementById("botones").addEventListener("click", function(){
+				//alert("cambio");
+                sessionStorage.Momento = musicaMenu.currentTime;
+                musicaMenu.play();
+				//alert(sessionStorage.Momento + "/" + musicaMenu.duration)
+			});
+			document.getElementById("botones1").addEventListener("click", function(){
 				//alert("cambio");
                 sessionStorage.Momento = musicaMenu.currentTime;
                 musicaMenu.play();

@@ -1,6 +1,9 @@
-Css y resolucion/tama?o para botones en opciones/volver
-Crear ranking
-Mirar finPartida
-volumen quitar numero
-creditos boton no se ve
-Creditos ajustar resolucion
+
+Crear ranking(?)
+volumen quitar numero -
+creditos boton no se ve -
+Creditos ajustar resolucion-
+
+creditos
+score
+options	
