@@ -4,6 +4,8 @@ volumen quitar numero -
 creditos boton no se ve -
 Creditos ajustar resolucion-
 
+ingles(
 creditos
 score
-options	
+options)	
+Ranking tabla

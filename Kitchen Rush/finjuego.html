@@ -51,7 +51,8 @@
             }
             else {
                 var nombre = prompt("What's your name, chef?", "Anonimous");
-                sessionStorage.setItem("nombreJugador", nombre);}
+                sessionStorage.setItem("nombreJugador", nombre);
+			}
 			
 			var ranking = sessionStorage.Ranking;	
 			ranking[ranking.length] = ({persona:sessionStorage.nombreJugador, puntos:sessionStorage.puntosPartida});
