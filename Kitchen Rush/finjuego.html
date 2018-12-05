@@ -30,8 +30,14 @@
             }, false);
             musicaFin.play();
 
-            var nombre = prompt("¿Cual es tu nombre, chef?", "Anonimo");
-            sessionStorage.setItem("nombreJugador", nombre);
+            if(sessionStorage.Idioma == 'es') {
+                var nombre = prompt("¿Cual es tu nombre, chef?", "Anonimo");
+                sessionStorage.setItem("nombreJugador", nombre);
+            }
+            else {
+                var nombre = prompt("What's your name, chef?", "Anonimous");
+                sessionStorage.setItem("nombreJugador", nombre);
+            }
             document.getElementById('puntuacionPartida').innerHTML = sessionStorage.getItem("puntosPartida").toString();
         </script>
     </body>
