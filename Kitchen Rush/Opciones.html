@@ -29,8 +29,8 @@
 				<button class="btn btnVolver btnVolverIng" ></button>
 			</a>	
 
-			<button lang='es' class="btn btnCambioIng" onclick="sessionStorage.Idioma='en',document.body.className='en'"></button>
-			<button lang='en'class="btn btnCambioEsp" onclick="sessionStorage.Idioma='es',document.body.className='es'"></button>
+			<button lang='es' class="btn btnCambio btnCambioIng" onclick="sessionStorage.Idioma='en',document.body.className='en'"></button>
+			<button lang='en'class="btn btnCambio" onclick="sessionStorage.Idioma='es',document.body.className='es'"></button>
 			<!---->
         </div>	
 
@@ -62,7 +62,7 @@
 						document.getElementById("volumcontroller").innerHTML = 
 						document.getElementById("volumcontroller").innerHTML + 
 						'<div  onmouseup="volumecontrolchanged(' + i + 
-						')" style="background-color:#898989;height:' + magassag + 
+						')" style="background-color:#33cc33;height:' + magassag + 
 						'px;margin-top:'+margintop+'px;" class="volumecontrollerbar"></div>';
 					} else {
 						document.getElementById("volumcontroller").innerHTML = 

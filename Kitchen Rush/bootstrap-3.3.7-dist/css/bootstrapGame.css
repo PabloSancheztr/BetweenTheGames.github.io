@@ -218,32 +218,29 @@
     background-image: url("../../assets/images/Botones/ingles/Credits.png");
 }
 
-.btnCambioEsp{
+.btnCambio{
     background-image: url("../../assets/images/Botones/espanol/Spanish.png");
     padding: 37px 64px;
-    top: 60%;
-    left: 35%;
+    top: 32%;
+    left: 32%;
 }
 
 .btnCambioIng{
     background-image: url("../../assets/images/Botones/ingles/English.png");
-    padding: 37px 64px;
-    top: 60%;
-    left: 35%;
 }
 
 .btnMute{
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/ingles/Mute.png");
-    top: 60%;
-    left: 55%;
+    top: 64%;
+    left: 7%;
 }
 
 .btnUnmute{
     background-color:rgba(0, 0, 0, 0);
     background-image: url("../../assets/images/Botones/ingles/Unmute.png");
-    top: 60%;
-    left: 75%;
+    top: 64%;
+    left: 52%;
 }
 /*Idioma*/
 body.en :lang(es) {
@@ -257,8 +254,8 @@ body.es :lang(en) {
     height: 35px;
     width: 90px;
     position:absolute;
-    top: 70%;
-    left: 10%;
+    top: 45%;
+    left: 35%;
 }
 #volumcontroller div{
     height:40px;
@@ -270,12 +267,12 @@ body.es :lang(en) {
     -webkit-border-top-left-radius: 3px;
     -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;
-    background-color: #4c4c4c;
+    background-color:#1f7a1f;
     cursor:pointer;
 
 }
 .volumecontrollerbar:hover{
-    background-color:#bcbcbc !important;
+    background-color:#33cc33 !important;
 }
 
 /* Contenedor del juego */
@@ -408,6 +405,31 @@ body.es :lang(en) {
     top: 80%;
     left: 30%;
   }
+
+ 	.btnCambio{
+    	padding: 50px 90px;
+    	top: 37%;
+    	left: 40%;
+	}
+	.btnMute{
+	    width: 200px;
+    	height: 150px;
+	    top: 55%;
+	    left:10%;
+	}
+	.btnUnmute{
+	    width: 200px;
+    	height: 150px;
+	    top: 55%;
+	    left: 65%;
+	}
+	#volumcontroller {
+	    height: 35px;
+	    width: 90px;
+	    position:absolute;
+	    top: 57%;
+	    left: 45%;
+	}
  }
  
 
@@ -518,4 +540,25 @@ body.es :lang(en) {
     top: 80%;
     left: 36%;
   }
+  .btnCambio{
+    padding: 37px 64px;
+    top: 42%;
+    left: 45%;
+	}
+	.btnMute{
+	    top: 60%;
+	    left: 30%;
+	}
+
+	.btnUnmute{
+	    top: 60%;
+	    left: 60%;
+	}
+	#volumcontroller {
+	    height: 35px;
+	    width: 90px;
+	    position:absolute;
+	    top: 57%;
+	    left: 46%;
+	}
 }
